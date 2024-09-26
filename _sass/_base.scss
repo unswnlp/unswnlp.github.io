@@ -114,14 +114,39 @@ table.table a {
 }
 
 .news {
+  background: var(--global-bg-color);
   th,
   td {
-    color: #000000 !important; /* Ensure the text inside the table is black */
+    color: var(--global-text-color) !important; /* Ensure the text inside the table is black */
   }
 
   .news-title {
-    color: #000000 !important; /* Ensure the news title is black */
+    color: var(--global-text-color) !important; /* Ensure the text inside the table is black */
   }
+}
+
+.publications-list ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.publications-list li {
+  margin-bottom: 15px;
+}
+
+.publication-links a {
+  color: var(--global-theme-color); /* Bootstrap red for links */
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.publication-links a:hover {
+  text-decoration: underline;
+}
+
+.publication-meta {
+  color: var(--global-text-color);
+  font-style: italic;
 }
 
 // blockquote {
