@@ -5,12 +5,7 @@
 
 @use "sass:color";
 
-// Colors (Updated to match the core brand colors)
-$yellow-color: #ffdc00 !default;  // Updated to match the core brand yellow (#ffdc00)
-$black-color: #000000 !default;   // Updated to match the core brand black (#000000)
-$white-color: #ffffff !default;   // Updated to match the core brand white (#ffffff)
-
-// Keeping additional colors from the original theme as they were
+// Colors
 $red-color: #ff3636 !default;
 $red-color-dark: #b71c1c !default;
 $orange-color: #f29105 !default;
@@ -27,14 +22,18 @@ $purple-color: #b509ac !default;
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
 $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
+$yellow-color: #dbc117 !default;
 
-// Grays
 $grey-color: #828282 !default;
 $grey-color-light: color.adjust($grey-color, $lightness: 40%);
 $grey-color-dark: #1c1c1d;
 $grey-900: #212529;
 
+$white-color: #ffffff !default;
+$black-color: #000000 !default;
+
 // Theme colors
+
 $code-bg-color-light: rgba($purple-color, 0.05);
 $code-bg-color-dark: #2c3237 !default;
 
