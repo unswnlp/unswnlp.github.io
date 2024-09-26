@@ -2,21 +2,88 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
-// Typography
+// Import Clancy (Local), Roboto, and Roboto Mono (from Google Fonts or local)
+@font-face {
+  font-family: 'Clancy';
+  src: url('/assets/fonts/Clancy-Regular.otf') format('opentype'),
+       url('/assets/fonts/Clancy-Bold.otf') format('opentype'),
+       url('/assets/fonts/Clancy-Light.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clancy';
+  src: url('/assets/fonts/Clancy-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clancy';
+  src: url('/assets/fonts/Clancy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+// Load Roboto and Roboto Mono from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+// Typography - Adjust fonts for headings, body text, and special elements
 
 p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 em,
 div,
 li,
 span,
 strong {
   color: var(--global-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clancy', serif;
+  line-height: 1.2;
+  color: var(--global-heading-color);
+}
+
+h1, h2 {
+  font-weight: 700;  // Bold weight for main headings
+  font-size: 2.5rem; // Adjust size as per design
+}
+
+h3, h4 {
+  font-weight: 400;  // Regular weight for sub-headings
+  font-size: 2rem;
+}
+
+h5, h6 {
+  font-weight: 300;  // Light weight for less prominent headings
+  font-size: 1.5rem;
+}
+
+// Body text (Roboto for general body copy)
+body, p, div, li, span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;    // Default body font size, adjust as needed
+  line-height: 1.6;
+  color: var(--global-text-color);
+}
+
+// Emphasis or special text (Roboto Mono for captions, code, or highlighted text)
+code, blockquote, .highlight, .caption, .pull-quote {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;    // Use smaller font size for captions and pull quotes
+  font-style: italic;
+  color: var(--global-highlight-color);
+}
+
+// Adjust font sizes for smaller and larger text
+.caption, small {
+  font-size: 12px;
+}
+
+.large-text {
+  font-size: 16px;
 }
 
 hr {
