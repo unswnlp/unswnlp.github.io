@@ -1,36 +1,191 @@
 ---
 layout: page
 ---
-<div class="post">
-  <article>
-    {% if page.profiles %}
-      {% for profile in page.profiles %}
-        <hr>
-        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
-          {% if profile.image %}
-            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            {% if profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-            {% endif %}
-            {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
-          {% endif %}
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
-          {% endif %}
-        </div>
 
-        <div class="clearfix">
-          {% if profile.content %}
-            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-            {{ profile_content | markdownify }}
-          {% else %}
-            {{ content }}
-          {% endif %}
+<div class="people-page">
+  <article>
+
+    {% if page.profiles %}
+
+      <!-- Principal Investigator -->
+      <div class="section">
+        <h2 class="text-center">Principal Investigator</h2>
+        <div class="row justify-content-center">
+          {% for profile in page.profiles %}
+            {% if profile.role == 'Principal Investigator' %}
+              <div class="col-md-4 text-center profile">
+                {% if profile.image %}
+                  <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 150px;">
+                {% endif %}
+                <h4>{{ profile.name }}</h4>
+                <p>{{ profile.title }}</p>
+                <p>{{ profile.more_info | markdownify }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
-      {% endfor %}
+      </div>
+
+      <!-- Postdocs -->
+      <div class="section">
+        <h2 class="text-center">Postdocs</h2>
+        <div class="row justify-content-center">
+          {% for profile in page.profiles %}
+            {% if profile.role == 'Postdoc' %}
+              <div class="col-md-3 text-center profile">
+                {% if profile.image %}
+                  <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
+                {% endif %}
+                <h4>{{ profile.name }}</h4>
+                <p>{{ profile.more_info | markdownify }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- PhD Students -->
+      <div class="section">
+        <h2 class="text-center">PhD Students</h2>
+        <div class="row justify-content-center">
+          {% for profile in page.profiles %}
+            {% if profile.role == 'PhD Student' %}
+              <div class="col-md-3 text-center profile">
+                {% if profile.image %}
+                  <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
+                {% endif %}
+                <h4>{{ profile.name }}</h4>
+                <p>{{ profile.more_info | markdownify }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Master & Undergraduate Students -->
+      <div class="section">
+        <h2 class="text-center">Master & Undergraduate Students</h2>
+        <div class="row justify-content-center">
+          {% for profile in page.profiles %}
+            {% if profile.role == 'Master Student' or profile.role == 'Undergraduate Student' %}
+              <div class="col-md-3 text-center profile">
+                {% if profile.image %}
+                  <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
+                {% endif %}
+                <h4>{{ profile.name }}</h4>
+                <p>{{ profile.more_info | markdownify }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
     {% endif %}
+
+<!-- Alumni Section -->
+{% if page.alumni %}
+<div class="section">
+  <h2 class="text-center">Alumni</h2>
+
+  <!-- Postdocs -->
+  {% if page.alumni.postdocs %}
+  <div class="alumni-category">
+    <h3>Postdocs</h3>
+    <ul>
+      {% for alumni in page.alumni.postdocs %}
+      <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <!-- PhD Students -->
+  {% if page.alumni.phd_students %}
+  <div class="alumni-category">
+    <h3>PhD Students</h3>
+    <ul>
+      {% for alumni in page.alumni.phd_students %}
+      <li>{{ alumni.name }}{% if alumni.co_advised %} (co-advised){% endif %}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <!-- Master Students -->
+  {% if page.alumni.master_students %}
+  <div class="alumni-category">
+    <h3>Master Students</h3>
+    <ul>
+      {% for alumni in page.alumni.master_students %}
+      <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <!-- Undergraduate Students -->
+  {% if page.alumni.undergraduate_students %}
+  <div class="alumni-category">
+    <h3>Undergraduate Students</h3>
+    <ul>
+      {% for alumni in page.alumni.undergraduate_students %}
+      <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <!-- Visitors -->
+  {% if page.alumni.visitors %}
+  <div class="alumni-category">
+    <h3>Visitors</h3>
+    <ul>
+      {% for alumni in page.alumni.visitors %}
+      <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</div>
+{% endif %}
+    
   </article>
 </div>
+
+<style>
+.people-page {
+  padding: 20px;
+}
+
+.profile h4 {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.profile p {
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-content-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile img {
+  margin-bottom: 10px;
+}
+
+.alumni-category {
+  margin-bottom: 20px;
+}
+</style>
