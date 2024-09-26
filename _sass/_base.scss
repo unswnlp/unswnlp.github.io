@@ -91,6 +91,7 @@ hr {
 }
 
 table {
+  background-color: white !important;
   td,
   th {
     font-size: 1rem;
@@ -110,18 +111,6 @@ table.table a {
 
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
-  }
-}
-
-.news {
-  background: var(--global-bg-color);
-  th,
-  td {
-    color: var(--global-text-color) !important; /* Ensure the text inside the table is black */
-  }
-
-  .news-title {
-    color: var(--global-text-color) !important; /* Ensure the text inside the table is black */
   }
 }
 

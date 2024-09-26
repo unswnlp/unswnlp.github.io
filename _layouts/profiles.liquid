@@ -17,7 +17,7 @@ layout: page
                 {% if profile.image %}
                   <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 150px;">
                 {% endif %}
-                <h4>{{ profile.name }}</h4>
+                <h6>{{ profile.name }}</h6>
                 <p>{{ profile.title }}</p>
                 <p>{{ profile.more_info | markdownify }}</p>
               </div>
@@ -36,7 +36,7 @@ layout: page
                 {% if profile.image %}
                   <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
                 {% endif %}
-                <h4>{{ profile.name }}</h4>
+                <h6>{{ profile.name }}</h6>
                 <p>{{ profile.more_info | markdownify }}</p>
               </div>
             {% endif %}
@@ -54,7 +54,7 @@ layout: page
                 {% if profile.image %}
                   <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
                 {% endif %}
-                <h4>{{ profile.name }}</h4>
+                <h6>{{ profile.name }}</h6>
                 <p>{{ profile.more_info | markdownify }}</p>
               </div>
             {% endif %}
@@ -72,7 +72,7 @@ layout: page
                 {% if profile.image %}
                   <img src="{{ 'assets/img/' | append: profile.image }}" alt="{{ profile.name }}" class="rounded-circle img-fluid" style="width: 120px;">
                 {% endif %}
-                <h4>{{ profile.name }}</h4>
+                <h6>{{ profile.name }}</h6>
                 <p>{{ profile.more_info | markdownify }}</p>
               </div>
             {% endif %}
