@@ -9,7 +9,7 @@ layout: page
 
       <!-- Principal Investigator -->
       <div class="section">
-        <h2 class="text-center">Principal Investigator</h2>
+        <h3 class="text-center">Principal Investigator</h3>
         <div class="row justify-content-center">
           {% for profile in page.profiles %}
             {% if profile.role == 'Principal Investigator' %}
@@ -28,7 +28,7 @@ layout: page
 
       <!-- Postdocs -->
       <div class="section">
-        <h2 class="text-center">Postdocs</h2>
+        <h3 class="text-center">Postdocs</h3>
         <div class="row justify-content-center">
           {% for profile in page.profiles %}
             {% if profile.role == 'Postdoc' %}
@@ -46,7 +46,7 @@ layout: page
 
       <!-- PhD Students -->
       <div class="section">
-        <h2 class="text-center">PhD Students</h2>
+        <h3 class="text-center">PhD Students</h3>
         <div class="row justify-content-center">
           {% for profile in page.profiles %}
             {% if profile.role == 'PhD Student' %}
@@ -64,7 +64,7 @@ layout: page
 
       <!-- Master & Undergraduate Students -->
       <div class="section">
-        <h2 class="text-center">Master & Undergraduate Students</h2>
+        <h3 class="text-center">Master & Undergraduate Students</h3>
         <div class="row justify-content-center">
           {% for profile in page.profiles %}
             {% if profile.role == 'Master Student' or profile.role == 'Undergraduate Student' %}
@@ -85,12 +85,12 @@ layout: page
 <!-- Alumni Section -->
 {% if page.alumni %}
 <div class="section">
-  <h2 class="text-center">Alumni</h2>
+  <h3 class="text-center">Alumni</h3>
 
   <!-- Postdocs -->
   {% if page.alumni.postdocs %}
   <div class="alumni-category">
-    <h3>Postdocs</h3>
+    <h5>Postdocs</h5>
     <ul>
       {% for alumni in page.alumni.postdocs %}
       <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
@@ -102,7 +102,7 @@ layout: page
   <!-- PhD Students -->
   {% if page.alumni.phd_students %}
   <div class="alumni-category">
-    <h3>PhD Students</h3>
+    <h5>PhD Students</h5>
     <ul>
       {% for alumni in page.alumni.phd_students %}
       <li>{{ alumni.name }}{% if alumni.co_advised %} (co-advised){% endif %}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
@@ -114,7 +114,7 @@ layout: page
   <!-- Master Students -->
   {% if page.alumni.master_students %}
   <div class="alumni-category">
-    <h3>Master Students</h3>
+    <h5>Master Students</h5>
     <ul>
       {% for alumni in page.alumni.master_students %}
       <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
@@ -126,7 +126,7 @@ layout: page
   <!-- Undergraduate Students -->
   {% if page.alumni.undergraduate_students %}
   <div class="alumni-category">
-    <h3>Undergraduate Students</h3>
+    <h5>Undergraduate Students</h5>
     <ul>
       {% for alumni in page.alumni.undergraduate_students %}
       <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
@@ -138,7 +138,7 @@ layout: page
   <!-- Visitors -->
   {% if page.alumni.visitors %}
   <div class="alumni-category">
-    <h3>Visitors</h3>
+    <h5>Visitors</h5>
     <ul>
       {% for alumni in page.alumni.visitors %}
       <li>{{ alumni.name }}{% if alumni.destination %} &rarr; {{ alumni.destination }}{% endif %}</li>
