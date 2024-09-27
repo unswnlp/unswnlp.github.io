@@ -8,12 +8,7 @@ profile:
   align: left
   image: prof-pic.png
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>Room 217-B</p>
-    <p>School of Computer Science (K-17)</p>
-    <p>University of New South Wales</p>
-    <p>Kensington 2052</p>
-
+  more_info: 
 news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page

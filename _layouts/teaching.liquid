@@ -1,0 +1,69 @@
+---
+layout: page
+---
+
+<div class="teaching-page">
+  <article>
+
+    <!-- Courses Section -->
+    {% if page.courses %}
+    <div class="section">
+      <h3 class="text-center">Courses</h3>
+      <ul class="course-list">
+        {% for course in page.courses %}
+        <li>
+          <strong>{{ course.name }}</strong>
+          <p>{{ course.university }}{% if course.term %}, {{ course.term }} {% if course.link %}<a href="{{ course.link }}">[Link]</a>{% endif %}{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <!-- Tutorials Section -->
+    {% if page.tutorials %}
+    <div class="section">
+      <h3 class="text-center">Tutorials</h3>
+      <ul class="tutorial-list">
+        {% for tutorial in page.tutorials %}
+        <li>
+          <strong>{{ tutorial.title }}</strong> at {{ tutorial.conference }} {{ tutorial.year }} {% if tutorial.slides %}<a href="{{ tutorial.slides }}">[Slides]</a>{% endif %}{% if tutorial.link %}<a href="{{ tutorial.link }}">[Link]</a>{% endif %}
+          <p class="authors">{% if tutorial.authors %}{{ tutorial.authors | join: ', ' }}{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+  </article>
+</div>
+
+<style>
+@use "sass:color";
+.teaching-page {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.authors{
+    color: color.adjust(black, $lightness: 20%);
+}
+
+.course-list,
+.tutorial-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.course-list li,
+.tutorial-list li {
+  margin-bottom: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+</style>

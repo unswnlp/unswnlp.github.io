@@ -67,13 +67,6 @@ profiles:
     more_info: >
       <p>Undergraduate</p>
 
-  - name: Sammriddh Gupta
-    role: Undergraduate Student
-    image: samriddh_gupta.jpg
-    image_circular: true
-    more_info: >
-      <p>Undergraduate</p>
-
   - name: Jonathan Lin
     role: Undergraduate Student
     image: jonathan_lin.jpg
