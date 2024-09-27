@@ -327,14 +327,14 @@ ul.task-list input[type="checkbox"] {
 
 .navbar {
   box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 1px solid var(--global-theme-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
 }
 
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
+  border: 1px solid var(--global-theme-color);
 
   a:not(.active) {
     color: var(--global-text-color);
@@ -345,7 +345,7 @@ ul.task-list input[type="checkbox"] {
   }
 
   .dropdown-divider {
-    border-top: 1px solid var(--global-divider-color) !important;
+    border-top: 1px solid var(--global-theme-color) !important;
   }
 }
 
