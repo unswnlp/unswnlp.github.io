@@ -1,16 +1,17 @@
 ---
-title: "My Teaching Experience"
+title: ""
 hidemeta: true
 description: "Courses I taught"
 ---
-My teaching experience comes from serving as a tutor in the course team at UNSW Sydney. 
+## Courses
+- **COMP6713: Natural Language Processing.**<br>*UNSW Sydney*
+<br> Terms taught: 24T1, 25T1.
+- **COMP9414: Artificial Intelligence.**<br>*UNSW Sydney*
+<br> Terms taught: 24T3.
+- **COMP9024: Data Structures and Algorithms.**<br>*UNSW Sydney*
+<br> Terms taught: 24T1.
 
-## 2025
-### COMP9444: Neural Networks and Deep Learning
-- Teaching it in 24T2.
-
-## 2024
-### COMP9444: Neural Networks and Deep Learning
-- Taught in terms: 24T2 and 24T3.
-- Achieved a broad agreement of 97% in student evaluation.
+## Tutorials
+- **Connecting Ideas in 'Lower-Resource' Scenarios: NLP for National Varieties, Creoles and Other Low-resource Scenarios** at COLING 2025 [<a href="https://arxiv.org/pdf/2409.12683" >**Abstract**</a>]
+<br><u>Aditya Joshi</u>, Diptesh Kanojia, Heather Lent, Hour Kaing, Haiyue Song
 

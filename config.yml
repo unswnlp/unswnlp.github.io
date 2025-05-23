@@ -21,9 +21,9 @@ menu:
         - name: Publications
           url: publications/
           weight: 3
-        # - name: Resources
-        #   url: resources/
-        #   weight: 4
+        - name: Resources
+          url: courses/
+          weight: 4
         # - name: Contact
         #   url: contact/
         #   weight: 5 
