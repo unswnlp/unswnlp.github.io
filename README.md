@@ -1,6 +1,6 @@
 # Minimalist Hugo Template for Academic Websites
 
-This repository contains a [Hugo](https://github.com/gohugoio/hugo) template to create a personal academic website. The template uses the [PaperMod theme](https://github.com/adityatelange/hugo-PaperMod) but modifies it in various ways to be more minimalist and better suited for academic websites. The website is hosted on [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages).
+This repository contains a [Hugo](https://github.com/gohugoio/hugo) template to create a personal academic website. The template uses the [PaperMod theme](https://github.com/adityatelange/hugo-PaperMod) but modifies it in various ways to be more minimalist and more adapted to academic websites. The website is hosted on [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages).
 
 ## Documentation
 
@@ -14,11 +14,13 @@ The website produced by the template can be viewed at https://pascalmichaillat.o
 
 ### On your local machine
 
-+ Install [Hugo](https://gohugo.io/installation/). On a Mac, this can be done with [Homebrew](https://brew.sh): run `brew install hugo` in the terminal. If you already have Hugo but it is outdated, run `brew upgrade hugo`.
++ Install [Hugo](https://gohugo.io/installation/). On a Mac, this is easily done with [Homebrew](https://brew.sh): run `brew install hugo` in the terminal. If you already have Hugo but it is outdated, run `brew upgrade hugo`.
 + Since the website is hosted on GitHub Pages, it is convenient to install [GitHub Desktop](https://desktop.github.com). The website can be updated from your local machine via GitHub Desktop without going to GitHub.
 + Clone the template repository to your local machine. This can be done in two steps:
+	
 	1. Click "Use this template" and then "Create a new repository" at the top of the repository.
 	2. Once the new repository is created on your GitHub account, open GitHub Desktop and click "File" and then "Clone repository". Find the newly created repository under the "GitHub.com" tab and clone it.
+	
 + Update the `baseURL` parameter in `config.yml` with the website URL that you plan to use. By default the URL is `https://username.github.io`.
 
 ### On your GitHub account
@@ -59,11 +61,11 @@ And here is an overview of the desktop performance:
 ## Software
 
 + The website is built with Hugo v0.147.2 via GitHub Actions.
-+ The website was developed locally with Hugo v0.147.2 on macOS Sequoia. 
++ The website was developed locally with Hugo v0.147.2 on macOS Sequoia 15.4.1. 
 + The website was tested on the following browsers:
-	+ Safari 18.4 on macOS Sequoia
-	+ Mobile Safari on iOS 18  
-+ Other Hugo versions, operating systems, and web browsers may require minor adjustments. Please [report any issues](https://github.com/pmichaillat/hugo-website/issues) to help improve compatibility.
+	+ Safari 18.4 on macOS 15.4.1
+	+ Mobile Safari on iOS 18.4.1  
++ These configurations have been validated; other Hugo versions, operating systems, and web browsers may require minor adjustments. Please [report any issues](https://github.com/pmichaillat/hugo-website/issues) to help improve compatibility.
 
 ## License
 
@@ -100,8 +102,6 @@ This repository is licensed under the [MIT License](LICENSE.md).
 + [Rui Sousa's website](https://ruiagmsousa.github.io) ([source code](https://github.com/ruiagmsousa/ruiagmsousa.github.io))
 + [Stefano Sangiovanni's website](https://ste-sangiovanni.github.io) ([source code](https://github.com/ste-sangiovanni/ste-sangiovanni.github.io))
 + [Seth Watts's website](https://www.sethbwatts.com) ([source code](https://github.com/sBwatts/hugo-website))
-+ [Louise Demoor's website](https://louisedemoor.github.io/website/) ([source code](https://github.com/louisedemoor/website))
-+ [Giwon Bahg's website](https://giwonbahg.github.io) ([source code](https://github.com/giwonbahg/giwonbahg.github.io))
 + [Arthur Douillard's website](https://arthurdouillard.com)
 + [Benjamin Hattemer's website](https://benjaminhattemer.com)
 + [Kostas Bimpikis's website](https://stanford.edu/~kostasb/)

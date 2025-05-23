@@ -1,0 +1,13 @@
+
+.header-buttons {
+  display: flex;
+  gap: var(--gap);
+  margin-left: auto;
+  align-items: center;
+}
+.header-buttons .button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+}

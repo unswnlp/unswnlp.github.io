@@ -1,0 +1,11 @@
+.profile .profile_inner h1 {
+    display: block;
+    margin: 0 auto 0.5rem;  /* auto left/right margins centers the block */
+    text-align: center;     /* center the text inside it */
+}
+.join-link {
+  text-decoration: underline;
+}
+.join-link:hover {
+  color: var(--darkcolor);
+}

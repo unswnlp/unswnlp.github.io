@@ -23,8 +23,10 @@
 }
 
 .profile img {
-    border-radius: 50%;
-    border: 1px solid var(--tertiary);
+    border-radius: 5%;
+    display: block;
+    margin: 0 auto 1rem; /* auto-margins left+right center it */
+    /* border: 1px solid var(--tertiary); */
 }
 
 .buttons {

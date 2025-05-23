@@ -1,0 +1,82 @@
+{{ define "main" }}
+<section class="people-directory">
+
+  {{ $roles := slice
+      "Principal Investigator"
+      "Postdocs"
+      "PhD Students"
+      "Master/Undergrad Students"
+      "Alumni"
+  }}
+
+  {{ range $roles }}
+    {{ $role := . }}
+    {{/* take the top‐level pages, sort by weight, then filter by role */}}
+    {{ $pages := where ($.Pages.ByWeight) "Params.role" $role }}
+    {{ if gt (len $pages) 0 }}
+      <h2 class="people-role">{{ $role }}</h2>
+
+      {{ if eq $role "Alumni" }}
+      {{/* ← your new grouped alumni code here → */}}
+      {{ $cats := slice "Postdocs" "PhD Students" "Master Students" "Undergrad Students" }}
+      <!-- <h2 id="alumni">Alumni</h2> -->
+      {{ range $cats }}
+        {{ $cat := . }}
+        {{ $list := where $pages "Params.alumniCategory" $cat }}
+        {{ if gt (len $list) 0 }}
+          <h3>{{ $cat }}</h3>
+          <ul class="alumni-list">
+            {{ range $list }}
+              <li>
+                {{ .Title }}
+                {{ with .Params.comment }}—&gt; {{ . }}{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+      {{ else }}
+        <div class="people-group people-group-{{ lower (replace $role " " "-") }}">
+          {{ range $pages }}
+            <div class="person-card-small">
+              <!-- no <a> around the whole card, so clicking does nothing -->
+              <img
+                src="{{ .Params.photo | relURL }}"
+                alt="{{ .Title }}"
+                loading="lazy"
+              />
+              <span class="person-name">{{ .Title }}</span>
+
+              {{ with .Params.comment }}
+                <p class="person-comment">{{ . | safeHTML }}</p>
+              {{ end }}
+
+              {{/* === Social links === */}}
+              <div class="person-social">
+                {{ with .Params.website }}
+                  <a href="{{ . }}" aria-label="Homepage" target="_blank" rel="noopener">
+                    {{ partial "svg.html" (dict "name" "home" "class" "icon-sm") }}
+                  </a>
+                {{ end }}
+                {{ with .Params.email }}
+                  <a href="mailto:{{ . }}" aria-label="Email">
+                    {{ partial "svg.html" (dict "name" "email" "class" "icon-sm") }}
+                  </a>
+                {{ end }}
+                {{ with .Params.twitter }}
+                  <a href="{{ . }}" aria-label="Twitter" target="_blank" rel="noopener">
+                    {{ partial "svg.html" (dict "name" "twitter" "class" "icon-sm") }}
+                  </a>
+                {{ end }}
+              </div>
+              {{/* === end social links === */}}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+    {{ end }}
+  {{ end }}
+
+</section>
+{{ end }}

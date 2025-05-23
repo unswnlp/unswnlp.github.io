@@ -1,0 +1,69 @@
+{{ define "main" }}
+
+  <!-- Recent Preprints -->
+  {{ $preprints := where .Pages "Params.preprint" true }}
+  {{ if gt (len $preprints) 0 }}
+    <h2>Recent Preprints</h2><br>
+    <ul>
+      {{ range $preprints.ByDate.Reverse }}
+        <li>
+          <strong>{{ .Title }}</strong><br>
+          {{ $page      := . }}
+              {{ $authors   := $page.Params.authors }}
+              {{ $underline := $page.Params.underlineAuthors }}
+              {{ range $i, $name := $authors }}
+                {{ if in $underline $name }}
+                <u>{{ $name }}</u>
+                {{ else }}
+                  {{ $name }}
+                {{ end }}
+                {{ if lt (add $i 1) (len $authors) }}, {{ end }}
+              {{ end }}<br>
+          arXiv:{{ .Params.arxivID }}
+          {{ with .Params.links.paper }}[<a href="{{ . }}" class="join-link">Paper</a>]{{ end }}
+          {{ with .Params.links.code }}[<a href="{{ . }}" class="join-link">Code</a>]{{ end }}
+          {{ with .Params.links.dataset }}[<a href="{{ . }}" class="join-link">Dataset</a>]{{ end }}
+          {{ with .Params.links.project }}[<a href="{{ . }}" class="join-link">Project Page</a>]{{ end }}
+        </li><br>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  <!-- Publications by Year -->
+  {{ $pubs := where .Pages "Params.preprint" "ne" true }}
+  {{ if gt (len $pubs) 0 }}
+    <!-- <br><h1>Publications</h1><br> -->
+    {{/* group by the YYYY of .Date */}}
+    {{ $byYear := $pubs.ByDate.GroupByDate "2006" }}
+
+    {{/* sort the year-buckets ascending, then reverse to get newest first */}}
+    {{ range (sort $byYear "Key").Reverse }}
+      <br><h2>{{ .Key }}</h2><br>
+      <ul>
+        {{/* within each year, newest first */}}
+        {{ range .Pages.ByDate.Reverse }}
+          <li>
+            <strong>{{ .Title }}</strong><br>
+              {{ $page      := . }}
+              {{ $authors   := $page.Params.authors }}
+              {{ $underline := $page.Params.underlineAuthors }}
+              {{ range $i, $name := $authors }}
+                {{ if in $underline $name }}
+                <u>{{ $name }}</u>
+                {{ else }}
+                  {{ $name }}
+                {{ end }}
+                {{ if lt (add $i 1) (len $authors) }}, {{ end }}
+              {{ end }}<br>
+            <em>{{ .Params.venue }}</em>
+            {{ with .Params.links.paper }}[<a href="{{ . }}" class="join-link">Paper</a>]{{ end }}
+            {{ with .Params.links.code }}[<a href="{{ . }}" class="join-link">Code</a>]{{ end }}
+            {{ with .Params.links.dataset }}[<a href="{{ . }}" class="join-link">Dataset</a>]{{ end }}
+            {{ with .Params.links.project }}[<a href="{{ . }}" class="join-link">Project Page</a>]{{ end }}
+          </li><br>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ end }}
+
+{{ end }}

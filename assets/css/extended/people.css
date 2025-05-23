@@ -1,0 +1,100 @@
+/* container for each horizontal group */
+.people-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-bottom: var(--py);
+}
+
+/* small person card */
+.person-card-small {
+  text-align: center;
+  width: 200px;              /* tweak as you like */
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.person-card-small img {
+  width: 150pt;
+  height: 150pt;
+  object-fit: cover;
+  border-radius: 5%;
+  margin-bottom: 1em;
+}
+.person-card-small .person-name {
+  display: block;
+  font-size: 16pt;
+}
+
+/* styling for the role headings */
+/* 1) Remove the border-bottom from your role headings */
+.people-role {
+  border: none;           /* kills the underline */
+  padding-bottom: 2.5rem;      /* nixes the extra bottom padding */
+  padding-top: 2.5rem;      /* nixes the extra bottom padding */
+  text-align: center;     /* center the heading text too */
+}
+
+/* 2) Center each horizontal group of cards */
+.people-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: center;  /* <-- center the cards, not left-align */
+  margin-bottom: var(--py);
+}
+
+/* 3) Center the alumni <ul> on the page */
+.alumni-list {
+  list-style: disc outside;
+  margin: 0 auto var(--py);   /* auto-margins center the block */
+  padding-left: 0;            /* remove default indent */
+  max-width: 300px;           /* optional: keep it from stretching too wide */
+}
+
+/* 4) Center each alumni name */
+.alumni-list li {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.person-social svg {
+  width: 1rem;    /* shrink from 1.5rem down to 1rem (or whatever) */
+  height: 1rem;
+  /* fill: currentColor; */
+}
+
+.person-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0rem;
+}
+
+.person-social a:hover svg {
+  color: var(--darkcolor);
+}
+
+/* style your comment text */
+.person-comment {
+  margin: 0.25em 0 0.75em;
+  color: var(--secondary);
+  font-size: 9pt;
+
+}
+
+/* ensure cards aren’t links */
+.person-card-small a {
+  display: inline-block;  /* only social icons are links now */
+}
+
+.alumni-list {
+  margin: 0 0 var(--py) 0;    /* no auto centering */
+  padding-left: 1.5rem;       /* indent the bullets */
+  list-style-position: outside;
+}
+
+/* left-align each name */
+.alumni-list li {
+  text-align: left;
+  margin-bottom: 0.5em;
+}
