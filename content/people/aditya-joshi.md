@@ -1,7 +1,7 @@
 ---
 title: "Dr. Aditya Joshi"
 weight: 1
-role: "Principal Investigator"
+role: "Academics"
 photo: "people/pictures/aditya-joshi.jpg"
 comment: Lecturer / Assistant Professor
 affiliation: School of CSE, UNSW Sydney

@@ -2,11 +2,10 @@
 <section class="people-directory">
 
   {{ $roles := slice
-      "Principal Investigator"
+      "Academics"
       "Postdocs"
-      "PhD Students"
-      "Master/Undergrad Students"
-      "Alumni"
+      "Ph.D. Students"
+      "M.Phil. Students"
   }}
 
   {{ range $roles }}
@@ -79,4 +78,19 @@
   {{ end }}
 
 </section>
+{{ with site.GetPage "page" "people/rest.md" }}
+  <div style="text-align: center; text-style: bold;">
+    Our other group members <a href="{{ .RelPermalink }}"
+       style="text-decoration: underline; color: var(--darkcolor);">
+    here</a>.
+  </div>
+{{ end }}
+
+{{ with site.GetPage "page" "people/alumni.md" }}
+  <div style="text-align: center; text-style: bold;">
+    Our past members <a href="{{ .RelPermalink }}"
+       style="text-decoration: underline; color: var(--darkcolor);">
+    here</a>.
+  </div>
+{{ end }}
 {{ end }}

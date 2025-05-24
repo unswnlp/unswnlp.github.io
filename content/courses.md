@@ -5,7 +5,9 @@ description: "Courses I taught"
 ---
 ## Courses
 - **COMP6713: Natural Language Processing.**<br>*UNSW Sydney*
-<br> Terms taught: 24T1, 25T1.
+<br> Terms taught:
+    - **2024 T1:** 55 students | 90.9% course rating | 98% teacher rating
+    - **2025 T1:** 151 students | 98.9% course rating | 100% teacher rating
 - **COMP9414: Artificial Intelligence.**<br>*UNSW Sydney*
 <br> Terms taught: 24T3.
 - **COMP9024: Data Structures and Algorithms.**<br>*UNSW Sydney*

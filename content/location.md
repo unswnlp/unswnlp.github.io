@@ -9,7 +9,6 @@ description: "Dr Aditya Joshi's mailing and office addresses at UNSW Sydney."
 
 #### Office address
 
-Room No. 217 B<br>
 School of Computer Science and Engineering (K-17)<br>
 The University of New South Wales
 

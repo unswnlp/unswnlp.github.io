@@ -59,7 +59,7 @@ params:
           enabled: true
           title: Welcome to the UNSW NLP Group!
           subtitle: |
-            <p>The UNSW NLP Group broadly studies Foundational, Applied and Inclusive NLP. The group is headed by Dr. Aditya Joshi, a Lecturer in Computer Science and Engineering School at UNSW.</p>
+            <p>The UNSW NLP Group broadly studies Foundational, Applied and Inclusive NLP. The group is headed by Dr. Aditya Joshi, a Lecturer in the School of Computer Science and Engineering at UNSW Sydney.</p>
             <br>
             <p>If you are interested in joining our group, please email <a href="mailto:aditya.joshi@unsw.edu.au" class=join-link>Aditya</a>.</p>
 
