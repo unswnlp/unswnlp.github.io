@@ -4,8 +4,10 @@
     text-align: center;     /* center the text inside it */
 }
 .join-link {
-  text-decoration: underline;
+  color: var(--lightcolor);
+  
 }
 .join-link:hover {
-  color: var(--darkcolor);
+  text-decoration: underline;
+  font-style: bold;
 }

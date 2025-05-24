@@ -33,11 +33,39 @@
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <div class="profile-subtitle">
             {{ .subtitle | markdownify }}
-        </div>
+        </div><br>
         <div>
-        {{ with site.GetPage "news.md" }}
-                {{ .Content }}
+        
+            {{ $allNews := where site.RegularPages "Section" "news" }}
+
+            {{/* Hugo gives you .ByDate (ascending) and .ByDate.Reverse (descending) */}}
+            {{ $latest := first 7 $allNews.ByDate.Reverse }}
+
+            <section class="home-news">
+            <h2 style='text-align: center;'>Recent News</h2><br>
+            <table class="home-news-table" style="width:100%; border-collapse: collapse;">
+                {{ range $latest }}
+                <tr>
+                <!-- Date cell -->
+                <td style="vertical-align: top; padding: 0.5em 1em 0.5em 0; white-space: nowrap; width: 8em;">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+                </td>
+                <!-- Content cell -->
+                <td style="vertical-align: top; padding: 0.5em 0;">
+                    {{ .Content }}
+                </td>
+                </tr>
+                {{ end }}
+            </table>
+
+            {{ if gt (len $allNews) (len $latest) }}
+                <p style="text-align: right; margin-top:1em;">
+                <a href="{{ "news/" | relURL }}" style="text-decoration: underline;">
+                    View all news →
+                </a>
+                </p>
             {{ end }}
+            </section>
         </div>
         {{- partial "social_icons.html" -}}
 
