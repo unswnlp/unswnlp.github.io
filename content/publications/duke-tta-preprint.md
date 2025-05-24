@@ -9,7 +9,7 @@ authors:
 underlineAuthors:
     - "Duke Nguyen"
     - "Aditya Joshi"
-arxivID: "2405.15310"
+arxivID: "2503.12858"
 links:
     paper: "https://arxiv.org/pdf/2503.12858"
     code: "https://github.com/dukenguyenxyz/dialect-adaptation"
