@@ -13,7 +13,7 @@ underlineAuthors:
     - "Aditya Joshi"
 arxivID: "2412.04726"
 links:
-    paper: "https://arxiv.org/pdf/2505.15095"
+    paper: "https://arxiv.org/pdf/2412.04726"
     dataset: "https://huggingface.co/datasets/unswnlporg/besstie"
     # code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
