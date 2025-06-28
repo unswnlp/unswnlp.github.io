@@ -17,5 +17,5 @@ links:
     dataset: "https://huggingface.co/datasets/unswnlporg/besstie"
     # code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
-journal: "ACL 2025 (Findings) (To Appear)"      # optional—whatever metadata you like
+venue: "Findings of ACL 2025"      # optional—whatever metadata you like
 ---
