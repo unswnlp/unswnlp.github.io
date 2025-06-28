@@ -1,6 +1,6 @@
 ---
 title: "BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English"
-date: 2025-07-30
+date: 2025-04-30
 preprint: false           # <— set to `true` only for preprints
 authors:
     - "Dipankar Srirag"
