@@ -8,4 +8,5 @@ affiliation: School of CSE, UNSW Sydney
 website: "https://www.unsw.edu.au/staff/basem-suleiman"
 email: "b.suleiman@unsw.edu.au"
 twitter: https://twitter.com/basem_suleiman'
+google_scholar: https://scholar.google.com.au/citations?user=4zrewDMAAAAJ
 ---

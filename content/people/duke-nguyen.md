@@ -7,4 +7,5 @@ comment:     "Co-advise w/ <a href='https://fsalim.github.io' class='join-link'>
 affiliation: School of CSE, UNSW Sydney
 email: 'duke.nguyen@unsw.edu.au'
 website: 'https://research.itsduke.me'
+google_scholar: https://scholar.google.com/citations?user=TT6rYgEAAAAJ
 ---

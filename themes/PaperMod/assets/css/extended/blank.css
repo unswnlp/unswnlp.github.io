@@ -3,3 +3,16 @@ This is just a placeholder blank stylesheet so as to support adding custom style
 
 Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets for more info
 */
+.profile .profile_inner h1 {
+    display: block;
+    margin: 0 auto 0.5rem;  /* auto left/right margins centers the block */
+    text-align: center;     /* center the text inside it */
+}
+.join-link {
+  color: var(--lightcolor);
+  
+}
+.join-link:hover {
+  text-decoration: underline;
+  font-style: bold;
+}
