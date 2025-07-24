@@ -13,7 +13,7 @@ underlineAuthors:
     - "Aditya Joshi"
 # arxivID: "2412.04726"
 links:
-    paper: "https://aclanthology.org/2025.findings-acl.441.pdf/"
+    paper: "https://aclanthology.org/2025.findings-acl.441.pdf"
     dataset: "https://huggingface.co/datasets/unswnlporg/besstie"
     # code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
