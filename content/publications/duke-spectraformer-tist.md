@@ -11,7 +11,7 @@ authors:
 underlineAuthors:
     - "Duke Nguyen"
     - "Aditya Joshi"
-arxivID: "2405.15310"
+# arxivID: "2405.15310"
 links:
     paper: "https://doi.org/10.1145/3768161"
     code: "https://github.com/cruiseresearchgroup/spectraformer"
