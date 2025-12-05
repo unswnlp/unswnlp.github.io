@@ -56,7 +56,7 @@
                 {{ if lt (add $i 1) (len $authors) }}, {{ end }}
               {{ end }}<br>
             <em>{{ .Params.venue }}</em> 
-            {{ with .Params.note }}{{ .Params.note }}{{ end }}
+            {{ with .Params.note }}"{{ . }}"{{ end }}
             {{ with .Params.links.paper }}[<a href="{{ . }}" class="join-link">Paper</a>]{{ end }}
             {{ with .Params.links.code }}[<a href="{{ . }}" class="join-link">Code</a>]{{ end }}
             {{ with .Params.links.dataset }}[<a href="{{ . }}" class="join-link">Dataset</a>]{{ end }}
