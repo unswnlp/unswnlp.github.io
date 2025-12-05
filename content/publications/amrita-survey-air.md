@@ -16,5 +16,5 @@ links:
     paper: "https://link.springer.com/article/10.1007/s10462-025-11359-8"
     # code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
-journal: "Artificial Intelligence Review"
+venue: "Artificial Intelligence Review"
 ---
