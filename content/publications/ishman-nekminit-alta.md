@@ -16,5 +16,6 @@ links:
     paper: "https://arxiv.org/pdf/2505.15095"
     # code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
-# journal: "ACL 2024"      # optional—whatever metadata you like
+venue: "ALTA 2025"      # optional—whatever metadata you like
+note: "🏆 Best Paper Honorable Mention"
 ---

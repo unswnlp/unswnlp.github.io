@@ -1,9 +1,10 @@
 ---
 title: "Spectraformer: A Unified Random Feature Framework for Transformer"
 date: 2024-05-24
-preprint: true           # <— set to `true` only for preprints
+preprint: false           # <— set to `true` only for preprints
 authors:
     - "Duke Nguyen"
+    - "Du Yin"
     - "Aditya Joshi"
     - "Flora Salim"
 
@@ -12,8 +13,8 @@ underlineAuthors:
     - "Aditya Joshi"
 arxivID: "2405.15310"
 links:
-    paper: "https://arxiv.org/pdf/2405.15310"
+    paper: "https://doi.org/10.1145/3768161"
     code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
-# journal: "ACL 2024"      # optional—whatever metadata you like
+journal: "ACM Transactions on Intelligent Systems and Technology"      # optional—whatever metadata you like
 ---

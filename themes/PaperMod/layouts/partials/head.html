@@ -11,6 +11,7 @@
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
 
 {{- /* Meta */}}
+
 {{- if .IsHome }}
 {{ with site.Params.keywords -}}<meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
 {{- else }}
@@ -73,6 +74,11 @@
 {{- else }}
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 {{- end }}
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@9/swiper-bundle.min.css"
+  />
 
 {{- /* Search */}}
 {{- if (eq .Layout `search`) -}}
