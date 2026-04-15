@@ -1240,7 +1240,7 @@ th {
   transform: rotate(90deg);
 }
 
-/* Right-column hint / content */
+/* Label-column hint */
 .pub-expand-hint {
   font-family: var(--font-body);
   font-size: 0.8rem;
@@ -1254,7 +1254,7 @@ th {
 
 .pub-collapsible { display: none; }
 
-#preprints-body.is-open .pub-expand-hint { display: none; }
+.pub-toggle-btn[aria-expanded="true"] + .pub-expand-hint { display: none; }
 #preprints-body.is-open .pub-collapsible { display: block; }
 
 /* Featured grid */

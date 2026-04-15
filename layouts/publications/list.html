@@ -8,9 +8,9 @@
     <button class="pub-section-heading pub-toggle-btn" aria-expanded="false" data-target="preprints-body">
       Preprints <span class="pub-toggle-chevron">▸</span>
     </button>
+    <span class="pub-expand-hint">click to expand</span>
   </div>
   <div class="pub-col-content" id="preprints-body">
-    <span class="pub-expand-hint">click to expand</span>
     <div class="pub-section--preprint pub-collapsible">
       {{ range $preprints.ByDate.Reverse.GroupByDate "2006" }}
       <div class="pub-year-group">
