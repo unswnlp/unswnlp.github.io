@@ -1504,28 +1504,50 @@ th {
 
 /* ── 404 page ── */
 
-.notfound-page {
+.notfound-section {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0 3rem;
+  align-items: start;
+  padding-top: 3rem;
+}
+
+.notfound-col-label {
+  position: sticky;
+  top: 4rem;
+  padding-top: 0.4rem;
+}
+
+.notfound-code {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+}
+
+.notfound-col-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 1rem;
-  gap: 1.25rem;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .notfound-photo {
-  width: 180px;
-  height: 180px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
-  border-radius: 50%;
-  filter: grayscale(30%);
+  border-radius: 8%;
+  margin-bottom: 0.5rem;
+  filter: grayscale(20%);
 }
 
 .notfound-heading {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 400;
   color: var(--text-primary);
   margin: 0;
 }
@@ -1537,19 +1559,18 @@ th {
 }
 
 .notfound-link {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   color: var(--purple);
   text-decoration: none;
-  border: 1.5px solid var(--purple);
-  border-radius: 6px;
-  padding: 0.45rem 1.25rem;
-  transition: background 0.15s, color 0.15s;
+  margin-top: 0.25rem;
 }
 
 .notfound-link:hover {
-  background: var(--purple);
-  color: #fff;
-  text-decoration: none;
+  color: var(--purple-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .notfound-section { grid-template-columns: 1fr; }
+  .notfound-col-label { position: static; margin-bottom: 0.5rem; }
 }
