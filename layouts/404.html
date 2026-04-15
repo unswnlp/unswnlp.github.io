@@ -1,7 +1,13 @@
-{{ define "title" }}404{{ end }}
+{{ define "title" }}404 — Not Found{{ end }}
 {{ define "main" }}
-  <div class="not-found">
-    <h1>Page not found</h1>
-    <p>Sorry, the requested page could not be found.</p>
-  </div>
+<div class="notfound-page">
+  <img
+    src="/people/pictures/phd-04-dipankar-srirag.jpg"
+    alt="Dipankar looking confused"
+    class="notfound-photo"
+  />
+  <h1 class="notfound-heading">There's nothing here.</h1>
+  <p class="notfound-sub">Even Dipankar couldn't find it.</p>
+  <a href="/" class="notfound-link">Take me home</a>
+</div>
 {{ end }}
