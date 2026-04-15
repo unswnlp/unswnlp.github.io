@@ -1,70 +1,61 @@
 {{ define "main" }}
 
-  <!-- Recent Preprints -->
-  {{ $preprints := where .Pages "Params.preprint" true }}
-  {{ if gt (len $preprints) 0 }}
-    <h2>Recent Preprints</h2><br>
-    <ul>
-      {{ range $preprints.ByDate.Reverse }}
-        <li>
-          <strong>{{ .Title }}</strong><br>
-          {{ $page      := . }}
-              {{ $authors   := $page.Params.authors }}
-              {{ $underline := $page.Params.underlineAuthors }}
-              {{ range $i, $name := $authors }}
-                {{ if in $underline $name }}
-                <u>{{ $name }}</u>
-                {{ else }}
-                  {{ $name }}
-                {{ end }}
-                {{ if lt (add $i 1) (len $authors) }}, {{ end }}
-              {{ end }}<br>
-          arXiv:{{ .Params.arxivID }}
-          {{ with .Params.links.paper }}[<a href="{{ . }}" class="join-link">Paper</a>]{{ end }}
-          {{ with .Params.links.code }}[<a href="{{ . }}" class="join-link">Code</a>]{{ end }}
-          {{ with .Params.links.dataset }}[<a href="{{ . }}" class="join-link">Dataset</a>]{{ end }}
-          {{ with .Params.links.project }}[<a href="{{ . }}" class="join-link">Project Page</a>]{{ end }}
-        </li><br>
+{{/* ── Preprints ── */}}
+{{ $preprints := where .RegularPagesRecursive "Params.preprint" true }}
+{{ if $preprints }}
+<div class="pub-section pub-section--two-col">
+  <div class="pub-col-label">
+    <button class="pub-section-heading pub-toggle-btn" aria-expanded="false" data-target="preprints-body">
+      Preprints <span class="pub-toggle-chevron">▸</span>
+    </button>
+  </div>
+  <div class="pub-col-content" id="preprints-body">
+    <span class="pub-expand-hint">click to expand</span>
+    <div class="pub-section--preprint pub-collapsible">
+      {{ range $preprints.ByDate.Reverse.GroupByDate "2006" }}
+      <div class="pub-year-group">
+        <p class="pub-year-heading">{{ .Key }}</p>
+        <div class="pub-list">
+          {{ range .Pages.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+        </div>
+      </div>
       {{ end }}
-    </ul>
-  {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
 
-  <!-- Publications by Year -->
-  {{ $pubs := where .Pages "Params.preprint" "ne" true }}
-  {{ if gt (len $pubs) 0 }}
-    <!-- <br><h1>Publications</h1><br> -->
-    {{/* group by the YYYY of .Date */}}
-    {{ $byYear := $pubs.ByDate.GroupByDate "2006" }}
+{{/* ── Published Work ── */}}
+{{ $pubs := where .RegularPagesRecursive "Params.preprint" "ne" true }}
+{{ if $pubs }}
+<div class="pub-section pub-section--two-col{{ if $preprints }} pub-section--spaced{{ end }}">
+  <div class="pub-col-label">
+    <span class="pub-section-heading">Published Work</span>
+  </div>
+  <div class="pub-col-content">
+    <div class="pub-section--published">
+      {{ range $pubs.ByDate.Reverse.GroupByDate "2006" }}
+      <div class="pub-year-group">
+        <p class="pub-year-heading">{{ .Key }}</p>
+        <div class="pub-list">
+          {{ range .Pages.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
 
-    {{/* sort the year-buckets ascending, then reverse to get newest first */}}
-    {{ range (sort $byYear "Key").Reverse }}
-      <br><h2>{{ .Key }}</h2><br>
-      <ul>
-        {{/* within each year, newest first */}}
-        {{ range .Pages.ByDate.Reverse }}
-          <li>
-            <strong>{{ .Title }}</strong><br>
-              {{ $page      := . }}
-              {{ $authors   := $page.Params.authors }}
-              {{ $underline := $page.Params.underlineAuthors }}
-              {{ range $i, $name := $authors }}
-                {{ if in $underline $name }}
-                <u>{{ $name }}</u>
-                {{ else }}
-                  {{ $name }}
-                {{ end }}
-                {{ if lt (add $i 1) (len $authors) }}, {{ end }}
-              {{ end }}<br>
-            <em>{{ .Params.venue }}</em> 
+<script>
+document.querySelectorAll('.pub-toggle-btn').forEach(function(btn) {
+  var body = document.getElementById(btn.dataset.target);
+  btn.addEventListener('click', function() {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    body.classList.toggle('is-open', !expanded);
+  });
+});
+</script>
 
-            {{ with .Params.links.paper }}[<a href="{{ . }}" class="join-link">Paper</a>]{{ end }}
-            {{ with .Params.links.code }}[<a href="{{ . }}" class="join-link">Code</a>]{{ end }}
-            {{ with .Params.links.dataset }}[<a href="{{ . }}" class="join-link">Dataset</a>]{{ end }}
-            {{ with .Params.links.project }}[<a href="{{ . }}" class="join-link">Project Page</a>]{{ end }}
-            {{ with .Params.note }}<strong style="color:#614a8f;">{{ . }}</strong>{{ end }}
-          </li><br>
-        {{ end }}
-      </ul>
-    {{ end }}
-  {{ end }}
 {{ end }}

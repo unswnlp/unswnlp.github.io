@@ -1,19 +1,25 @@
 ---
 title: "Past Members"
+layout: "alumni"
 hidemeta: true
-description: "Find more about us here."
-
+groups:
+  - name: "Ph.D. Students"
+    members:
+      - name: "Mohssen Ghafari"
+        note: "co-supervised with Amin Beheshti; Now: AI Scientist @ Commonwealth Bank of Australia"
+  - name: "Masters Students"
+    members:
+      - name: "Liangji Kong"
+  - name: "Honors Students"
+    members:
+      - name: "Kritagya Kothari"
+        note: "Intern @ ActiveMate"
+      - name: "Jonathan Lin"
+      - name: "Samridhh Gupta"
+        note: "Now: Graduate Software Engineer @ Honeywell"
+  - name: "Taste of Research"
+    members:
+      - name: "Zhewen Shen"
+      - name: "Fai Chan"
+      - name: "Ishmanbir Singh"
 ---
-## Ph.D. Students
-- Mohssen Ghafari (Macquarie University) with Amin Beheshti
-## Masters Students
-- Dipankar Srirag
-- Duke Ngyuen
-## Bachelors Students
-- Kritagya Kothari
-- Jonathan Lin
-- Samridhh Gupta
-## Taste of Research
-- Zhewen Shen
-- Fai Chan
-- Ishmanbir Singh

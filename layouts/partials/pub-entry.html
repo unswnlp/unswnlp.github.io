@@ -1,0 +1,28 @@
+{{- $p := . -}}
+<div class="pub-entry">
+  <div class="pub-title">
+    {{- if $p.Params.links.paper -}}
+      <a href="{{ $p.Params.links.paper }}" target="_blank" rel="noopener">{{ $p.Title }}</a>
+    {{- else -}}
+      {{ $p.Title }}
+    {{- end -}}
+  </div>
+  <div class="pub-authors">{{ partial "pub-authors.html" $p }}</div>
+  {{ with $p.Params.venue }}<div class="pub-venue"><span class="venue-name">{{ . }}</span></div>{{ end }}
+  {{ with $p.Params.note }}<div class="pub-note">{{ . }}</div>{{ end }}
+  <div class="pub-links">
+    {{ with $p.Params.links.paper }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">PDF</a>{{ end }}
+    {{ with $p.Params.links.code }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Code</a>{{ end }}
+    {{ with $p.Params.links.dataset }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Dataset</a>{{ end }}
+    {{ with $p.Params.links.project }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Project</a>{{ end }}
+    {{ with $p.Params.bibtex }}
+    <details class="pub-cite">
+      <summary class="pub-link">BibTeX</summary>
+      <div class="pub-cite-box" title="Click to copy" onclick="navigator.clipboard.writeText(this.querySelector('pre').textContent).then(()=>{var t=this.querySelector('.pub-cite-toast');t.classList.add('pub-cite-toast--show');setTimeout(()=>t.classList.remove('pub-cite-toast--show'),1500)})">
+        <pre class="pub-cite-pre">{{ . }}</pre>
+        <span class="pub-cite-toast">Copied!</span>
+      </div>
+    </details>
+    {{ end }}
+  </div>
+</div>

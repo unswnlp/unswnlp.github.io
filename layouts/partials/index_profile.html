@@ -1,0 +1,156 @@
+{{- with site.Params.profileMode }}
+
+{{- $confPage := site.GetPage "conferences" }}
+{{- $confImgs := slice }}
+{{- if $confPage }}{{ $confImgs = sort ($confPage.Resources.ByType "image") ".Params.date" "desc" }}{{ end }}
+
+{{- $outPage  := site.GetPage "outings" }}
+{{- $outImgs  := slice }}
+{{- if $outPage }}{{ $outImgs = sort ($outPage.Resources.ByType "image") ".Params.date" "desc" }}{{ end }}
+
+{{/* ── HERO ── */}}
+<section class="hero">
+  {{- if .imageUrl }}
+  <img class="hero-logo" src="{{ .imageUrl | relURL }}" alt="{{ site.Title }}" width="200" height="200">
+  {{- end }}
+  <div class="hero-info">
+    <h1 class="hero-title">{{ .title | default site.Title | markdownify }}</h1>
+    {{- with .subtitle }}
+    <div class="hero-subtitle">{{ . | markdownify }}</div>
+    {{- end }}
+  </div>
+</section>
+
+
+{{/* ── RECENT NEWS ── */}}
+{{ $allNews := where site.RegularPages "Section" "news" }}
+{{ $latest  := first 10 $allNews.ByDate.Reverse }}
+{{ if $latest }}
+<section class="home-news">
+  <h2 class="home-section-heading">Recent News</h2>
+  <table class="home-news-table">
+    {{ range $latest }}
+    <tr>
+      <td class="news-date">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+      </td>
+      <td class="news-content">{{ .Content }}</td>
+    </tr>
+    {{ end }}
+  </table>
+</section>
+{{ end }}
+
+{{/* ── SELECTED PUBLICATIONS ── */}}
+{{ $selected := first 5 (where site.RegularPages "Params.featured" true).ByDate.Reverse }}
+{{ if $selected }}
+<section class="home-selected-pubs">
+  <p class="section-label">Selected Publications</p>
+  <div class="pub-list pub-section--published">
+    {{ range $selected }}{{ partial "pub-entry.html" . }}{{ end }}
+  </div>
+  <p class="selected-pubs-more"><a href="{{ "publications/" | relURL }}">All publications →</a></p>
+</section>
+{{ end }}
+
+{{/* ── PHOTO GALLERIES (side by side) ── */}}
+<section class="photo-galleries">
+
+  {{/* — Group at Conferences — */}}
+  <div class="gallery-panel" id="conf-gallery">
+    <h2 class="home-section-heading">Group at Conferences</h2>
+    <div class="gallery-stage">
+      {{- if $confImgs }}
+      {{- range $i, $img := $confImgs }}
+      <div class="gslide{{ if eq $i 0 }} active{{ end }}">
+        <img src="{{ $img.RelPermalink }}"
+             alt="{{ with $img.Params.description }}{{ . }}{{ else }}{{ $img.Name }}{{ end }}"
+             loading="{{ if eq $i 0 }}eager{{ else }}lazy{{ end }}">
+        {{- with $img.Params.description }}
+        <div class="gslide-caption">{{ . }}</div>
+        {{- end }}
+      </div>
+      {{- end }}
+      {{- else }}
+      <div class="gallery-empty">No photos yet</div>
+      {{- end }}
+    </div>
+    {{- if gt (len $confImgs) 1 }}
+    <div class="gallery-controls">
+      <button class="gallery-prev" aria-label="Previous">
+        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,1 2,7.5 7,14"/></svg>
+      </button>
+      <div class="gallery-dots">
+        {{- range $i, $img := $confImgs }}
+        <span class="dot{{ if eq $i 0 }} active{{ end }}"></span>
+        {{- end }}
+      </div>
+      <button class="gallery-next" aria-label="Next">
+        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,1 7,7.5 2,14"/></svg>
+      </button>
+    </div>
+    {{- end }}
+  </div>
+
+  {{/* — Group Outings — */}}
+  <div class="gallery-panel" id="out-gallery">
+    <h2 class="home-section-heading">Group Outings</h2>
+    <div class="gallery-stage">
+      {{- if $outImgs }}
+      {{- range $i, $img := $outImgs }}
+      <div class="gslide{{ if eq $i 0 }} active{{ end }}">
+        <img src="{{ $img.RelPermalink }}"
+             alt="{{ with $img.Params.description }}{{ . }}{{ else }}{{ $img.Name }}{{ end }}"
+             loading="lazy">
+        {{- with $img.Params.description }}
+        <div class="gslide-caption">{{ . }}</div>
+        {{- end }}
+      </div>
+      {{- end }}
+      {{- else }}
+      <div class="gallery-empty">Photos coming soon</div>
+      {{- end }}
+    </div>
+    {{- if gt (len $outImgs) 1 }}
+    <div class="gallery-controls">
+      <button class="gallery-prev" aria-label="Previous">
+        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,1 2,7.5 7,14"/></svg>
+      </button>
+      <div class="gallery-dots">
+        {{- range $i, $img := $outImgs }}
+        <span class="dot{{ if eq $i 0 }} active{{ end }}"></span>
+        {{- end }}
+      </div>
+      <button class="gallery-next" aria-label="Next">
+        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,1 7,7.5 2,14"/></svg>
+      </button>
+    </div>
+    {{- end }}
+  </div>
+
+</section>
+
+<script>
+(function(){
+  document.querySelectorAll('.gallery-panel').forEach(function(panel) {
+    var slides = panel.querySelectorAll('.gslide');
+    var dots   = panel.querySelectorAll('.dot');
+    var prev   = panel.querySelector('.gallery-prev');
+    var next   = panel.querySelector('.gallery-next');
+    if (!slides.length) return;
+    var cur = 0;
+    function goTo(n) {
+      slides[cur].classList.remove('active');
+      if (dots[cur]) dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      if (dots[cur]) dots[cur].classList.add('active');
+    }
+    if (prev) prev.addEventListener('click', function(){ goTo(cur - 1); });
+    if (next) next.addEventListener('click', function(){ goTo(cur + 1); });
+    dots.forEach(function(d, i){ d.addEventListener('click', function(){ goTo(i); }); });
+  });
+})();
+</script>
+
+{{- end }}

@@ -1,0 +1,38 @@
+{{- define "main" }}
+{{ $tor     := where site.RegularPages "Params.torwork"     true }}
+{{ $honours := where site.RegularPages "Params.honorswork"  true }}
+{{ $comp    := where site.RegularPages "Params.masterswork" true }}
+
+<div class="pub-section pub-section--two-col pub-section--spaced" id="tor">
+  <div class="pub-col-label">
+    <span class="pub-section-heading">Taste of Research</span>
+  </div>
+  <div class="pub-col-content">
+    <div class="pub-list">
+      {{ range $tor.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+    </div>
+  </div>
+</div>
+
+<div class="pub-section pub-section--two-col pub-section--spaced" id="honours">
+  <div class="pub-col-label">
+    <span class="pub-section-heading">Honours Projects</span>
+  </div>
+  <div class="pub-col-content">
+    <div class="pub-list">
+      {{ range $honours.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+    </div>
+  </div>
+</div>
+
+<div class="pub-section pub-section--two-col pub-section--spaced" id="comp9991">
+  <div class="pub-col-label">
+    <span class="pub-section-heading">COMP9991</span>
+  </div>
+  <div class="pub-col-content">
+    <div class="pub-list">
+      {{ range $comp.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+    </div>
+  </div>
+</div>
+{{- end }}

@@ -1,0 +1,29 @@
+{{- define "main" }}
+<section class="people-directory">
+  <h1 class="people-page-title">{{ .Title }}</h1>
+  {{ range .Params.groups }}
+  <div class="people-section-row">
+    <div class="people-col-label">
+      <span class="people-role">{{ .name }}</span>
+    </div>
+    <div class="people-col-content">
+      <ul class="member-list">
+        {{- range .members }}
+        <li class="member-item">
+          <span class="member-name">{{ .name }}</span>
+          {{- with .note }}
+          <span class="person-comment-tip member-tip">
+            <span class="tip-icon" tabindex="0" aria-label="Note">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11"/><circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span class="tip-bubble" role="tooltip">{{ . }}</span>
+          </span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </div>
+  {{ end }}
+</section>
+{{- end }}

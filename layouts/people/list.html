@@ -2,7 +2,7 @@
 <section class="people-directory">
 
   {{ $roles := slice
-      "Academics"
+      "Principal Investigator"
       "Postdocs"
       "Ph.D. Students"
       "M.Phil. Students"
@@ -13,45 +13,37 @@
     {{/* take the top‐level pages, sort by weight, then filter by role */}}
     {{ $pages := where ($.Pages.ByWeight) "Params.role" $role }}
     {{ if gt (len $pages) 0 }}
-      <h2 class="people-role">{{ $role }}</h2>
-
-      {{ if eq $role "Alumni" }}
-      {{/* ← your new grouped alumni code here → */}}
-      {{ $cats := slice "Postdocs" "PhD Students" "Master Students" "Undergrad Students" }}
-      <!-- <h2 id="alumni">Alumni</h2> -->
-      {{ range $cats }}
-        {{ $cat := . }}
-        {{ $list := where $pages "Params.alumniCategory" $cat }}
-        {{ if gt (len $list) 0 }}
-          <h3>{{ $cat }}</h3>
-          <ul class="alumni-list">
-            {{ range $list }}
-              <li>
-                {{ .Title }}
-                {{ with .Params.comment }}—&gt; {{ . }}{{ end }}
-              </li>
-            {{ end }}
-          </ul>
-        {{ end }}
-      {{ end }}
-      {{ else }}
+    <div class="people-section-row">
+      <div class="people-col-label">
+        <span class="people-role">{{ $role }}</span>
+      </div>
+      <div class="people-col-content">
         <div class="people-group people-group-{{ lower (replace $role " " "-") }}">
           {{ range $pages }}
             <div class="person-card-small">
-              <!-- no <a> around the whole card, so clicking does nothing -->
               <img
                 src="{{ .Params.photo | relURL }}"
                 alt="{{ .Title }}"
                 loading="lazy"
               />
               <span class="person-name">{{ .Title }}</span>
-
-              {{ with .Params.comment }}
-                <p class="person-comment">{{ . | safeHTML }}</p>
+              {{ with .Params.research }}
+                <p class="person-research">{{ . }}</p>
+              {{ end }}
+              {{ if and .Params.comment (not (or (eq $role "Ph.D. Students") (eq $role "M.Phil. Students"))) }}
+                <p class="person-comment">{{ .Params.comment | safeHTML }}</p>
               {{ end }}
 
               {{/* === Social links === */}}
               <div class="person-social">
+                {{ if and .Params.comment (or (eq $role "Ph.D. Students") (eq $role "M.Phil. Students")) }}
+                  <div class="person-comment-tip">
+                    <span class="tip-icon" tabindex="0" aria-label="Supervision note">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11"/><circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                    </span>
+                    <div class="tip-bubble" role="tooltip">{{ .Params.comment | safeHTML }}</div>
+                  </div>
+                {{ end }}
                 {{ with .Params.website }}
                   <a href="{{ . }}" aria-label="Homepage" target="_blank" rel="noopener">
                     {{ partial "svg.html" (dict "name" "home" "class" "icon-sm") }}
@@ -77,7 +69,8 @@
             </div>
           {{ end }}
         </div>
-      {{ end }}
+      </div>
+    </div>
 
     {{ end }}
   {{ end }}

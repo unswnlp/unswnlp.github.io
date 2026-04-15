@@ -1,0 +1,6 @@
+{{ $authors   := .Params.authors }}
+{{ $underline := .Params.underlineAuthors }}
+{{ range $i, $name := $authors -}}
+  {{- if in $underline $name }}<span class="pub-author-ul">{{ $name }}</span>{{ else }}{{ $name }}{{ end -}}
+  {{- if lt (add $i 1) (len $authors) }}, {{ end }}
+{{- end }}

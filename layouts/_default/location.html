@@ -1,0 +1,33 @@
+{{- define "main" }}
+<div class="location-page">
+
+  <div class="location-address-row">
+    <div class="location-label">
+      <span class="location-section-heading">Address</span>
+    </div>
+    <div class="location-address">
+      <p class="location-building">
+        {{ .Params.building }}
+        {{ with .Params.buildingCode }}<span class="location-code">({{ . }})</span>{{ end }}
+      </p>
+      <p class="location-uni">{{ .Params.university }}</p>
+      <p class="location-suburb">{{ .Params.suburb }}{{ with .Params.country }}, {{ . }}{{ end }}</p>
+      {{ with .Params.mapLink }}
+      <a href="{{ . }}" class="location-directions" target="_blank" rel="noopener">Get directions →</a>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ with .Params.mapEmbed }}
+  <div class="location-map">
+    <iframe
+      src="{{ . }}"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  {{ end }}
+
+</div>
+{{- end }}

@@ -1,6 +1,5 @@
-baseURL: "https://unswnlp.github.io/" 
+baseURL: "https://unswnlp.github.io/"
 title: UNSW NLP
-theme: PaperMod
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -21,96 +20,48 @@ menu:
         - name: Publications
           url: publications/
           weight: 3
-        - name: Resources
-          url: courses/
+        - name: Activities
+          url: activities/
           weight: 4
-        # - name: Contact
-        #   url: contact/
-        #   weight: 5 
         - name: Location
           url: location/
-          weight: 6
+          weight: 5
 
 params:
-    description: "Welcome to UNSW NLP group. This website contains recent news, publications, people and resources from the UNSW NLP Research Group."
+    description: "UNSW NLP is a research group at UNSW Sydney studying Foundational, Applied, and Inclusive Natural Language Processing."
     author: UNSW NLP
-    # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
-    defaultTheme: light
-    hideFooter: false
-    disableThemeToggle: true
-    ShowShareButtons: false
-    ShowReadingTime: false
-    disableSpecial1stPost: true
-    disableAnchoredHeadings: true
-    ShowPostNavLinks: false
-    ShowBreadCrumbs: false
-    ShowCodeCopyButtons: true
-    ShowAllPagesInArchive: false
-    MainSections: ["people","papers","resources","contact"]
-    ShowToc: false
-    disableScrollToTop: true
-    TocOpen: true
-    ShowWordCount: false
-    UseHugoToc: true
-    comments: false
     math: true
     profileMode:
           enabled: true
-          title: Welcome to the UNSW NLP Group!
+          title: "UNSW NLP Group"
           subtitle: |
-            <p>The UNSW NLP Group broadly studies Foundational, Applied and Inclusive NLP. The group is headed by Dr. Aditya Joshi, a Lecturer in the School of Computer Science and Engineering at <a href="https://www.unsw.edu.au/" class=join-link><b>UNSW Sydney</b></a>.</p>
-            <br>
-            <p>If you are interested in joining our group, please <a href="mailto:nlproc@cse.unsw.edu.au" class=join-link><b>email us!</b></a></p>
+            <div class="hero-subtitle-line">UNSW NLP is the natural language processing research group at UNSW Sydney. Our work spans <strong>foundational</strong> <span class="topic-tip">topics<span class="topic-bubble"><ul><li>language model evaluation</li><li>efficient transformers</li><li>narrative generation</li><li>LLM personalisation</li></ul></span></span>, <strong>applied</strong> <span class="topic-tip">topics<span class="topic-bubble"><ul><li>clinical triage</li><li>legal text</li><li>multimodal systems</li></ul></span></span>, and <strong>inclusive</strong> <span class="topic-tip">topics<span class="topic-bubble"><ul><li>dialects and language varieties</li><li>LGBTQIA+ communities</li><li>speech for second language speakers</li></ul></span></span> NLP.</div>
+            <p>Interested in joining? Email <a href="mailto:aditya.joshi@unsw.edu.au">us</a> with <strong>[Expression of Interest: <em>Type</em>]</strong> in the subject, where <em>Type</em> is one of:</p>
+            <ul>
+              <li><strong>Ph.D.</strong> or <strong>M.Phil.:</strong> prospective research students</li>
+              <li><strong>Postdoc:</strong> we post positions when available</li>
+              <li><strong>ToR:</strong> undergraduate Taste of Research (see <a href="people/student-work#tor">past work</a>)</li>
+              <li><strong>Honours:</strong> Honours research project (see <a href="people/student-work#honours">past work</a>)</li>
+              <li><strong>COMP9991:</strong> Masters (by coursework) research project (see <a href="people/student-work#comp9991">past work</a>)</li>
+            </ul>
 
           imageUrl: "prof-pic.png"
           imageWidth: 300
           imageHeight: 300
-          buttons:
-            # - name: About Me
-            #   url: /
-            # - name: Papers
-            #   url: papers/
-            # - name: Resources
-            #   url: courses/
-            # - name: Data
-            #   url: data/
-            # - name: Tags
-            #   url: tags/
-            # - name: Archive
-            #   url: archive/
-            # - name: CV
-            #   url: cv.pdf
 
     socialIcons:
-        # - name: CV
-        #   url: cv.pdf
-        # - name: Email
-        #   url: mailto:d.srirag@unsw.edu.au
-        # - name: Zoom
-        #   url: https://www.zoom.us/my/igelfeld
-        # - name: Location
-        #   url: location/
-        # - name: Office Hours
-        #   url: officehours/
-        # - name: Google Scholar
-        #   url: https://scholar.google.com/citations?user=8dUrhxwAAAAJ
-        # - name: GitHub
-        #   url: https://github.com/dipankarsrirag
-        # - name: Substack
-        #   url: https://pmichaillat.substack.com
-        # - name: YouTube
-        #   url: https://www.youtube.com/@pmichaillat
-        # - name: Twitter
-        #   url: https://x.com/dipankarsrirag
-        # - name: Bluesky
-        #   url: https://bsky.app/profile/dipankarsrirag.bsky.social
+        - name: Email
+          url: "mailto:nlproc@cse.unsw.edu.au"
+        - name: Google Scholar
+          url: "https://scholar.google.com/citations?user=8dUrhxwAAAAJ"
+        - name: Twitter
+          url: "https://x.com/UNSW_NLP"
+        - name: GitHub
+          url: "https://github.com/unswnlp"
 
     assets:
         disableScrollBarStyle: true
-    cover:
-        hiddenInList: false
-        hiddenInSingle: true
     label:
       text: "UNSW NLP"
       icon: logo.png
@@ -122,7 +73,7 @@ markup:
             unsafe: true
     highlight:
         guessSyntax: true
-        style: autumn 
+        style: autumn
     tableOfContents:
         endLevel: 2
         ordered: false

@@ -1,0 +1,112 @@
+{{ define "main" }}
+
+{{/* ── Gather all activity pages from nested subsections ── */}}
+{{ $allPages      := .RegularPagesRecursive }}
+{{ $allCourses    := where $allPages "Params.course" true }}
+{{ $allActivities := where $allPages "Params.course" "ne" true }}
+{{ $sharedTasks  := where $allActivities "Params.activityType" "shared-task" }}
+{{ $tutorials    := where $allActivities "Params.activityType" "tutorial" }}
+{{ $workshops    := where $allActivities "Params.activityType" "workshop" }}
+
+{{/* ── Courses ── */}}
+{{ if $allCourses }}
+<div class="act-section act-section--two-col">
+  <div class="act-col-label">
+    <span class="act-section-heading">Teaching</span>
+  </div>
+  <div class="act-col-content">
+    <div class="course-list">
+      {{ range $allCourses.ByDate.Reverse }}
+      {{ $c := . }}
+      <div class="course-entry">
+        <div class="course-header">
+          {{ with .Params.courseCode }}<span class="course-code">{{ . }}</span>{{ end }}
+          <span class="course-title">{{ .Title }}</span>
+        </div>
+        {{ with .Params.institution }}<div class="course-institution">{{ . }}</div>{{ end }}
+        {{ with .Params.terms }}
+        <div class="course-terms">
+          {{ range . }}
+          {{ $t := . }}
+          <details class="pub-cite course-term-details">
+            <summary class="course-term-chip">{{ $t.term }}</summary>
+            {{ if or $t.convenor $t.team }}
+            <div class="pub-cite-box course-team-box">
+              {{ with $t.convenor }}
+              <div class="course-team-row">
+                <span class="course-team-role">Convenor</span>
+                <span class="course-team-name">{{ . }}</span>
+              </div>
+              {{ end }}
+              {{ with $t.team }}
+              <div class="course-team-row">
+                <span class="course-team-role">Teaching Team</span>
+                <span class="course-team-name">{{ delimit . ", " }}</span>
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
+          </details>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{/* ── Tutorials ── */}}
+{{ if $tutorials }}
+<div class="act-section act-section--two-col act-section--spaced">
+  <div class="act-col-label">
+    <span class="act-section-heading">Tutorials</span>
+  </div>
+  <div class="act-col-content">
+    <div class="pub-list">
+      {{ range $tutorials.ByDate.Reverse }}
+        {{- if .Params.authors -}}
+          {{ partial "pub-entry.html" . }}
+        {{- else -}}
+          <div class="pub-entry">
+            <div class="pub-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </div>
+          </div>
+        {{- end -}}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{/* ── Workshops ── */}}
+{{ if $workshops }}
+<div class="act-section act-section--two-col act-section--spaced">
+  <div class="act-col-label">
+    <span class="act-section-heading">Workshops</span>
+  </div>
+  <div class="act-col-content">
+    <div class="pub-list">
+      {{ range $workshops.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{/* ── Shared Tasks ── */}}
+{{ if $sharedTasks }}
+<div class="act-section act-section--two-col act-section--spaced">
+  <div class="act-col-label">
+    <span class="act-section-heading">Shared Tasks</span>
+  </div>
+  <div class="act-col-content">
+    <div class="pub-list">
+      {{ range $sharedTasks.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ end }}
