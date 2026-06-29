@@ -139,6 +139,7 @@
     var next   = panel.querySelector('.gallery-next');
     if (!slides.length) return;
     var cur = 0;
+    var interval = null;
     function goTo(n) {
       slides[cur].classList.remove('active');
       if (dots[cur]) dots[cur].classList.remove('active');
@@ -146,9 +147,19 @@
       slides[cur].classList.add('active');
       if (dots[cur]) dots[cur].classList.add('active');
     }
-    if (prev) prev.addEventListener('click', function(){ goTo(cur - 1); });
-    if (next) next.addEventListener('click', function(){ goTo(cur + 1); });
-    dots.forEach(function(d, i){ d.addEventListener('click', function(){ goTo(i); }); });
+    function startAutoAdvance() {
+      if (slides.length < 2) return;
+      window.clearInterval(interval);
+      interval = window.setInterval(function(){ goTo(cur + 1); }, 5000);
+    }
+    function manualGoTo(n) {
+      goTo(n);
+      startAutoAdvance();
+    }
+    if (prev) prev.addEventListener('click', function(){ manualGoTo(cur - 1); });
+    if (next) next.addEventListener('click', function(){ manualGoTo(cur + 1); });
+    dots.forEach(function(d, i){ d.addEventListener('click', function(){ manualGoTo(i); }); });
+    startAutoAdvance();
   });
 })();
 </script>
