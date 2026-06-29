@@ -23,7 +23,7 @@ bibtex: |
       archivePrefix={arXiv},
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2606.06942}, 
-}
+    }
 links:
     paper: "https://arxiv.org/pdf/2606.06942"
 ---
