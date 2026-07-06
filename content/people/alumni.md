@@ -3,6 +3,9 @@ title: "Past Members"
 layout: "alumni"
 hidemeta: true
 groups:
+  - name: "Postdocs"
+    members: 
+      - name: "Pantelis Elinas" 
   - name: "Ph.D. Students"
     members:
       - name: "Mohssen Ghafari"
