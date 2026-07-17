@@ -18,6 +18,17 @@ editPost:
 disableAnchoredHeadings: false
 showToc: true
 
+# For teaching information, add a 'terms' array with the following structure:
+# terms:
+#   - term: "T1 2024"
+#     convenor: Person Name
+#     lecturer:
+#       - Lecturer Name 1
+#       - Lecturer Name 2
+#     team:
+#       - Team Member 1
+#       - Team Member 2
+
 ---
 
 ## Introduction

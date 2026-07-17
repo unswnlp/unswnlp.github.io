@@ -4,6 +4,7 @@
 {{ $allPages      := .RegularPagesRecursive }}
 {{ $allCourses    := where $allPages "Params.course" true }}
 {{ $allActivities := where $allPages "Params.course" "ne" true }}
+{{ $grants    := where $allActivities "Params.activityType" "grants" }}
 {{ $sharedTasks  := where $allActivities "Params.activityType" "shared-task" }}
 {{ $tutorials    := where $allActivities "Params.activityType" "tutorial" }}
 {{ $workshops    := where $allActivities "Params.activityType" "workshop" }}
@@ -30,12 +31,18 @@
           {{ $t := . }}
           <details class="pub-cite course-term-details">
             <summary class="course-term-chip">{{ $t.term }}</summary>
-            {{ if or $t.convenor $t.team }}
+            {{ if or $t.convenor $t.lecturer $t.team }}
             <div class="pub-cite-box course-team-box">
               {{ with $t.convenor }}
               <div class="course-team-row">
                 <span class="course-team-role">Convenor</span>
                 <span class="course-team-name">{{ . }}</span>
+              </div>
+              {{ end }}
+              {{ with $t.lecturer }}
+              <div class="course-team-row">
+                <span class="course-team-role">Lecturer</span>
+                <span class="course-team-name">{{ delimit . ", " }}</span>
               </div>
               {{ end }}
               {{ with $t.team }}
@@ -76,6 +83,20 @@
           </div>
         {{- end -}}
       {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{/* ── Grants ── */}}
+{{ if $grants }}
+<div class="act-section act-section--two-col act-section--spaced">
+  <div class="act-col-label">
+    <span class="act-section-heading">Grants</span>
+  </div>
+  <div class="act-col-content">
+    <div class="grant-list">
+      {{ range $grants.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
     </div>
   </div>
 </div>
