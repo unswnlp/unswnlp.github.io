@@ -21,7 +21,7 @@ groups:
       - name: "Duke Nguyen"
   - name: "Honors Students"
     members:
-     - name: "Tom Bednarek"
+      - name: "Tom Bednarek"
       - name: "Priyal Jain"
       - name: "Kenneth Law"
       - name: "Humza Saeed"
