@@ -1,0 +1,16 @@
+{{- $p := . -}}
+<div class="featured-pub-card">
+  <div class="featured-pub-title">
+    {{- if $p.Params.links.paper -}}
+    <a href="{{ $p.Params.links.paper }}" target="_blank" rel="noopener">{{ $p.Title }}</a>
+    {{- else -}}
+    {{ $p.Title }}
+    {{- end -}}
+  </div>
+  {{ if $p.Params.venue }}
+  <div class="featured-pub-venue">{{ $p.Params.venue }}</div>
+  {{ else if $p.Params.preprint }}
+  <div class="featured-pub-venue">Preprint</div>
+  {{ end }}
+  <div class="featured-pub-authors">{{ partial "pub-authors.html" $p }}</div>
+</div>

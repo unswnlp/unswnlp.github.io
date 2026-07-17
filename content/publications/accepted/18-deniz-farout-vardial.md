@@ -12,6 +12,8 @@ underlineAuthors:
     - "Dipankar Srirag"
     - "Aditya Joshi"
 
+grant: 2024googlersp
+
 links:
     paper: "https://aclanthology.org/2026.vardial-1.2.pdf"
 venue: "VarDial @ EACL 2026"      # optional—whatever metadata you like

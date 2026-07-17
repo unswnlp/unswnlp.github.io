@@ -53,6 +53,18 @@
 </section>
 {{ end }}
 
+{{/* ── FUNDING ── */}}
+{{ $grants := where site.RegularPages "Params.activityType" "grants" }}
+{{ if $grants }}
+<section class="home-funding">
+  <h2 class="home-section-heading">Funding</h2>
+  <div class="funding-grid">
+    {{ range $grants.ByDate.Reverse }}{{ partial "funding-card.html" . }}{{ end }}
+  </div>
+  <p class="selected-pubs-more"><a href="{{ "activities/grants/" | relURL }}">All grants →</a></p>
+</section>
+{{ end }}
+
 {{/* ── PHOTO GALLERIES (side by side) ── */}}
 <section class="photo-galleries">
 

@@ -1,3 +1,3 @@
 ---
-title: Activities
+title: Grants
 ---

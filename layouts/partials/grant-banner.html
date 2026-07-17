@@ -1,0 +1,75 @@
+{{- $g := . -}}
+{{- $slug := $g.File.ContentBaseName -}}
+<details class="grant-banner" id="{{ $slug }}">
+  <summary class="grant-banner-summary">
+    <div class="funding-card-header">
+      <div class="funding-card-title">{{ $g.Params.venue }}</div>
+      {{ with $g.Params.grantType }}<span class="funding-card-type">{{ . }}</span>{{ end }}
+    </div>
+    <div class="funding-card-venue">{{ $g.Params.longName | default $g.Title }}</div>
+    {{ with $g.Params.pi }}
+    <div class="funding-card-pi">
+      <span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }} <span class="funding-card-role">({{ . }})</span>{{ end }}
+    </div>
+    {{ end }}
+    <span class="grant-banner-toggle" aria-hidden="true"></span>
+  </summary>
+
+  <div class="grant-banner-detail">
+    {{ with $g.Params.description }}<p class="content">{{ . }}</p>{{ end }}
+
+    {{ with $g.Params.investigators }}
+    <div class="grant-detail-section">
+      <h2>Investigators</h2>
+      <p class="grant-detail-members">{{ delimit . ", " }}</p>
+    </div>
+    {{ end }}
+
+    {{ with $g.Params.partners }}
+    <div class="grant-detail-section">
+      <h2>Partners</h2>
+      <ul class="grant-detail-partners">
+        {{ range . }}
+        {{ if reflect.IsMap . }}
+        <li><a href="{{ .link }}" class="grant-partner-link" target="_blank" rel="noopener">{{ .name }}</a></li>
+        {{ else }}
+        <li>{{ . }}</li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ $papers := where site.RegularPages "Params.grant" $slug }}
+    {{ with $papers }}
+    <div class="grant-detail-section">
+      <h2>Papers</h2>
+      <div class="featured-pub-grid">
+        {{ range .ByDate.Reverse }}{{ partial "paper-card.html" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with $g.Params.deliverables }}
+    <div class="grant-detail-section funding-card-deliverables">
+      <h2>Other Deliverables</h2>
+      <ul>
+        {{ range . }}
+        {{ if reflect.IsMap . }}
+        <li><a href="{{ .link }}" class="grant-partner-link" target="_blank" rel="noopener">{{ .title }}</a></li>
+        {{ else }}
+        <li>{{ . | safeHTML }}</li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if or $g.Params.projectPage $g.Params.link }}
+    <div class="grant-detail-section grant-detail-links">
+      {{ with $g.Params.projectPage }}<a href="{{ . }}" target="_blank" rel="noopener">Project page →</a>{{ end }}
+      {{ with $g.Params.link }}<a href="{{ . }}" target="_blank" rel="noopener">Grant source →</a>{{ end }}
+    </div>
+    {{ end }}
+  </div>
+</details>

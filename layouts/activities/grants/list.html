@@ -1,0 +1,27 @@
+{{ define "main" }}
+<h1 class="people-page-title">Grants</h1>
+{{ range .RegularPages.ByDate.Reverse.GroupByDate "2006" }}
+<div class="pub-year-group">
+  <p class="pub-year-heading">{{ .Key }}</p>
+  <div class="grant-banner-list">
+    {{ range .Pages.ByDate.Reverse }}{{ partial "grant-banner.html" . }}{{ end }}
+  </div>
+</div>
+{{ end }}
+
+<script>
+(function(){
+  function openFromHash() {
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  window.addEventListener('DOMContentLoaded', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
+{{ end }}

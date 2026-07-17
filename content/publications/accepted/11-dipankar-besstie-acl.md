@@ -2,6 +2,7 @@
 title: "BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English"
 date: 2025-07-24
 preprint: false           # <— set to `true` only for preprints
+grant: 2024googlersp
 authors:
     - "Dipankar Srirag"
     - "Aditya Joshi"

@@ -456,6 +456,301 @@ th {
 .news-more a { color: var(--text-muted); }
 .news-more a:hover { color: var(--purple); }
 
+/* Funding on homepage */
+.home-funding {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.funding-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem 1rem;
+  background: var(--off-white);
+  overflow: hidden;
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.funding-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-light));
+}
+
+.funding-card:hover {
+  box-shadow: 0 4px 14px rgba(0,32,96,0.08);
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.funding-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.funding-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.funding-card-type {
+  flex-shrink: 0;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.funding-card-venue {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin: 0.3rem 0 0.6rem;
+}
+
+.funding-card-pi {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+
+.funding-card-role {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+.funding-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin: 0 0 0.6rem;
+}
+
+.funding-card-subheading {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.3rem;
+}
+
+.funding-card-deliverables ul {
+  list-style: none;
+  margin: 0.3rem 0 0;
+  padding: 0;
+}
+
+.funding-card-deliverables li {
+  position: relative;
+  padding-left: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+.funding-card-deliverables li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+.funding-card-deliverables {
+  margin-bottom: 0.6rem;
+}
+
+.grant-detail-members {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.funding-card-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.funding-card-more:hover {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+/* ── Grant detail page ── */
+
+.grant-detail-section {
+  margin-top: 1.5rem;
+}
+
+.grant-detail-section h2 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.grant-detail-partners {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grant-detail-partners li {
+  position: relative;
+  padding-left: 0.9rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.grant-detail-partners li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+/* Partner links — underlined passively, bold + purple on hover, like news links */
+.grant-partner-link,
+.funding-card-deliverables li a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.12s, color 0.12s;
+}
+
+.grant-partner-link:hover,
+.funding-card-deliverables li a:hover {
+  font-weight: 600;
+  text-decoration-color: var(--purple);
+  color: var(--purple);
+}
+
+.grant-detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.grant-detail-links a {
+  color: var(--purple);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.grant-detail-links a:hover {
+  color: var(--purple-light);
+}
+
+/* ── Grants list page — expandable banners ── */
+
+.grant-banner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.grant-banner {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--off-white);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.grant-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-light));
+}
+
+.grant-banner:hover {
+  border-color: var(--purple);
+}
+
+.grant-banner-summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 2.75rem 1.1rem 1.15rem;
+}
+
+.grant-banner-summary::-webkit-details-marker { display: none; }
+
+.grant-banner-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.15rem;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.grant-banner-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.grant-banner[open] .grant-banner-toggle::before {
+  transform: rotate(-135deg);
+}
+
+.grant-banner-detail {
+  padding: 0.9rem 1.15rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.grant-banner-detail > *:first-child {
+  margin-top: 0;
+}
+
 /* ── 11. Side-by-side photo galleries ── */
 
 .photo-galleries {
@@ -783,12 +1078,17 @@ th {
 
 .featured-pub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.9rem;
   margin-top: 0.5rem;
 }
 
+@media (max-width: 860px) {
+  .featured-pub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 .featured-pub-card {
+  height: 168px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem 1.05rem;
@@ -796,6 +1096,7 @@ th {
   flex-direction: column;
   gap: 0.45rem;
   background: var(--off-white);
+  overflow: hidden;
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 
@@ -810,12 +1111,31 @@ th {
   font-size: 1rem;
   line-height: 1.35;
   color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.featured-pub-venue {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--purple);
 }
 
 .featured-pub-authors {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.4;
+  margin-top: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .featured-pub-links {

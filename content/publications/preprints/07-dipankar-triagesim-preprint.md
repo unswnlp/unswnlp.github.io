@@ -10,6 +10,9 @@ authors:
     - "Salil Kanhere"
 arxivID: "2603.10035"
 selected: true
+
+grant: 2025nhmrc
+
 bibtex: |
   @misc{srirag-etal-2026-triagesim,
       title = "{TriageSim}: A Conversational Emergency Triage Simulation Framework from Structured Electronic Health Records",

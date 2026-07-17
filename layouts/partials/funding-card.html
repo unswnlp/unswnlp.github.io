@@ -1,0 +1,16 @@
+{{- $g := . -}}
+<div class="funding-card">
+  <div class="funding-card-body">
+    <div class="funding-card-header">
+      <div class="funding-card-title">{{ $g.Params.venue }}</div>
+      {{ with $g.Params.grantType }}<span class="funding-card-type">{{ . }}</span>{{ end }}
+    </div>
+    <div class="funding-card-venue">{{ $g.Title }}</div>
+  {{ with $g.Params.pi }}
+  <div class="funding-card-pi">
+    <span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }} <span class="funding-card-role">({{ . }})</span>{{ end }}
+  </div>
+  {{ end }}
+  <a href="{{ "activities/grants/" | relURL }}#{{ $g.File.ContentBaseName }}" class="funding-card-more">More information →</a>
+  </div>
+</div>

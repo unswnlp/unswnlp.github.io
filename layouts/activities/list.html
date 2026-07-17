@@ -4,7 +4,6 @@
 {{ $allPages      := .RegularPagesRecursive }}
 {{ $allCourses    := where $allPages "Params.course" true }}
 {{ $allActivities := where $allPages "Params.course" "ne" true }}
-{{ $grants    := where $allActivities "Params.activityType" "grants" }}
 {{ $sharedTasks  := where $allActivities "Params.activityType" "shared-task" }}
 {{ $tutorials    := where $allActivities "Params.activityType" "tutorial" }}
 {{ $workshops    := where $allActivities "Params.activityType" "workshop" }}
@@ -83,20 +82,6 @@
           </div>
         {{- end -}}
       {{ end }}
-    </div>
-  </div>
-</div>
-{{ end }}
-
-{{/* ── Grants ── */}}
-{{ if $grants }}
-<div class="act-section act-section--two-col act-section--spaced">
-  <div class="act-col-label">
-    <span class="act-section-heading">Grants</span>
-  </div>
-  <div class="act-col-content">
-    <div class="grant-list">
-      {{ range $grants.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
     </div>
   </div>
 </div>
