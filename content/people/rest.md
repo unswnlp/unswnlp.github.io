@@ -5,20 +5,21 @@ hidemeta: true
 groups:
   - name: "Masters Students"
     members:
-      - name: "Jingyuan Fang"
-      - name: "Shefali Shankar"
-      - name: "Akshay Bade"
+      - name: "Yongwei Guo"
+      - name: "Karl Xu"
   - name: "Honors Students"
     members:
-      - name: "Tom Bednarek"
-      - name: "Priyal Jain"
-      - name: "Kenneth Law"
-      - name: "Humza Saeed"
+      - name: "Joshua Mamelok (Primary: Vineet Rajani)"
+      - name: "Sharavan Karthik (Primary: Ben Tag)"
+      - name: "Antyabha Rahman"
+      - name: "Ishmanbir Singh"
+      - name: "Lachlan Johnston"
+      - name: "Kanay Gupta"
+      - name: "Mohd. Irfan"
   - name: "Taste of Research"
     members:
-      - name: "Hikmet Suhan"
+      - name: "Quang Pham"
   - name: "Research Assistants"
     members:
-      - name: "Kenneth Law"
-      - name: "Wilson Wongso"
+      - name: "Freya Stevens"
 ---
