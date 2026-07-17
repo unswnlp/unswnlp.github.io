@@ -21,6 +21,7 @@ groups:
       - name: "Duke Nguyen"
   - name: "Honors Students"
     members:
+      - name: "Rahul Markasserithodi"
       - name: "Tom Bednarek"
       - name: "Priyal Jain"
       - name: "Kenneth Law"
@@ -38,4 +39,11 @@ groups:
       - name: "Zhewen Shen"
       - name: "Fai Chan"
       - name: "Ishmanbir Singh"
+  - name: "Research Assistants"
+    members:
+      - name: "Dipankar Srirag"
+      - name: "Anudeex Shetty"
+      - name: "Wilson Wongso"
+      - name: "Kenneth Law"
+      - name: "Khaing Myat Noe"
 ---
