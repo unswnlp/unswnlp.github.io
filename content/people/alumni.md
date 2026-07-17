@@ -3,6 +3,10 @@ title: "Past Members"
 layout: "alumni"
 hidemeta: true
 groups:
+  - name: "Visiting Researchers"
+    members:
+      - name: "Maciej Rybinski (University of Malaga)"
+      - name: "Rudra Murthy (IBM Research)"
   - name: "Postdocs"
     members: 
       - name: "Pantelis Elinas" 
