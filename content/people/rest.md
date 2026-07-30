@@ -10,7 +10,6 @@ groups:
   - name: "Honors Students"
     members:
       - name: "Joshua Mamelok (Primary: Vineet Rajani)"
-      - name: "Sharavan Karthik (Primary: Ben Tag)"
       - name: "Antyabha Rahman"
       - name: "Ishmanbir Singh"
       - name: "Lachlan Johnston"
@@ -22,4 +21,6 @@ groups:
   - name: "Research Assistants"
     members:
       - name: "Freya Stevens"
+      - name: "Nathan Inkiriwang"
+      - name: "Mike Nguyen"
 ---
