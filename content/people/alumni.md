@@ -14,6 +14,9 @@ groups:
     members:
       - name: "Mohssen Ghafari"
         note: "co-supervised with Amin Beheshti; Now: AI Scientist @ Commonwealth Bank of Australia"
+  - name: "M.Phil Students"
+      - name: "Ziyu Yang"
+        note: "co-supervised with Jiaojiao Jiang and Xin Cao; Now at RMIT"
   - name: "Masters Students"
     members:
       - name: "Morgan Li"
@@ -22,7 +25,9 @@ groups:
       - name: "Akshay Bade"
       - name: "Liangji Kong"
       - name: "Dipankar Srirag"
+        note: "Now a PhD student in the group :)"
       - name: "Duke Nguyen"
+        note: "Now a PhD student in the group :)"
   - name: "Honors Students"
     members:
       - name: "Rahul Markasserithodi"
@@ -39,15 +44,20 @@ groups:
     members:
       - name: "Dylan Uno"
       - name: "H Suhan Karaca"
-      - name: "Ishmanbir Singh"
+        note: "Published at CustomizableNLP @ ACL 2026"
       - name: "Zhewen Shen"
+        note: "Published at CMCL @ ACL 2024"
       - name: "Fai Chan"
+        note: "Published at ALTA 2024"
       - name: "Ishmanbir Singh"
+        note: "Published at ALTA 2025"
   - name: "Research Assistants"
     members:
       - name: "Dipankar Srirag"
       - name: "Anudeex Shetty"
+        note: "PhD student at UniMelb"
       - name: "Wilson Wongso"
+        note: "PhD student at UNSW"
       - name: "Kenneth Law"
       - name: "Khaing Myat Noe"
 ---
