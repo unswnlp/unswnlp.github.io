@@ -1,5 +1,5 @@
 ---
-title: "Rashini Liyanrachchi"
+title: "Rashini Liyanarachchi"
 weight: 1
 role: "Ph.D. Students"
 photo: "people/pictures/phd-00-rashini-liyanarachchi.jpg"
