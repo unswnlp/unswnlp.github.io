@@ -15,6 +15,7 @@ groups:
       - name: "Mohssen Ghafari"
         note: "co-supervised with Amin Beheshti; Now: AI Scientist @ Commonwealth Bank of Australia"
   - name: "M.Phil Students"
+    members: 
       - name: "Ziyu Yang"
         note: "co-supervised with Jiaojiao Jiang and Xin Cao; Now at RMIT"
   - name: "Masters Students"

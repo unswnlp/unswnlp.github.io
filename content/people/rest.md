@@ -9,7 +9,8 @@ groups:
       - name: "Karl Xu"
   - name: "Honors Students"
     members:
-      - name: "Joshua Mamelok (Primary: Vineet Rajani)"
+      - name: "Joshua Mamelok"
+        note: "Primary: Vineet Rajani"
       - name: "Antyabha Rahman"
       - name: "Ishmanbir Singh"
       - name: "Lachlan Johnston"
