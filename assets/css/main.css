@@ -64,6 +64,10 @@
 /* ── 2. Variables ── */
 
 :root {
+  /* Site is light-only by design — stop browsers from applying their own
+     auto-dark styling (e.g. to <pre>/<code>) when the OS is in dark mode. */
+  color-scheme: light;
+
   /* Brand */
   --navy:        #002060;   /* UNSW navy — header/footer */
   --yellow:      #FFD100;   /* UNSW yellow — active nav, accents */
