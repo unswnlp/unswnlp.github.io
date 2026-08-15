@@ -1,5 +1,7 @@
 ---
 title: "Configuration"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h1>

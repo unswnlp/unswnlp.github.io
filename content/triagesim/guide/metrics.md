@@ -1,5 +1,7 @@
 ---
 title: "Evaluation metrics"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="evaluation-metrics">Evaluation metrics<a class="headerlink" href="#evaluation-metrics" title="Permanent link">¶</a></h1>

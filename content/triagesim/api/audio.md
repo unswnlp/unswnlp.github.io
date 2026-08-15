@@ -1,5 +1,7 @@
 ---
 title: "triagesim.audio"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="triagesimaudio"><code>triagesim.audio</code><a class="headerlink" href="#triagesimaudio" title="Permanent link">¶</a></h1>

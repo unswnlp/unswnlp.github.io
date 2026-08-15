@@ -1,5 +1,7 @@
 ---
 title: "Installation"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h1>

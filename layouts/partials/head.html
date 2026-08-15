@@ -31,12 +31,12 @@
       href="{{ $css.RelPermalink }}"
       integrity="{{ $css.Data.Integrity }}">
 
-{{- /* TriageSim docs — ported content, native theme */}}
-{{- if eq .Section "triagesim" }}
-{{- $tsCss := resources.Get "css/triagesim.css" | fingerprint }}
+{{- /* Ported project docs (e.g. /triagesim/) — see docs/adding-a-docsite.md */}}
+{{- if eq .Type "docsite" }}
+{{- $docsiteCss := resources.Get "css/docsite.css" | fingerprint }}
 <link rel="stylesheet" crossorigin="anonymous"
-      href="{{ $tsCss.RelPermalink }}"
-      integrity="{{ $tsCss.Data.Integrity }}">
+      href="{{ $docsiteCss.RelPermalink }}"
+      integrity="{{ $docsiteCss.Data.Integrity }}">
 {{- end }}
 
 {{- /* Math */}}

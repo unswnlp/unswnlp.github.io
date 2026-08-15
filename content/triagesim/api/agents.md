@@ -1,5 +1,7 @@
 ---
 title: "triagesim.agents"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="triagesimagents"><code>triagesim.agents</code><a class="headerlink" href="#triagesimagents" title="Permanent link">¶</a></h1>

@@ -1,5 +1,7 @@
 ---
 title: "Run artifacts"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="run-artifacts">Run artifacts<a class="headerlink" href="#run-artifacts" title="Permanent link">¶</a></h1>

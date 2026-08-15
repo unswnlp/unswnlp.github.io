@@ -1,0 +1,9 @@
+{{- /*
+  Generic docs sidebar/prev-next nav. Looks up data/docsites/<docSite>.yaml,
+  where <docSite> comes from the current page's `docSite` front matter param.
+  Add a new ported docs site by adding a new data file with the same shape —
+  see docs/adding-a-docsite.md — no template changes needed.
+*/ -}}
+{{- $key := .Params.docSite -}}
+{{- $docsite := index hugo.Data.docsites $key -}}
+{{- return $docsite.groups -}}

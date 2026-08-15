@@ -1,5 +1,7 @@
 ---
 title: "Citation"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">¶</a></h1>

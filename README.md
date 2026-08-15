@@ -76,12 +76,14 @@ In general: copy the front matter pattern from an existing file of the same
 type, fill in the new values, and run `hugo server` locally to check it
 renders before pushing.
 
-## Project documentation
+## Project documentation ("docsites")
 
-Some group projects (e.g. `/triagesim/`) have their prose/API docs authored
-in a separate sibling repo and ported into native Hugo pages here via a
-script, so they render in this site's own theme. See
-[docs/triagesim.md](docs/triagesim.md) for how that's kept in sync.
+Some group projects (e.g. `/triagesim/`) have their own prose/API docs,
+authored in a separate repo, ported into native Hugo pages here so they
+render in this site's own theme instead of their source tool's. See
+[docs/adding-a-docsite.md](docs/adding-a-docsite.md) for how the mechanism
+works and how to add another one; [docs/triagesim.md](docs/triagesim.md)
+covers TriageSim's specifics.
 
 ## License
 

@@ -1,5 +1,7 @@
 ---
 title: "Quick start"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">¶</a></h1>

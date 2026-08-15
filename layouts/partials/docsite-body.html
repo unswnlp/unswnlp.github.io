@@ -1,5 +1,5 @@
 {{- $page := . -}}
-{{- $groups := partial "triagesim-nav.html" . -}}
+{{- $groups := partial "docsite-nav.html" . -}}
 
 {{- /* Flatten to a linear reading order for prev/next */ -}}
 {{- $flat := slice -}}
@@ -16,13 +16,13 @@
   {{- if lt $currentIndex (sub (len $flat) 1) }}{{ $next = index $flat (add $currentIndex 1) }}{{ end }}
 {{- end }}
 
-<div class="tsdoc-layout">
-  <details class="tsdoc-sidebar">
-    <summary class="tsdoc-sidebar-toggle">Docs menu</summary>
-    <div class="tsdoc-sidebar-inner">
+<div class="docsite-layout">
+  <details class="docsite-sidebar">
+    <summary class="docsite-sidebar-toggle">Docs menu</summary>
+    <div class="docsite-sidebar-inner">
       {{- range $groups }}
-      <div class="tsdoc-sidebar-group">
-        {{- with .title }}<div class="tsdoc-sidebar-group-title">{{ . }}</div>{{ end }}
+      <div class="docsite-sidebar-group">
+        {{- with .title }}<div class="docsite-sidebar-group-title">{{ . }}</div>{{ end }}
         <ul>
           {{- range .pages }}
           <li><a href="{{ .url | relURL }}"{{ if eq (.url | relURL) $page.RelPermalink }} class="active"{{ end }}>{{ .title }}</a></li>
@@ -33,22 +33,22 @@
     </div>
   </details>
 
-  <article class="tsdoc-content tsdoc">
+  <article class="docsite-content docsite">
     {{ $page.Content }}
 
     {{- if or $prev $next }}
-    <div class="tsdoc-pagenav">
-      <div class="tsdoc-pagenav-prev">
+    <div class="docsite-pagenav">
+      <div class="docsite-pagenav-prev">
         {{- with $prev }}
         <a href="{{ .url | relURL }}">
-          <span class="tsdoc-pagenav-label">← Previous</span>{{ .title }}
+          <span class="docsite-pagenav-label">← Previous</span>{{ .title }}
         </a>
         {{- end }}
       </div>
-      <div class="tsdoc-pagenav-next">
+      <div class="docsite-pagenav-next">
         {{- with $next }}
         <a href="{{ .url | relURL }}">
-          <span class="tsdoc-pagenav-label">Next →</span>{{ .title }}
+          <span class="docsite-pagenav-label">Next →</span>{{ .title }}
         </a>
         {{- end }}
       </div>
@@ -59,21 +59,21 @@
 
 <script>
 (function(){
-  document.querySelectorAll('.tsdoc div.highlight').forEach(function(block){
+  document.querySelectorAll('.docsite div.highlight').forEach(function(block){
     var code = block.querySelector('pre code');
     if (!code) return;
     var btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'tsdoc-copy-btn';
+    btn.className = 'docsite-copy-btn';
     btn.setAttribute('aria-label', 'Copy code');
     btn.textContent = 'Copy';
     btn.addEventListener('click', function(){
       navigator.clipboard.writeText(code.textContent).then(function(){
         btn.textContent = 'Copied!';
-        btn.classList.add('tsdoc-copy-btn--done');
+        btn.classList.add('docsite-copy-btn--done');
         setTimeout(function(){
           btn.textContent = 'Copy';
-          btn.classList.remove('tsdoc-copy-btn--done');
+          btn.classList.remove('docsite-copy-btn--done');
         }, 1500);
       });
     });

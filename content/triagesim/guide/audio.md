@@ -1,5 +1,7 @@
 ---
 title: "Audio rendering"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="audio-rendering">Audio rendering<a class="headerlink" href="#audio-rendering" title="Permanent link">¶</a></h1>

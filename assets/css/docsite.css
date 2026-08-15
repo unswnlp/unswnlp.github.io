@@ -1,0 +1,649 @@
+/* ═══════════════════════════════════════════════════════
+   Docsite — shared theme for ported project docs (e.g. /triagesim/)
+   Scoped entirely under .docsite so it never leaks into the
+   rest of the site. Reuses the UNSW NLP palette/fonts from
+   main.css rather than any source theme's own CSS (e.g.
+   Material for MkDocs). See docs/adding-a-docsite.md.
+   ═══════════════════════════════════════════════════════ */
+
+.docsite-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: calc(var(--gap) * 1.5);
+  align-items: start;
+}
+
+.docsite-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  font-size: 0.85rem;
+  padding-bottom: 2rem;
+}
+
+.docsite-sidebar-toggle {
+  display: none;
+}
+
+.docsite-sidebar-inner {
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Desktop: force the <details> content visible regardless of its native
+   open/closed state — the toggle summary is hidden, this always reads as a
+   plain sidebar. Scoped to min-width so it never fights the mobile
+   collapsible menu below. */
+@media (min-width: 781px) {
+  .docsite-sidebar:not([open]) .docsite-sidebar-inner,
+  .docsite-sidebar-inner {
+    display: flex !important;
+  }
+}
+
+.docsite-sidebar-group-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.docsite-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docsite-sidebar li {
+  margin: 0;
+}
+
+.docsite-sidebar a {
+  display: block;
+  padding: 0.25rem 0;
+  color: var(--text-muted);
+  border-left: 2px solid transparent;
+  padding-left: 0.7rem;
+  margin-left: -0.7rem;
+  line-height: 1.4;
+}
+
+.docsite-sidebar a:hover {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.docsite-sidebar a.active {
+  color: var(--purple);
+  font-weight: 600;
+  border-left-color: var(--purple);
+}
+
+.docsite-content {
+  min-width: 0;
+  max-width: 780px;
+}
+
+.docsite-crumb {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin-bottom: 1.25rem;
+}
+
+.docsite-crumb a { color: var(--text-muted); }
+.docsite-crumb a:hover { color: var(--purple); }
+
+@media (max-width: 780px) {
+  .docsite-layout { grid-template-columns: 1fr; }
+
+  .docsite-sidebar {
+    position: static;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--off-white);
+    margin-bottom: 1.25rem;
+    padding: 0;
+  }
+
+  .docsite-sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+    padding: 0.7rem 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+  }
+  .docsite-sidebar-toggle::-webkit-details-marker { display: none; }
+  .docsite-sidebar-toggle::after {
+    content: '▾';
+    color: var(--text-faint);
+    transition: transform 0.15s;
+  }
+  .docsite-sidebar[open] .docsite-sidebar-toggle::after { transform: rotate(180deg); }
+
+  /* Below the breakpoint, native <details> open/closed state governs
+     visibility — collapsed by default, expands on tap. */
+  .docsite-sidebar[open] .docsite-sidebar-inner {
+    display: flex;
+    padding: 0 1rem 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .docsite-content { max-width: none; }
+}
+
+/* ── Typography ── */
+
+.docsite h1,
+.docsite h2,
+.docsite h3,
+.docsite h4 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  scroll-margin-top: 5.5rem;
+}
+
+.docsite h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.docsite h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2.2rem 0 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.docsite h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.6rem;
+}
+
+.docsite h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.4rem 0 0.5rem;
+}
+
+.docsite p, .docsite ul, .docsite ol {
+  line-height: 1.7;
+  color: var(--text-body);
+  margin: 0 0 1rem;
+}
+
+.docsite li { margin-bottom: 0.3rem; }
+
+.docsite a { color: var(--purple); text-decoration: none; }
+.docsite a:hover { text-decoration: underline; }
+
+.docsite hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.docsite strong { color: var(--text-primary); }
+
+/* Permalink pilcrows next to headings */
+.docsite .headerlink {
+  opacity: 0;
+  margin-left: 0.4rem;
+  color: var(--text-faint);
+  font-weight: 400;
+  transition: opacity 0.12s;
+}
+
+.docsite h1:hover .headerlink,
+.docsite h2:hover .headerlink,
+.docsite h3:hover .headerlink,
+.docsite h4:hover .headerlink {
+  opacity: 1;
+}
+
+/* ── Inline code ── */
+
+.docsite code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+/* ── Code blocks (pygments) ── */
+
+.docsite div.highlight {
+  position: relative;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 0 1.25rem;
+  overflow-x: auto;
+}
+
+.docsite div.highlight .filename {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  padding: 0.5rem 1rem 0;
+}
+
+.docsite div.highlight pre {
+  margin: 0;
+  padding: 0.9rem 2.75rem 0.9rem 1.05rem;
+  background: none;
+  color: var(--text-body);
+}
+
+.docsite-copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.docsite-copy-btn:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.docsite-copy-btn--done {
+  color: #1a7a4a;
+  border-color: #1a7a4a;
+}
+
+.docsite div.highlight code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.docsite .doc-signature.highlight { margin-bottom: 0.8rem; }
+
+/* code-line permalink targets — invisible, just anchors */
+.docsite div.highlight a[id^="__codelineno"] { text-decoration: none; }
+
+/* Pygments token colours (autumn palette) */
+.docsite .highlight .c  { color: #888; font-style: italic; }
+.docsite .highlight .err{ color: #c00; background-color: #fee; }
+.docsite .highlight .k  { color: var(--navy); }
+.docsite .highlight .ch,
+.docsite .highlight .cm,
+.docsite .highlight .c1,
+.docsite .highlight .cpf { color: #888; font-style: italic; }
+.docsite .highlight .cp { color: #4C8317; }
+.docsite .highlight .cs { color: #002060; font-style: italic; }
+.docsite .highlight .gd { color: #A00; }
+.docsite .highlight .ge { font-style: italic; }
+.docsite .highlight .ges{ font-weight: bold; font-style: italic; }
+.docsite .highlight .gr,
+.docsite .highlight .gt { color: #A00; }
+.docsite .highlight .gh { color: #002060; font-weight: bold; }
+.docsite .highlight .gi { color: #0A0; }
+.docsite .highlight .go { color: #888; }
+.docsite .highlight .gp { color: var(--text-muted); }
+.docsite .highlight .gs { font-weight: bold; }
+.docsite .highlight .gu { color: var(--purple-light); font-weight: bold; }
+.docsite .highlight .kc,
+.docsite .highlight .kd,
+.docsite .highlight .kn,
+.docsite .highlight .kp,
+.docsite .highlight .kr,
+.docsite .highlight .ow { color: #002060; }
+.docsite .highlight .kt,
+.docsite .highlight .nb,
+.docsite .highlight .bp { color: #0A7A7A; }
+.docsite .highlight .m,
+.docsite .highlight .mb,
+.docsite .highlight .mf,
+.docsite .highlight .mh,
+.docsite .highlight .mi,
+.docsite .highlight .mo,
+.docsite .highlight .il,
+.docsite .highlight .sr { color: #0A7A7A; }
+.docsite .highlight .s,
+.docsite .highlight .sa,
+.docsite .highlight .sb,
+.docsite .highlight .sc,
+.docsite .highlight .dl,
+.docsite .highlight .sd,
+.docsite .highlight .s2,
+.docsite .highlight .se,
+.docsite .highlight .sh,
+.docsite .highlight .si,
+.docsite .highlight .sx,
+.docsite .highlight .s1 { color: #96591E; }
+.docsite .highlight .na { color: var(--purple); }
+.docsite .highlight .nc,
+.docsite .highlight .nn { color: #0A7A00; text-decoration: none; }
+.docsite .highlight .ni { color: #800; font-weight: bold; }
+.docsite .highlight .nf,
+.docsite .highlight .fm { color: #0A7A00; }
+.docsite .highlight .nt { color: var(--purple); font-weight: bold; }
+.docsite .highlight .no,
+.docsite .highlight .nv,
+.docsite .highlight .vc,
+.docsite .highlight .vg,
+.docsite .highlight .vi,
+.docsite .highlight .vm { color: #A00; }
+.docsite .highlight .nd { color: var(--text-faint); }
+.docsite .highlight .ss { color: #002060; }
+.docsite .highlight .w  { color: var(--text-faint); }
+.docsite .highlight .hll{ background-color: #fff6d8; }
+
+/* ── Tables ── */
+
+.docsite table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  margin: 0 0 1.25rem;
+  overflow: hidden;
+}
+
+.docsite th, .docsite td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.docsite th {
+  background: var(--off-white);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.docsite tr:last-child td { border-bottom: none; }
+
+.docsite td code { white-space: nowrap; }
+
+/* ── Admonitions ── */
+
+.docsite .admonition,
+.docsite details {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text-faint);
+  border-radius: var(--radius);
+  background: var(--off-white);
+  padding: 0.85rem 1.1rem;
+  margin: 0 0 1.25rem;
+}
+
+.docsite .admonition-title {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+}
+
+.docsite .admonition > :last-child,
+.docsite details > :last-child { margin-bottom: 0; }
+
+.docsite .admonition.note,
+.docsite .admonition.info { border-left-color: var(--navy, #002060); }
+.docsite .admonition.note .admonition-title,
+.docsite .admonition.info .admonition-title { color: var(--navy, #002060); }
+
+.docsite .admonition.tip,
+.docsite .admonition.success { border-left-color: #1a7a4a; }
+.docsite .admonition.tip .admonition-title,
+.docsite .admonition.success .admonition-title { color: #1a7a4a; }
+
+.docsite .admonition.warning { border-left-color: var(--yellow-dim, #c9a500); }
+.docsite .admonition.warning .admonition-title { color: #8a6d00; }
+
+.docsite .admonition.danger,
+.docsite .admonition.failure { border-left-color: var(--purple); }
+.docsite .admonition.danger .admonition-title,
+.docsite .admonition.failure .admonition-title { color: var(--purple); }
+
+.docsite details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text-primary);
+  list-style: none;
+}
+.docsite details summary::-webkit-details-marker { display: none; }
+.docsite details[open] summary { margin-bottom: 0.5rem; }
+
+/* ── Tabbed content (pure-CSS radio tabs, no JS needed) ── */
+
+.docsite .tabbed-set {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 0 1.25rem;
+  overflow: hidden;
+}
+
+.docsite .tabbed-set input { position: absolute; opacity: 0; pointer-events: none; }
+
+.docsite .tabbed-labels {
+  display: flex;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.docsite .tabbed-labels label {
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.docsite .tabbed-content { padding: 1rem; }
+.docsite .tabbed-content > :last-child { margin-bottom: 0; }
+.docsite .tabbed-block { display: none; }
+
+.docsite .tabbed-set input:nth-child(1):checked ~ .tabbed-labels label:nth-child(1),
+.docsite .tabbed-set input:nth-child(2):checked ~ .tabbed-labels label:nth-child(2),
+.docsite .tabbed-set input:nth-child(3):checked ~ .tabbed-labels label:nth-child(3),
+.docsite .tabbed-set input:nth-child(4):checked ~ .tabbed-labels label:nth-child(4),
+.docsite .tabbed-set input:nth-child(5):checked ~ .tabbed-labels label:nth-child(5) {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+}
+
+.docsite .tabbed-set input:nth-child(1):checked ~ .tabbed-content .tabbed-block:nth-child(1),
+.docsite .tabbed-set input:nth-child(2):checked ~ .tabbed-content .tabbed-block:nth-child(2),
+.docsite .tabbed-set input:nth-child(3):checked ~ .tabbed-content .tabbed-block:nth-child(3),
+.docsite .tabbed-set input:nth-child(4):checked ~ .tabbed-content .tabbed-block:nth-child(4),
+.docsite .tabbed-set input:nth-child(5):checked ~ .tabbed-content .tabbed-block:nth-child(5) {
+  display: block;
+}
+
+/* ── Buttons (landing page CTAs) ── */
+
+.docsite .md-button {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--purple);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--purple);
+  margin: 0.3rem 0.5rem 0.3rem 0;
+  transition: background-color 0.12s, color 0.12s;
+}
+.docsite .md-button:hover { text-decoration: none; background: rgba(224, 82, 106, 0.08); }
+
+.docsite .md-button--primary {
+  background: var(--purple);
+  color: #fff;
+}
+.docsite .md-button--primary:hover { background: var(--purple-light); }
+
+/* ── Grid cards (landing page feature grid) ── */
+
+.docsite .grid.cards > ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.docsite .grid.cards > ul > li {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  background: var(--off-white);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.docsite .grid.cards > ul > li:hover {
+  border-color: var(--purple);
+  box-shadow: 0 4px 14px rgba(0,32,96,0.08);
+  transform: translateY(-2px);
+}
+
+.docsite .grid.cards hr {
+  margin: 0.6rem 0;
+  border-top-color: var(--purple);
+}
+
+.docsite .grid.cards svg {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.25em;
+  fill: var(--purple);
+  margin-right: 0.3em;
+}
+
+/* ── mkdocstrings API reference ── */
+
+.docsite .doc-heading { scroll-margin-top: 5.5rem; }
+
+.docsite code.doc-symbol {
+  border-radius: 3px;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.05em 0.4em;
+  margin-right: 0.4em;
+}
+.docsite code.doc-symbol-class::after     { content: "class"; }
+.docsite code.doc-symbol-function::after  { content: "func"; }
+.docsite code.doc-symbol-method::after    { content: "meth"; }
+.docsite code.doc-symbol-attribute::after { content: "attr"; }
+.docsite code.doc-symbol-module::after    { content: "mod"; }
+.docsite code.doc-symbol-parameter::after,
+.docsite code.doc-symbol-type_parameter::after { content: "param"; }
+
+.docsite code.doc-symbol-class     { color: #0550ae; background: #0550ae1a; }
+.docsite code.doc-symbol-function,
+.docsite code.doc-symbol-method    { color: #6a3fc7; background: #6a3fc71a; }
+.docsite code.doc-symbol-attribute { color: #953800; background: #9538001a; }
+.docsite code.doc-symbol-module    { color: #3a7d1f; background: #3a7d1f1a; }
+.docsite code.doc-symbol-parameter,
+.docsite code.doc-symbol-type_parameter { color: var(--purple); background: rgba(224,82,106,0.1); }
+
+.docsite .doc-object-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.docsite .doc-contents {
+  border-left: 2px solid var(--border);
+  padding-left: 1.1rem;
+  margin: 0.6rem 0 1.5rem 0.1rem;
+}
+
+.docsite .doc-class-bases { color: var(--text-muted); font-size: 0.9rem; }
+
+.docsite .doc-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.05em 0.55em;
+  margin-left: 0.5em;
+}
+
+.docsite .doc-children { margin-top: 0.5rem; }
+
+/* API pages have a heading per symbol; the h2 section rule adds noise there */
+.docsite h2:has(> code),
+.docsite h2:has(.doc-symbol-heading) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ── Mermaid diagrams ── */
+
+.docsite pre.mermaid {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 0 0 1.25rem;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.docsite pre.mermaid.docsite-mermaid-rendered {
+  padding: 1.25rem;
+}
+
+/* ── Prev / next page nav ── */
+
+.docsite-pagenav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.docsite-pagenav a {
+  display: block;
+  color: var(--text-muted);
+}
+
+.docsite-pagenav a:hover { color: var(--purple); text-decoration: none; }
+
+.docsite-pagenav-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 0.15rem;
+}
+
+.docsite-pagenav-next { text-align: right; margin-left: auto; }

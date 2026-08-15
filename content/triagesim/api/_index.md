@@ -1,5 +1,7 @@
 ---
 title: "API reference"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">¶</a></h1>

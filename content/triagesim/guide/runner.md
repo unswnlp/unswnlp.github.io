@@ -1,5 +1,7 @@
 ---
 title: "Running a simulation"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="running-a-simulation">Running a simulation<a class="headerlink" href="#running-a-simulation" title="Permanent link">¶</a></h1>

@@ -1,5 +1,7 @@
 ---
 title: "Core concepts"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="core-concepts">Core concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h1>

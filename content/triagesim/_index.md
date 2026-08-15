@@ -1,5 +1,7 @@
 ---
 title: "TriageSim"
+type: "docsite"
+docSite: "triagesim"
 ---
 
 <h1 id="triagesim">TriageSim<a class="headerlink" href="#triagesim" title="Permanent link">¶</a></h1>

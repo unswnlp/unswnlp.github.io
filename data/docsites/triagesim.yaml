@@ -1,0 +1,53 @@
+# Sidebar nav + linear reading order (for prev/next) for the ported
+# TriageSim docs. Mirrors triagesim-website/mkdocs.yml's nav.
+# Selected at render time by a page's `docSite: triagesim` front matter —
+# see layouts/partials/docsite-nav.html and docs/adding-a-docsite.md.
+groups:
+  - title: Overview
+    pages:
+      - url: triagesim/
+        title: TriageSim
+  - title: Getting Started
+    pages:
+      - url: triagesim/getting-started/installation/
+        title: Installation
+      - url: triagesim/getting-started/configuration/
+        title: Configuration
+      - url: triagesim/getting-started/quickstart/
+        title: Quickstart
+  - title: User Guide
+    pages:
+      - url: triagesim/guide/concepts/
+        title: Concepts
+      - url: triagesim/guide/personas/
+        title: Personas
+      - url: triagesim/guide/agents/
+        title: Agents
+      - url: triagesim/guide/runner/
+        title: Runner
+      - url: triagesim/guide/artifacts/
+        title: Artifacts
+      - url: triagesim/guide/metrics/
+        title: Metrics
+      - url: triagesim/guide/audio/
+        title: Audio
+  - title: API Reference
+    pages:
+      - url: triagesim/api/
+        title: Overview
+      - url: triagesim/api/runner/
+        title: Runner
+      - url: triagesim/api/agents/
+        title: Agents
+      - url: triagesim/api/core/
+        title: Core
+      - url: triagesim/api/personas/
+        title: Personas
+      - url: triagesim/api/utils/
+        title: Utils
+      - url: triagesim/api/audio/
+        title: Audio
+  - title: ""
+    pages:
+      - url: triagesim/citation/
+        title: Citation
