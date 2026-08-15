@@ -20,24 +20,20 @@
   padding-bottom: 2rem;
 }
 
+.docsite-sidebar-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .docsite-sidebar-toggle {
   display: none;
 }
 
 .docsite-sidebar-inner {
+  display: flex;
   flex-direction: column;
   gap: 1.4rem;
-}
-
-/* Desktop: force the <details> content visible regardless of its native
-   open/closed state — the toggle summary is hidden, this always reads as a
-   plain sidebar. Scoped to min-width so it never fights the mobile
-   collapsible menu below. */
-@media (min-width: 781px) {
-  .docsite-sidebar:not([open]) .docsite-sidebar-inner,
-  .docsite-sidebar-inner {
-    display: flex !important;
-  }
 }
 
 .docsite-sidebar-group-title {
@@ -119,20 +115,25 @@
     font-size: 0.85rem;
     color: var(--text-primary);
   }
-  .docsite-sidebar-toggle::-webkit-details-marker { display: none; }
   .docsite-sidebar-toggle::after {
     content: '▾';
     color: var(--text-faint);
     transition: transform 0.15s;
   }
-  .docsite-sidebar[open] .docsite-sidebar-toggle::after { transform: rotate(180deg); }
+  .docsite-sidebar-checkbox:checked ~ .docsite-sidebar-toggle::after { transform: rotate(180deg); }
 
-  /* Below the breakpoint, native <details> open/closed state governs
-     visibility — collapsed by default, expands on tap. */
-  .docsite-sidebar[open] .docsite-sidebar-inner {
-    display: flex;
+  /* Below the breakpoint, the checkbox's checked state governs visibility —
+     collapsed by default, expands on tap. A checkbox+label toggle (rather
+     than native <details>) because modern browsers implement <details>
+     collapsing via content-visibility, which authored `display` overrides
+     on its children can't reliably undo. */
+  .docsite-sidebar-inner {
+    display: none;
     padding: 0 1rem 1rem;
     border-top: 1px solid var(--border);
+  }
+  .docsite-sidebar-checkbox:checked ~ .docsite-sidebar-inner {
+    display: flex;
   }
 
   .docsite-content { max-width: none; }

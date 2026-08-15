@@ -17,8 +17,9 @@
 {{- end }}
 
 <div class="docsite-layout">
-  <details class="docsite-sidebar">
-    <summary class="docsite-sidebar-toggle">Docs menu</summary>
+  <nav class="docsite-sidebar">
+    <input type="checkbox" id="docsite-menu-toggle" class="docsite-sidebar-checkbox">
+    <label for="docsite-menu-toggle" class="docsite-sidebar-toggle">Docs menu</label>
     <div class="docsite-sidebar-inner">
       {{- range $groups }}
       <div class="docsite-sidebar-group">
@@ -31,7 +32,7 @@
       </div>
       {{- end }}
     </div>
-  </details>
+  </nav>
 
   <article class="docsite-content docsite">
     {{ $page.Content }}
