@@ -57,6 +57,31 @@
   </article>
 </div>
 
+<script>
+(function(){
+  document.querySelectorAll('.tsdoc div.highlight').forEach(function(block){
+    var code = block.querySelector('pre code');
+    if (!code) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tsdoc-copy-btn';
+    btn.setAttribute('aria-label', 'Copy code');
+    btn.textContent = 'Copy';
+    btn.addEventListener('click', function(){
+      navigator.clipboard.writeText(code.textContent).then(function(){
+        btn.textContent = 'Copied!';
+        btn.classList.add('tsdoc-copy-btn--done');
+        setTimeout(function(){
+          btn.textContent = 'Copy';
+          btn.classList.remove('tsdoc-copy-btn--done');
+        }, 1500);
+      });
+    });
+    block.appendChild(btn);
+  });
+})();
+</script>
+
 {{- if findRE "class=\"mermaid\"" $page.Content }}
 <script src="{{ "js/mermaid.min.js" | relURL }}"></script>
 <script>

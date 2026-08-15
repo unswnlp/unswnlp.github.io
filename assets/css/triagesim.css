@@ -243,9 +243,35 @@
 
 .tsdoc div.highlight pre {
   margin: 0;
-  padding: 0.9rem 1.05rem;
+  padding: 0.9rem 2.75rem 0.9rem 1.05rem;
   background: none;
   color: var(--text-body);
+}
+
+.tsdoc-copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.tsdoc-copy-btn:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.tsdoc-copy-btn--done {
+  color: #1a7a4a;
+  border-color: #1a7a4a;
 }
 
 .tsdoc div.highlight code {
