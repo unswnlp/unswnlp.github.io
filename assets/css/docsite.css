@@ -504,6 +504,32 @@
 }
 .docsite .md-button--primary:hover { background: var(--purple-light); }
 
+/* ── Inline icons (mkdocs Material's :material-*:/:octicons-*: SVGs) ──
+   These arrive as <span class="twemoji"><svg>...</svg></span>, used inline
+   in prose, inside buttons/links, and (larger) inside feature cards below.
+   Without an explicit size the raw SVG renders at whatever the browser
+   defaults to, which can be huge. */
+.docsite .twemoji {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -0.15em;
+}
+
+.docsite .twemoji svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+}
+
+.docsite .twemoji.lg svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.docsite .twemoji.middle {
+  vertical-align: middle;
+}
+
 /* ── Grid cards (landing page feature grid) ── */
 
 .docsite .grid.cards > ul {
@@ -534,11 +560,8 @@
   border-top-color: var(--purple);
 }
 
-.docsite .grid.cards svg {
-  width: 1.2em;
-  height: 1.2em;
-  vertical-align: -0.25em;
-  fill: var(--purple);
+.docsite .grid.cards .twemoji {
+  color: var(--purple);
   margin-right: 0.3em;
 }
 
