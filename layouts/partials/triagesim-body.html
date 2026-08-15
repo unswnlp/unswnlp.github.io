@@ -1,0 +1,75 @@
+{{- $page := . -}}
+{{- $groups := partial "triagesim-nav.html" . -}}
+
+{{- /* Flatten to a linear reading order for prev/next */ -}}
+{{- $flat := slice -}}
+{{- range $groups }}{{ range .pages }}{{ $flat = $flat | append . }}{{ end }}{{ end -}}
+
+{{- $currentIndex := -1 -}}
+{{- range $i, $p := $flat }}
+  {{- if eq ($p.url | relURL) $page.RelPermalink }}{{ $currentIndex = $i }}{{ end }}
+{{- end }}
+
+{{- $prev := "" }}{{ $next := "" -}}
+{{- if ge $currentIndex 0 }}
+  {{- if gt $currentIndex 0 }}{{ $prev = index $flat (sub $currentIndex 1) }}{{ end }}
+  {{- if lt $currentIndex (sub (len $flat) 1) }}{{ $next = index $flat (add $currentIndex 1) }}{{ end }}
+{{- end }}
+
+<div class="tsdoc-layout">
+  <details class="tsdoc-sidebar">
+    <summary class="tsdoc-sidebar-toggle">Docs menu</summary>
+    <div class="tsdoc-sidebar-inner">
+      {{- range $groups }}
+      <div class="tsdoc-sidebar-group">
+        {{- with .title }}<div class="tsdoc-sidebar-group-title">{{ . }}</div>{{ end }}
+        <ul>
+          {{- range .pages }}
+          <li><a href="{{ .url | relURL }}"{{ if eq (.url | relURL) $page.RelPermalink }} class="active"{{ end }}>{{ .title }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+    </div>
+  </details>
+
+  <article class="tsdoc-content tsdoc">
+    {{ $page.Content }}
+
+    {{- if or $prev $next }}
+    <div class="tsdoc-pagenav">
+      <div class="tsdoc-pagenav-prev">
+        {{- with $prev }}
+        <a href="{{ .url | relURL }}">
+          <span class="tsdoc-pagenav-label">← Previous</span>{{ .title }}
+        </a>
+        {{- end }}
+      </div>
+      <div class="tsdoc-pagenav-next">
+        {{- with $next }}
+        <a href="{{ .url | relURL }}">
+          <span class="tsdoc-pagenav-label">Next →</span>{{ .title }}
+        </a>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </article>
+</div>
+
+{{- if findRE "class=\"mermaid\"" $page.Content }}
+<script src="{{ "js/mermaid.min.js" | relURL }}"></script>
+<script>
+  window.mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#ffffff',
+      primaryBorderColor: '#E0526A',
+      primaryTextColor: '#111111',
+      lineColor: '#555555',
+      fontFamily: 'Roboto, sans-serif'
+    }
+  });
+</script>
+{{- end }}

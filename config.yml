@@ -29,6 +29,9 @@ menu:
         - name: Location
           url: location/
           weight: 6
+        - name: Docs
+          url: triagesim/
+          weight: 7
 
 params:
     description: "UNSW NLP is a research group at UNSW Sydney studying Foundational, Applied, and Inclusive Natural Language Processing."

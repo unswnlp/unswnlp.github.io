@@ -30,6 +30,14 @@
       href="{{ $css.RelPermalink }}"
       integrity="{{ $css.Data.Integrity }}">
 
+{{- /* TriageSim docs — ported content, native theme */}}
+{{- if eq .Section "triagesim" }}
+{{- $tsCss := resources.Get "css/triagesim.css" | fingerprint }}
+<link rel="stylesheet" crossorigin="anonymous"
+      href="{{ $tsCss.RelPermalink }}"
+      integrity="{{ $tsCss.Data.Integrity }}">
+{{- end }}
+
 {{- /* Math */}}
 {{ if or .Page.Params.math .Site.Params.math }}
 {{- partial "math.html" . }}

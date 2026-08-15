@@ -31,6 +31,6 @@ links:
     paper: https://arxiv.org/pdf/2603.10035
     code: https://github.com/dipankarsrirag/triage-sim
     pip:   https://pypi.org/project/triagesim/0.1.1/
-    project: https://www.tribot.co/
+    docs: /triagesim/
 # venue: "NAACL 2025"      # optional—whatever metadata you like
 ---
