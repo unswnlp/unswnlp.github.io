@@ -5,5 +5,5 @@
   see docs/adding-a-docsite.md — no template changes needed.
 */ -}}
 {{- $key := .Params.docSite -}}
-{{- $docsite := index hugo.Data.docsites $key -}}
+{{- $docsite := index site.Data.docsites $key -}}
 {{- return $docsite.groups -}}
