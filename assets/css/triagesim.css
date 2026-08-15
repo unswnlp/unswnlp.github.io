@@ -244,6 +244,8 @@
 .tsdoc div.highlight pre {
   margin: 0;
   padding: 0.9rem 1.05rem;
+  background: none;
+  color: var(--text-body);
 }
 
 .tsdoc div.highlight code {
