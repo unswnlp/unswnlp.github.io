@@ -16,12 +16,12 @@ layers and the schemas that connect them.</p>
     B --&gt;|validated Pydantic model| A
     A --&gt;|NurseOutput / PatientOutput| E[TriageEnv]</code></pre>
 <p>An agent builds a prompt from its persona, the transcript, and the triage
-protocol. The backend turns that prompt into a <strong>schema-validated object</strong> — not
+protocol. The backend turns that prompt into a <strong>schema-validated object</strong>, not
 a string. Nothing downstream ever parses free text.</p>
 <h2 id="output-schemas">Output schemas<a class="headerlink" href="#output-schemas" title="Permanent link">¶</a></h2>
 <p>Both schemas inherit from <code>BaseAgentOutput</code>, which forbids extra fields. If the
 model invents a key, validation fails rather than the key being quietly
-accepted — the comment in the source calls this out as critical, and it is the
+accepted; the comment in the source calls this out as critical, and it is the
 main defence against a model smuggling unsanctioned state into the run.</p>
 <h3 id="patientoutput"><code>PatientOutput</code><a class="headerlink" href="#patientoutput" title="Permanent link">¶</a></h3>
 <table>
@@ -63,7 +63,7 @@ main defence against a model smuggling unsanctioned state into the run.</p>
 </tr>
 <tr>
 <td><code>triage</code></td>
-<td><code>int</code>, 1–5</td>
+<td><code>int</code>, 1-5</td>
 <td>Current predicted triage level. Required on <strong>every</strong> output, not just at the end.</td>
 </tr>
 <tr>
@@ -84,12 +84,12 @@ main defence against a model smuggling unsanctioned state into the run.</p>
 </tbody>
 </table>
 <p>Because <code>triage</code>, <code>confidence</code> and <code>explanation</code> are emitted at every step, the
-<a href="/triagesim/guide/artifacts/">trace</a> records how the decision evolved — including the
+<a href="/triagesim/guide/artifacts/">trace</a> records how the decision evolved, including the
 turn at which the nurse first arrived at the correct level.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>utterance</code> carries the vital request</p>
 <p>There is no separate "which vital" field. For a <code>check_vital</code> action, the
-environment infers the vital from the wording of <code>utterance</code> — so
+environment infers the vital from the wording of <code>utterance</code>, so
 <code>"Let me take your blood pressure"</code> resolves to <code>sbp</code>. See
 <a href="/triagesim/guide/concepts/">Vitals</a>.</p>
 </div>
@@ -190,7 +190,7 @@ validation. Check the model's OpenRouter listing before using it.</p>
 </span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">utterance</span><span class="p">)</span>
 </span></code></pre></div>
 <p>The patient sees only the transcript, its chief complaint, and its pain score.
-It never sees vitals or the true acuity — it can only report what a person in
+It never sees vitals or the true acuity; it can only report what a person in
 that situation would plausibly know and choose to say.</p>
 <h2 id="nurseagent"><code>NurseAgent</code><a class="headerlink" href="#nurseagent" title="Permanent link">¶</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">triagesim.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">NurseAgent</span>
@@ -239,7 +239,7 @@ belief updates from what was just said:</p>
 </span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>These are merged into the environment's belief graph. This is a <em>separate</em> call
-from <code>act</code> — reasoning about what was learned is deliberately not entangled with
+from <code>act</code>; reasoning about what was learned is deliberately not entangled with
 deciding what to do next.</p>
 <h2 id="custom-backends">Custom backends<a class="headerlink" href="#custom-backends" title="Permanent link">¶</a></h2>
 <p>To use a provider other than OpenRouter, subclass <code>BaseLLM</code>:</p>
@@ -271,7 +271,7 @@ deciding what to do next.</p>
 <li><code>generate</code> must return an <strong>instance of the bound output type</strong>, not a
    string, or the environment will reject it with a <code>TypeError</code>.</li>
 <li>Your provider must be able to honour the schema. Prompting for JSON and
-   validating with <code>model_validate_json</code> works, but budget for retries — an
+   validating with <code>model_validate_json</code> works, but budget for retries: an
    unconstrained model will occasionally emit prose.</li>
 </ol>
 <p>Next: <a href="/triagesim/guide/runner/">Running a simulation</a>.</p>

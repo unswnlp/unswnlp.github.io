@@ -1,7 +1,7 @@
 ---
 title: "Evaluating Customized vs. Generalist Transformer-based Models for Legal Contract Classification"
 date: 2026-07-01
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 torwork: true
 authors:
     - "Amrita Singh"
@@ -14,7 +14,7 @@ underlineAuthors:
     - "Aditya Joshi"
 links:
     paper: "https://aclanthology.org/2026.customnlp4u-1.5/"
-venue: "CustomNLP @ ACL 2026"      # optional—whatever metadata you like
+venue: "CustomNLP @ ACL 2026"      # optional, whatever metadata you like
 bibtex:  |
    @inproceedings{singh-etal-2026-evaluating,
     title = "Evaluating Customized vs. Generalist Transformer-based Models for Legal Contract Classification",

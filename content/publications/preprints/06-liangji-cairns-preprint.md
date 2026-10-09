@@ -1,7 +1,7 @@
 ---
 title: "CAIRNS: Balancing Readability and Scientific Accuracy in Climate Adaptation Question Answering"
 date: 2025-12-01
-preprint: true           # <— set to `true` only for preprints
+preprint: true           # <- set to `true` only for preprints
 masterswork: true
 authors:
    - Liangji Kong

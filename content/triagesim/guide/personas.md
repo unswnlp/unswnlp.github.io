@@ -54,7 +54,7 @@ one optional free-text field.</p>
 </tr>
 <tr>
 <td><code>pain_expression</code></td>
-<td>How strongly pain is verbalised — <code>stoic</code> through <code>dramatic</code>.</td>
+<td>How strongly pain is verbalised, from <code>stoic</code> through <code>dramatic</code>.</td>
 </tr>
 <tr>
 <td><code>reactivity_to_clinician_emotion</code></td>
@@ -193,7 +193,7 @@ field you expect.</p>
 <div class="admonition tip">
 <p class="admonition-title">Fields are free-form strings</p>
 <p>None of these fields is an enum. <code>experience_level: "12 years in a rural ED"</code>
-is as valid as <code>"senior"</code> — it is interpolated into the prompt as written.
+is as valid as <code>"senior"</code>; it is interpolated into the prompt as written.
 That flexibility is deliberate, but it also means typos pass validation
 silently.</p>
 </div>
@@ -206,7 +206,7 @@ silently.</p>
 <p>Each function reads a YAML file containing a <strong>list</strong> of mappings and returns a
 list of validated persona objects.</p>
 <p>Missing required fields do not raise. The loader fills any absent required field
-with a default before validation, so a partial persona still constructs — with
+with a default before validation, so a partial persona still constructs, with
 the unspecified traits taking a neutral value rather than the one you meant.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -237,7 +237,7 @@ keep only personas where <strong>every</strong> field matches exactly:</p>
 </span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="p">{</span><span class="s2">"language_proficiency"</span><span class="p">:</span> <span class="s2">"limited"</span><span class="p">,</span> <span class="s2">"trust_in_healthcare"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">},</span>
 </span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>Matching is exact string equality — <code>"Limited"</code> will not match <code>"limited"</code>.
+<p>Matching is exact string equality: <code>"Limited"</code> will not match <code>"limited"</code>.
 Passing a field name that does not exist on the model raises <code>AttributeError</code>,
 which is a useful early failure when building experimental conditions.</p>
 <h2 id="a-worked-example">A worked example<a class="headerlink" href="#a-worked-example" title="Permanent link">¶</a></h2>
@@ -269,7 +269,7 @@ rather than to which personas happened to be drawn.</p>
 <p>Writing hundreds of personas by hand is impractical. The
 <a href="https://github.com/dipankarsrirag/triage-sim">repository</a> includes
 <code>scripts/generate_personas.py</code>, which produces persona YAML files
-programmatically — a useful starting point for building a pool large enough to
+programmatically, a useful starting point for building a pool large enough to
 filter meaningfully.</p>
 <p>Next: <a href="/triagesim/guide/agents/">Agents and LLM backends</a> covers how a persona is turned into
 a prompt.</p>

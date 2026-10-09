@@ -72,7 +72,7 @@ validation.</p>
 </tr>
 </tbody>
 </table>
-<p>By default TriageSim extracts requested vitals with keyword rules — <code>"pulse"</code>
+<p>By default TriageSim extracts requested vitals with keyword rules: <code>"pulse"</code>
 and <code>"heart rate"</code> both map to <code>heartrate</code>, <code>"bp"</code> to <code>sbp</code>, and so on. Turning
 on <code>ENABLE_LLM_DETECTORS</code> adds a model call whenever those rules find nothing,
 which is more robust but slower and more expensive.</p>
@@ -93,6 +93,6 @@ model in addition to its deterministic rules.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">RunnerConfig</span><span class="p">(</span><span class="n">max_turns</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </span></code></pre></div>
 <p>This makes persona sampling and any internal random choices deterministic. It
-does <strong>not</strong> make the language model deterministic — remote sampling is outside
+does <strong>not</strong> make the language model deterministic; remote sampling is outside
 TriageSim's control, so repeated runs with the same seed will still differ in
 wording.</p>

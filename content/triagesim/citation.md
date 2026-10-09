@@ -34,7 +34,7 @@ repository</em> button produces a correctly formatted software citation.</p>
 <p class="admonition-title">Note</p>
 <p>The <code>audio</code> extra depends on XTTS-v2, which is distributed under its own
 model licence with additional restrictions. TriageSim's Apache-2.0 licence
-does not extend to it — see <a href="/triagesim/guide/audio/">Audio rendering</a>.</p>
+does not extend to it; see <a href="/triagesim/guide/audio/">Audio rendering</a>.</p>
 </div>
 <h2 id="intended-use">Intended use<a class="headerlink" href="#intended-use" title="Permanent link">¶</a></h2>
 <div class="admonition warning">

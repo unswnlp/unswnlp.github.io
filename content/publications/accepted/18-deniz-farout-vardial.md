@@ -1,7 +1,7 @@
 ---
 title: "Far Out: Evaluating Language Models on Slang in Australian and Indian English"
 date: 2026-04-08
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Deniz Dilsiz"
     - "Dipankar Srirag"
@@ -16,7 +16,7 @@ grant: 2024googlersp
 
 links:
     paper: "https://aclanthology.org/2026.vardial-1.2.pdf"
-venue: "VarDial @ EACL 2026"      # optional—whatever metadata you like
+venue: "VarDial @ EACL 2026"      # optional, whatever metadata you like
 bibtex:  |
     @inproceedings{dilsiz-etal-2026-far,
     title = "Far Out: Evaluating Language Models on Slang in {A}ustralian and {I}ndian {E}nglish",

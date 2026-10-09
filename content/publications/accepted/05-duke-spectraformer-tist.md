@@ -1,7 +1,7 @@
 ---
 title: "Spectraformer: A Unified Random Feature Framework for Transformer"
 date: 2024-05-24
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 masterswork: true
 authors:
     - "Duke Nguyen"
@@ -17,7 +17,7 @@ links:
     paper: "https://doi.org/10.1145/3768161"
     code: "https://github.com/cruiseresearchgroup/spectraformer"
 # project:   "https://yourlab.org/project"
-venue: "ACM Transactions on Intelligent Systems and Technology"      # optional—whatever metadata you like
+venue: "ACM Transactions on Intelligent Systems and Technology"      # optional, whatever metadata you like
 bibtex:  |
     @article{10.1145/3768161,
     author = {Nguyen, Duke and Yin, Du and Joshi, Aditya and Salim, Flora},

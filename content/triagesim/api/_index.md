@@ -62,7 +62,7 @@ from the module directly:</p>
 </span></code></pre></div>
 </div>
 <h2 id="internal-modules">Internal modules<a class="headerlink" href="#internal-modules" title="Permanent link">¶</a></h2>
-<p><code>triagesim.core</code> contains more than it exports — <code>environment</code>, <code>belief_graph</code>,
+<p><code>triagesim.core</code> contains more than it exports: <code>environment</code>, <code>belief_graph</code>,
 <code>belief_updater</code>, <code>state_store</code>, <code>actions</code>, <code>action_mapper</code>, <code>vitals</code>, and
 <code>llm_detectors</code>. These are documented in the <a href="/triagesim/guide/concepts/">User guide</a>
 where they help explain behaviour, but they are not part of the public API and

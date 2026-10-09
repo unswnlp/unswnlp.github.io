@@ -1,7 +1,7 @@
 ---
 title: 'Evaluation of large language models using an Indian language LGBTI+ lexicon'
 date: 2023-10-19
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Aditya Joshi"
     - "Shruta Rawat"
@@ -13,7 +13,7 @@ underlineAuthors:
 links:
     paper: https://arxiv.org/pdf/2310.17787
 # project:   "https://yourlab.org/project"
-venue: The AI Ethics Journal      # optional—whatever metadata you like
+venue: The AI Ethics Journal      # optional, whatever metadata you like
 bibtex:  |
     @article{Joshi2023,
     title = {Evaluation of Large Language Models Using an Indian Language LGBTI+ Lexicon},

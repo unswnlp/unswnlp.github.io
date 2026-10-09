@@ -6,8 +6,8 @@ docSite: "triagesim"
 
 <h1 id="evaluation-metrics">Evaluation metrics<a class="headerlink" href="#evaluation-metrics" title="Permanent link">¶</a></h1>
 <p><code>triagesim.utils</code> scores a finished run against its ground truth. Every
-function consumes only environment output — the artifact's <code>trace</code>, <code>belief</code>
-and <code>ground_truth</code> — so metrics can be recomputed offline from a saved JSON
+function consumes only environment output (the artifact's <code>trace</code>, <code>belief</code>
+and <code>ground_truth</code>), so metrics can be recomputed offline from a saved JSON
 file, with no model calls and no agent internals.</p>
 <p>The functions degrade gracefully: when something needed is missing they return
 <code>None</code> rather than raising, so a batch job does not die on one malformed run.</p>
@@ -61,7 +61,7 @@ file, with no model calls and no agent internals.</p>
 </span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="s2">"explanation"</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">},</span>      <span class="c1"># explanation_support_metrics</span>
 </span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Note that <code>time_to_first_correct_triage</code> is not a separate top-level key — its
+<p>Note that <code>time_to_first_correct_triage</code> is not a separate top-level key; its
 value is merged into <code>metrics["triage"]["first_correct_turn"]</code>.</p>
 <h2 id="triage_decision_metrics"><code>triage_decision_metrics</code><a class="headerlink" href="#triage_decision_metrics" title="Permanent link">¶</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">triage_decision_metrics</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
@@ -94,7 +94,7 @@ value is merged into <code>metrics["triage"]["first_correct_turn"]</code>.</p>
 <tr>
 <td><code>absolute_error</code></td>
 <td><code>int \| None</code></td>
-<td><code>abs(pred - gt)</code> — how many levels off.</td>
+<td><code>abs(pred - gt)</code>: how many levels off.</td>
 </tr>
 <tr>
 <td><code>over_triage</code></td>
@@ -117,7 +117,7 @@ inverts the intuition:</p>
 </span></code></pre></div>
 <p>A prediction of 1 against a true acuity of 3 gives <code>error = -2</code>, which is
 <strong>over</strong>-triage: the nurse escalated a patient who did not need it. The reverse
-— predicting 4 for a true acuity of 2 — is under-triage, the clinically
+(predicting 4 for a true acuity of 2) is under-triage, the clinically
 dangerous direction.</p>
 <div class="admonition warning">
 <p class="admonition-title">Under-triage is the failure mode that matters</p>
@@ -137,7 +137,7 @@ key wins. Since <code>utterance</code> and <code>end</code> actions record a tri
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">time_to_first_correct_triage</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>
 </span></code></pre></div>
 <p>Returns the turn index at which the nurse <strong>first</strong> stated the correct level, or
-<code>None</code> if it never did — or if <code>acuity</code> is missing.</p>
+<code>None</code> if it never did, or if <code>acuity</code> is missing.</p>
 <p>This measures efficiency separately from accuracy. Two runs can both finish
 correct while one took twelve turns and the other took three.</p>
 <div class="admonition note">
@@ -313,8 +313,8 @@ clinical judgement.</p>
 </table>
 <div class="admonition note">
 <p class="admonition-title">This is a placeholder</p>
-<p>The source marks this function as hooks-only, with faithfulness checks —
-citation overlap, evidence hallucination — listed as future work. It reads
+<p>The source marks this function as hooks-only, with faithfulness checks
+(citation overlap, evidence hallucination) listed as future work. It reads
 the explanation from the final nurse action's <code>action</code> dict, where
 explanations are not stored, so in practice <code>has_explanation</code> will typically
 be <code>False</code> even when the trace contains rich reasoning.</p>
@@ -326,7 +326,7 @@ be <code>False</code> even when the trace contains rich reasoning.</p>
 </span></code></pre></div>
 </div>
 <h2 id="aggregating-across-runs">Aggregating across runs<a class="headerlink" href="#aggregating-across-runs" title="Permanent link">¶</a></h2>
-<p>Single runs are noisy — the models sample, so the same configuration produces
+<p>Single runs are noisy: the models sample, so the same configuration produces
 different dialogues. Aggregate before drawing conclusions:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>

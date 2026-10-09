@@ -93,7 +93,7 @@ pairings.</p>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">patient</span> <span class="o">=</span> <span class="n">PatientAgent</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">patient_llm</span><span class="p">,</span> <span class="n">persona</span><span class="o">=</span><span class="n">patient_persona</span><span class="p">)</span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">nurse</span> <span class="o">=</span> <span class="n">NurseAgent</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">nurse_llm</span><span class="p">,</span> <span class="n">persona</span><span class="o">=</span><span class="n">nurse_persona</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">"esi"</span><span class="p">)</span>
 </span></code></pre></div>
-<p><code>algorithm</code> selects the triage protocol the nurse reasons with — <code>"esi"</code> for
+<p><code>algorithm</code> selects the triage protocol the nurse reasons with: <code>"esi"</code> for
 the Emergency Severity Index or <code>"ats"</code> for the Australasian Triage Scale.
 Both produce a level from 1 to 5, but the reasoning prompt differs.</p>
 <h2 id="6-run">6. Run<a class="headerlink" href="#6-run" title="Permanent link">¶</a></h2>
@@ -113,7 +113,7 @@ Both produce a level from 1 to 5, but the reasoning prompt differs.</p>
 <div class="admonition tip">
 <p class="admonition-title">Start small</p>
 <p><code>max_turns</code> defaults to <code>6</code>. Each turn is at least two model calls, so
-raise it deliberately — a 20-turn run costs roughly three times a 6-turn
+raise it deliberately; a 20-turn run costs roughly three times a 6-turn
 one.</p>
 </div>
 <h2 id="7-inspect-the-result">7. Inspect the result<a class="headerlink" href="#7-inspect-the-result" title="Permanent link">¶</a></h2>
@@ -145,17 +145,17 @@ one.</p>
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>Understand the loop</strong> — how the environment, belief state and nurse
+<p><strong>Understand the loop</strong>: how the environment, belief state and nurse
     micro-turns fit together.</p>
 <p><a href="/triagesim/guide/concepts/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Core concepts</a></p>
 </li>
 <li>
-<p><strong>Vary the population</strong> — build larger persona pools and filter them into
+<p><strong>Vary the population</strong>: build larger persona pools and filter them into
     experimental conditions.</p>
 <p><a href="/triagesim/guide/personas/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Personas</a></p>
 </li>
 <li>
-<p><strong>Scale up</strong> — persist runs to Redis instead of process memory.</p>
+<p><strong>Scale up</strong>: persist runs to Redis instead of process memory.</p>
 <p><a href="/triagesim/guide/runner/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Running a simulation</a></p>
 </li>
 </ul>

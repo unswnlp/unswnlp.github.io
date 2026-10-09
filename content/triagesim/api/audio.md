@@ -11,7 +11,7 @@ docSite: "triagesim"
 <div class="admonition note">
 <p class="admonition-title">Documented by hand</p>
 <p>This page is written manually rather than generated, because importing the
-module requires <code>torch</code> and <code>TTS</code> — heavy dependencies that the
+module requires <code>torch</code> and <code>TTS</code>, heavy dependencies that the
 documentation build does not install.</p>
 </div>
 <p>See <a href="/triagesim/guide/audio/">Audio rendering</a> for worked examples.</p>
@@ -50,7 +50,7 @@ from <code>triagesim.audio.renderer</code> as shown above.</p>
 <p>Selects a device and loads the model. On Apple Silicon it also sets
 <code>torch.set_float32_matmul_precision("high")</code>. GPU acceleration is passed to the
 underlying <code>TTS</code> object only when the device is CUDA.</p>
-<p>Model loading is expensive — construct one renderer and reuse it.</p>
+<p>Model loading is expensive; construct one renderer and reuse it.</p>
 <p><strong>Attributes</strong></p>
 <table>
 <thead>
@@ -97,19 +97,19 @@ arguments are keyword-only.</p>
 <tr>
 <td><code>text</code></td>
 <td><code>str</code></td>
-<td>—</td>
+<td>-</td>
 <td>Text to synthesise.</td>
 </tr>
 <tr>
 <td><code>speaker_wav</code></td>
 <td><code>str \| Path</code></td>
-<td>—</td>
+<td>-</td>
 <td>Reference recording to clone.</td>
 </tr>
 <tr>
 <td><code>out_path</code></td>
 <td><code>str \| Path</code></td>
-<td>—</td>
+<td>-</td>
 <td>Destination WAV path. Parent directories are created.</td>
 </tr>
 <tr>

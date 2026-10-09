@@ -8,8 +8,8 @@ docSite: "triagesim"
 <p><strong>A Python framework for generating synthetic, multi-speaker spoken dialogues
 for emergency department triage.</strong></p>
 <p>TriageSim turns structured clinical vignettes into realistic nurse ↔ patient
-conversations. A ground-truth electronic health record — chief complaint,
-vitals, pain score, true acuity — is hidden from both agents. The nurse agent
+conversations. A ground-truth electronic health record (chief complaint,
+vitals, pain score, true acuity) is hidden from both agents. The nurse agent
 must <em>elicit</em> that information through dialogue, decide which vitals to check,
 log red flags, and commit to a triage level. The result is paired
 <strong>structured EHR → dialogue</strong> data with a full record of how the decision was
@@ -21,8 +21,8 @@ reached.</p>
 <p>Evaluating speech and language systems in clinical settings is hard: real
 triage recordings are scarce, sensitive, and almost never paired with reliable
 ground truth. TriageSim generates that pairing under controlled conditions, so
-you can vary one factor at a time — the patient's language proficiency, the
-nurse's risk tolerance, the underlying model — and measure what changes.</p>
+you can vary one factor at a time (the patient's language proficiency, the
+nurse's risk tolerance, the underlying model) and measure what changes.</p>
 <p>Because the ground truth is known by construction, every run is scorable. The
 framework ships metrics for triage accuracy, red-flag detection, belief
 coverage, and how well the nurse's stated reasoning is supported by what was
@@ -48,7 +48,7 @@ selected per nurse agent and reflected in its reasoning prompt.</p>
 <li>
 <p><span class="twemoji lg middle"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg></span> <strong>Persona conditioning</strong></p>
 <hr/>
-<p>Patient and nurse personas defined in YAML — ethnicity, recall accuracy,
+<p>Patient and nurse personas defined in YAML: ethnicity, recall accuracy,
 pain expression, guideline adherence, verbosity, and more.</p>
 <p><a href="/triagesim/guide/personas/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Personas</a></p>
 </li>
@@ -56,7 +56,7 @@ pain expression, guideline adherence, verbosity, and more.</p>
 <p><span class="twemoji lg middle"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h6v4H3zm12 7h6v4h-6zm0 7h6v4h-6zm-2-4H7v5h6v2H5V9h2v2h6z"></path></svg></span> <strong>Replayable artifacts</strong></p>
 <hr/>
 <p>Every run returns dialogue history, a per-turn cognition trace, the final
-belief state, and logged red flags — persisted in memory or Redis.</p>
+belief state, and logged red flags, persisted in memory or Redis.</p>
 <p><a href="/triagesim/guide/artifacts/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Run artifacts</a></p>
 </li>
 <li>

@@ -8,7 +8,7 @@ docSite: "triagesim"
 <p>TriageSim can turn a finished dialogue into multi-speaker speech using
 <a href="https://github.com/coqui-ai/TTS">XTTS-v2</a>, giving nurse and patient distinct
 cloned voices. This closes the loop from structured EHR to spoken data.</p>
-<p>Audio is entirely optional — the simulation and metrics work without it.</p>
+<p>Audio is entirely optional; the simulation and metrics work without it.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"triagesim[audio]"</span>
 </span></code></pre></div>
@@ -49,9 +49,9 @@ reload the model every time.</p>
 <h3 id="device-selection">Device selection<a class="headerlink" href="#device-selection" title="Permanent link">¶</a></h3>
 <p>The device is chosen automatically at construction, in order of preference:</p>
 <ol>
-<li><code>cuda</code> — if <code>torch.cuda.is_available()</code></li>
-<li><code>mps</code> — Apple Silicon; also sets <code>torch.set_float32_matmul_precision("high")</code></li>
-<li><code>cpu</code> — the fallback</li>
+<li><code>cuda</code>: if <code>torch.cuda.is_available()</code></li>
+<li><code>mps</code>: Apple Silicon; also sets <code>torch.set_float32_matmul_precision("high")</code></li>
+<li><code>cpu</code>: the fallback</li>
 </ol>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">renderer</span> <span class="o">=</span> <span class="n">SpeechRenderer</span><span class="p">()</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">renderer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># 'cuda', 'mps', or 'cpu'</span>
@@ -81,19 +81,19 @@ slower than real time.</p>
 <tr>
 <td><code>text</code></td>
 <td><code>str</code></td>
-<td>—</td>
+<td>-</td>
 <td>Text to synthesise.</td>
 </tr>
 <tr>
 <td><code>speaker_wav</code></td>
 <td><code>str \| Path</code></td>
-<td>—</td>
+<td>-</td>
 <td>Reference recording to clone the voice from.</td>
 </tr>
 <tr>
 <td><code>out_path</code></td>
 <td><code>str \| Path</code></td>
-<td>—</td>
+<td>-</td>
 <td>Destination WAV file.</td>
 </tr>
 <tr>
@@ -106,7 +106,7 @@ slower than real time.</p>
 </table>
 <p>Returns the output <code>Path</code>. Parent directories are created automatically, so you
 do not need to <code>mkdir</code> first.</p>
-<p>Reference clips should be clean speech of roughly 6–20 seconds. Background
+<p>Reference clips should be clean speech of roughly 6-20 seconds. Background
 noise in the reference is reproduced in the clone.</p>
 <h2 id="rendering-a-full-dialogue">Rendering a full dialogue<a class="headerlink" href="#rendering-a-full-dialogue" title="Permanent link">¶</a></h2>
 <p>Walk the artifact's <code>history</code>, giving each speaker its own reference voice:</p>
@@ -139,7 +139,7 @@ noise in the reference is reproduced in the clone.</p>
 </span><span id="__span-5-27"><a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a>
 </span><span id="__span-5-28"><a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"rendered </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rendered</span><span class="p">)</span><span class="si">}</span><span class="s2"> utterances to </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Skipping entries whose <code>actor</code> is not in <code>VOICES</code> filters out system events —
+<p>Skipping entries whose <code>actor</code> is not in <code>VOICES</code> filters out system events:
 released vitals and the <code>triage_end</code> marker have no <code>utterance</code> key and would
 raise <code>KeyError</code>.</p>
 <p>Numbering files by their index in <code>history</code> preserves turn order, which matters
@@ -161,7 +161,7 @@ when you need utterance durations to stay within a budget.</p>
 <div class="admonition danger">
 <p class="admonition-title">Review the model licence and obtain voice consent</p>
 <p>XTTS-v2 is distributed under the Coqui Public Model License, which carries
-its own restrictions — including on commercial use. TriageSim's Apache-2.0
+its own restrictions, including on commercial use. TriageSim's Apache-2.0
 licence does not extend to it. Review the model's terms before using
 synthesised output in a publication or product.</p>
 <p>Voice cloning also raises consent questions independent of licensing. Use

@@ -31,7 +31,7 @@
       href="{{ $css.RelPermalink }}"
       integrity="{{ $css.Data.Integrity }}">
 
-{{- /* Ported project docs (e.g. /triagesim/) — see docs/adding-a-docsite.md */}}
+{{- /* Ported project docs (e.g. /triagesim/) - see docs/adding-a-docsite.md */}}
 {{- if eq .Type "docsite" }}
 {{- $docsiteCss := resources.Get "css/docsite.css" | fingerprint }}
 <link rel="stylesheet" crossorigin="anonymous"

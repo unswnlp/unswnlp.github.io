@@ -1,7 +1,7 @@
 ---
 title: "MedArabs at AbjadMed: Arabic Medical Text Classification via Data- and Algorithm-Level Fusion"
 date: 2026-04-08
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Amrita Singh"
 
@@ -10,7 +10,7 @@ underlineAuthors:
 
 links:
     paper: "https://aclanthology.org/2026.abjadnlp-1.12.pdf"
-venue: "AbjadNLP @ EACL 2026"      # optional—whatever metadata you like
+venue: "AbjadNLP @ EACL 2026"      # optional, whatever metadata you like
 bibtex:  |
     @inproceedings{singh-2026-medarabs,
     title = "{M}ed{A}rabs at {A}bjad{M}ed: {A}rabic Medical Text Classification via Data- and Algorithm-Level Fusion",

@@ -1,7 +1,7 @@
 ---
 title: "TRACE: Textual Relevance Augmentation and Contextual Encoding for Multimodal Hate Detection"
 date: 2026-01-26
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Girish A Koushik"
     - "Helen Treharne"
@@ -13,7 +13,7 @@ underlineAuthors:
 links:
     paper: "https://ojs.aaai.org/index.php/AAAI/article/view/41220/45181"
 # project:   "https://yourlab.org/project"
-venue: "AAAI 2026"      # optional—whatever metadata you like
+venue: "AAAI 2026"      # optional, whatever metadata you like
 bibtex:  |
     @inproceedings{koushik2026trace,
     title={TRACE: Textual Relevance Augmentation and Contextual Encoding for Multimodal Hate Detection},

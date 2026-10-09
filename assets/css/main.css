@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   UNSW NLP — Custom Theme
+   UNSW NLP - Custom Theme
    Clancy (headings) · Roboto (body) · Roboto Mono (code)
    ═══════════════════════════════════════════════════════ */
 
@@ -64,13 +64,13 @@
 /* ── 2. Variables ── */
 
 :root {
-  /* Site is light-only by design — stop browsers from applying their own
+  /* Site is light-only by design - stop browsers from applying their own
      auto-dark styling (e.g. to <pre>/<code>) when the OS is in dark mode. */
   color-scheme: light;
 
   /* Brand */
-  --navy:        #002060;   /* UNSW navy — header/footer */
-  --yellow:      #FFD100;   /* UNSW yellow — active nav, accents */
+  --navy:        #002060;   /* UNSW navy - header/footer */
+  --yellow:      #FFD100;   /* UNSW yellow - active nav, accents */
   --yellow-dim:  #c9a500;   /* hover state on dark bg */
   --purple:      #E0526A;   /* links, accents */
   --purple-light:#C43D58;   /* link hover (darkened for contrast) */
@@ -88,6 +88,9 @@
   /* Spacing */
   --gap:    24px;
   --radius: 8px;
+
+  /* Hover bold: a thin outline in the text colour thickens glyphs without changing their width, so text never reflows */
+  --hover-bold: 0.45px;
 
   /* Layout */
   --max-width:     960px;
@@ -149,13 +152,13 @@ a {
 a:hover {
   color: var(--purple-light);
   text-decoration: none;
-  font-weight: 700;
+  -webkit-text-stroke: var(--hover-bold) currentColor;
 }
 
 p { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
 
-/* No color here — strong inside a link must not override the link's coral */
+/* No color here - strong inside a link must not override the link's coral */
 strong { font-weight: 700; }
 em     { font-style: italic; }
 
@@ -286,8 +289,9 @@ th {
 }
 
 .nav-menu li a:hover {
-  color: var(--text-primary);
+  color: var(--purple);
   text-decoration: none;
+  -webkit-text-stroke: 0;
 }
 
 .nav-menu li a.active {
@@ -320,9 +324,9 @@ th {
 
 .footer-sep { color: var(--text-faint); }
 .site-footer a { color: var(--text-muted); }
-.site-footer a:hover { color: var(--purple); font-weight: 700; }
+.site-footer a:hover { color: var(--purple); -webkit-text-stroke: var(--hover-bold) currentColor; }
 
-/* ── 8. Homepage — hero ── */
+/* ── 8. Homepage - hero ── */
 
 .hero {
   display: flex;
@@ -343,7 +347,7 @@ th {
   width: 150px;
   height: 150px;
   object-fit: contain;
-  /* transparent PNG — blends naturally, no shadow or frame */
+  /* transparent PNG - blends naturally, no shadow or frame */
 }
 
 .hero-title {
@@ -380,11 +384,11 @@ th {
   color: var(--purple-light);
 }
 
-/* ── 10. Homepage — news table ── */
+/* ── 10. Homepage - news table ── */
 
 .home-news { width: 100%; margin-top: 2rem; }
 
-/* section-label — shared with selected pubs and personal site style */
+/* section-label - shared with selected pubs and personal site style */
 .section-label {
   font-size: 0.85rem;
   font-weight: 600;
@@ -451,6 +455,22 @@ th {
 .news-content a:hover { text-decoration-color: var(--purple); color: var(--purple); }
 .news-content strong { font-weight: 600; color: var(--text-primary); }
 
+/* Hover/focus "i" icon that reveals an image below the news item */
+.news-content { position: relative; }
+.news-preview { vertical-align: -0.1em; cursor: help; }
+.news-preview-img {
+  position: absolute; z-index: 20; left: 0; top: 100%;
+  width: min(480px, 100%); height: auto;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  background: var(--white);
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+  pointer-events: none;
+}
+.news-preview:hover .news-preview-img,
+.news-preview:focus .news-preview-img { opacity: 1; visibility: visible; transform: none; }
+
 .news-more {
   text-align: right;
   margin-top: 0.75rem;
@@ -482,7 +502,7 @@ th {
   padding: 1.1rem 1.15rem 1rem;
   background: var(--off-white);
   overflow: hidden;
-  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+  transition: box-shadow 0.15s, border-color 0.15s;
 }
 
 .funding-card::before {
@@ -497,7 +517,6 @@ th {
 .funding-card:hover {
   box-shadow: 0 4px 14px rgba(0,32,96,0.08);
   border-color: var(--purple);
-  transform: translateY(-2px);
 }
 
 .funding-card-header {
@@ -651,7 +670,7 @@ th {
   background: var(--text-faint);
 }
 
-/* Partner links — underlined passively, bold + purple on hover, like news links */
+/* Partner links - underlined passively, bold + purple on hover, like news links */
 .grant-partner-link,
 .funding-card-deliverables li a {
   color: var(--text-primary);
@@ -663,7 +682,7 @@ th {
 
 .grant-partner-link:hover,
 .funding-card-deliverables li a:hover {
-  font-weight: 600;
+  -webkit-text-stroke: var(--hover-bold) currentColor;
   text-decoration-color: var(--purple);
   color: var(--purple);
 }
@@ -684,7 +703,7 @@ th {
   color: var(--purple-light);
 }
 
-/* ── Grants list page — expandable banners ── */
+/* ── Grants list page - expandable banners ── */
 
 .grant-banner-list {
   display: flex;
@@ -766,7 +785,7 @@ th {
 
 .gallery-panel { display: flex; flex-direction: column; gap: 0.75rem; }
 
-/* The slideshow stage — fixed landscape frame */
+/* The slideshow stage - fixed landscape frame */
 .gallery-stage {
   position: relative;
   width: 100%;
@@ -805,7 +824,7 @@ th {
   line-height: 1.35;
 }
 
-/* Controls row — sits below the stage */
+/* Controls row - sits below the stage */
 .gallery-controls {
   display: flex;
   align-items: center;
@@ -814,7 +833,7 @@ th {
   padding: 0.35rem 0 0.1rem;
 }
 
-/* Prev / Next — thin SVG chevrons, no background */
+/* Prev / Next - thin SVG chevrons, no background */
 .gallery-prev,
 .gallery-next {
   background: none;
@@ -1260,13 +1279,7 @@ th {
 
 .topic-tip {
   position: relative;
-  display: inline-block;
-  font-size: 0.82rem;
-  color: var(--text-faint);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: var(--text-faint);
-  text-underline-offset: 2px;
+  vertical-align: -0.1em;
   cursor: default;
 }
 
@@ -1288,7 +1301,8 @@ th {
   cursor: default;
 }
 
-.topic-tip:hover .topic-bubble { display: block; }
+.topic-tip:hover .topic-bubble,
+.topic-tip:focus .topic-bubble { display: block; }
 
 .topic-bubble ul {
   margin: 0;
@@ -1308,7 +1322,7 @@ th {
 }
 
 .topic-bubble li::before {
-  content: '–';
+  content: '-';
   position: absolute;
   left: 0;
   color: var(--text-faint);
@@ -1616,7 +1630,7 @@ th {
 }
 
 .pub-card-title a { color: var(--text-primary); font-weight: 500; }
-.pub-card-title a:hover { color: var(--purple); font-weight: 500; }
+.pub-card-title a:hover { color: var(--purple); font-weight: 500; -webkit-text-stroke: 0; }
 
 .pub-card-authors {
   font-size: 1rem;
@@ -1694,7 +1708,7 @@ th {
 }
 
 .pub-title a { color: var(--text-primary); font-weight: 500; }
-.pub-title a:hover { color: var(--purple); font-weight: 500; }
+.pub-title a:hover { color: var(--purple); font-weight: 500; -webkit-text-stroke: 0; }
 
 .pub-authors {
   font-size: 1rem;
@@ -1746,6 +1760,7 @@ th {
   color: var(--purple);
   border-color: var(--purple);
   font-weight: 400;
+  -webkit-text-stroke: 0;
 }
 
 .pub-note {

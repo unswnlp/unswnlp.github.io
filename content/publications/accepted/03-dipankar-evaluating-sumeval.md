@@ -1,7 +1,7 @@
 ---
 title: 'Evaluating Dialect Robustness of Language Models via Conversation Understanding'
 date: 2025-01-28
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 masterswork: true
 authors:
     - "Dipankar Srirag"
@@ -15,7 +15,7 @@ underlineAuthors:
 links:
     paper: https://aclanthology.org/2025.sumeval-2.3.pdf
 # project:   "https://yourlab.org/project"
-venue: "SUMEval @ COLING 2025"      # optional—whatever metadata you like
+venue: "SUMEval @ COLING 2025"      # optional, whatever metadata you like
 bibtex: |
     @inproceedings{srirag-etal-2025-evaluating,
         title = "Evaluating Dialect Robustness of Language Models via Conversation Understanding",

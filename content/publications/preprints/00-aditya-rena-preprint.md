@@ -1,7 +1,7 @@
 ---
 title: 'Relation Extraction from News Articles (RENA): A Tool for Epidemic Surveillance'
 date: 2023-10-31
-preprint: true           # <— set to `true` only for preprints
+preprint: true           # <- set to `true` only for preprints
 authors:
     - Jaeff Hong
     - Duong Dung

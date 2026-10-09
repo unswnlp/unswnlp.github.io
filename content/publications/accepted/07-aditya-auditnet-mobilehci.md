@@ -1,7 +1,7 @@
 ---
 title: 'AuditNet: A Conversational AI-based Security Assistant'
 date: 2024-07-19
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Shohreh Deldari"
     - "Mohammd Goudrazi"
@@ -14,7 +14,7 @@ underlineAuthors:
 links:
     paper: https://dl.acm.org/doi/10.1145/3640471.3680444
 # project:   "https://yourlab.org/project"
-venue: MobileHCI      # optional—whatever metadata you like
+venue: MobileHCI      # optional, whatever metadata you like
 bibtex:  |
     @inproceedings{10.1145/3640471.3680444,
     author = {Deldari, Shohreh and Goudarzi, Mohammad and Joshi, Aditya and Shaghaghi, Arash and Finn, Simon and Salim, Flora D. and Jha, Sanjay},

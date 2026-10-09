@@ -1,0 +1,4 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+<span class="news-preview tip-icon" tabindex="0" role="button" aria-label="Show image: {{ $alt }}"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11"/><circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none"/></svg><img class="news-preview-img" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy"></span>
+{{- /**/ -}}

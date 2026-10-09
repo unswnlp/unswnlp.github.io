@@ -20,7 +20,7 @@ documentation much easier to read.</p>
 </span></code></pre></div>
 <p>Neither agent receives this dictionary. The patient agent is given only
 <code>chiefcomplaint</code> and <code>pain</code>, and must express them in character. The nurse
-agent is given nothing at all — it starts from an empty transcript.</p>
+agent is given nothing at all; it starts from an empty transcript.</p>
 <p>Vitals are <strong>released by the environment</strong>, not spoken by the patient: when the
 nurse takes a <code>check_vital</code> action, the environment reads the true value out of
 <code>ground_truth["vitals"]</code> and appends it to the transcript as a system event.
@@ -38,8 +38,8 @@ and persists everything through a <code>StateStore</code>. Its three methods are
 whose turn it is. Everything that could affect a triage outcome lives in the
 environment, where it is schema-validated and recorded.</p>
 <h2 id="structured-actions-not-free-text">Structured actions, not free text<a class="headerlink" href="#structured-actions-not-free-text" title="Permanent link">¶</a></h2>
-<p>The nurse model does not act directly. It emits a <code>NurseOutput</code> — a Pydantic
-model — which <code>map_nurse_output_to_action</code> converts into exactly one executable
+<p>The nurse model does not act directly. It emits a <code>NurseOutput</code> (a Pydantic
+model), which <code>map_nurse_output_to_action</code> converts into exactly one executable
 action:</p>
 <table>
 <thead>
@@ -87,7 +87,7 @@ run state.</p>
 <p>Only five vitals exist, defined as <code>ALLOWED_VITALS</code>:</p>
 <p><code>temperature</code>, <code>heartrate</code>, <code>resprate</code>, <code>o2sat</code>, <code>sbp</code></p>
 <p>Which one the nurse asked for is inferred from its utterance by keyword
-matching — <code>"pulse"</code> and <code>"heart rate"</code> both resolve to <code>heartrate</code>, <code>"bp"</code> and
+matching: <code>"pulse"</code> and <code>"heart rate"</code> both resolve to <code>heartrate</code>, <code>"bp"</code> and
 <code>"blood pressure"</code> to <code>sbp</code>, <code>"oxygen"</code> and <code>"saturation"</code> to <code>o2sat</code>, and so
 on. If several are mentioned, the <strong>first</strong> match wins; if none match, the
 vital resolves to <code>None</code>.</p>
@@ -106,12 +106,12 @@ survives rather than being silently resolved.</p>
 <p>Two things are tracked as special sets: <code>vitals_known</code> (which vitals have been
 released) and <code>red_flags_logged</code> (flags the nurse explicitly logged).</p>
 <p><code>to_observation()</code> flattens the graph into the lossy, provenance-free view that
-agents and metrics consume — this is what appears under the <code>belief</code> key of a
+agents and metrics consume; this is what appears under the <code>belief</code> key of a
 run artifact.</p>
 <h2 id="turn-structure">Turn structure<a class="headerlink" href="#turn-structure" title="Permanent link">¶</a></h2>
 <p>The loop is asymmetric, and this catches people out:</p>
 <p><strong>The nurse may act several times before the patient responds.</strong> Checking a
-vital or logging a red flag is a <em>micro-turn</em> — it does not advance the turn
+vital or logging a red flag is a <em>micro-turn</em>: it does not advance the turn
 counter or hand over control. Only a nurse <code>utterance</code> does that.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>turn 0  nurse: check_vital  -&gt; system releases heartrate = 112   (micro-turn)
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>turn 0  nurse: log_red_flag -&gt; "tachycardia" recorded            (micro-turn)
@@ -148,7 +148,7 @@ is the most acute.</p>
 <p>Both scales run from 1 to 5 and <code>NurseOutput.triage</code> is constrained to that
 range, but the reasoning prompt differs substantially. Because <strong>lower means
 more urgent</strong> on both, predicting a number below the true acuity is
-<em>over</em>-triage — a convention that matters when reading
+<em>over</em>-triage, a convention that matters when reading
 <a href="/triagesim/guide/metrics/">the metrics</a>.</p>
 <h2 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">¶</a></h2>
 <p>All state lives behind the <code>StateStore</code> interface, under keys namespaced by run:</p>

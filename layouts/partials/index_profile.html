@@ -42,7 +42,8 @@
 {{ end }}
 
 {{/* ── SELECTED PUBLICATIONS ── */}}
-{{ $selected := first 5 (where site.RegularPages "Params.featured" true).ByDate.Reverse }}
+{{/* `featured: N` in a paper's front matter ranks it here (1 = top) */}}
+{{ $selected := first 5 (sort (where site.RegularPages "Params.featured" "ge" 1) "Params.featured") }}
 {{ if $selected }}
 <section class="home-selected-pubs">
   <p class="section-label">Selected Publications</p>
@@ -68,7 +69,7 @@
 {{/* ── PHOTO GALLERIES (side by side) ── */}}
 <section class="photo-galleries">
 
-  {{/* — Group at Conferences — */}}
+  {{/* - Group at Conferences - */}}
   <div class="gallery-panel" id="conf-gallery">
     <h2 class="home-section-heading">Group at Conferences</h2>
     <div class="gallery-stage">
@@ -104,7 +105,7 @@
     {{- end }}
   </div>
 
-  {{/* — Group Outings — */}}
+  {{/* - Group Outings - */}}
   <div class="gallery-panel" id="out-gallery">
     <h2 class="home-section-heading">Group Outings</h2>
     <div class="gallery-stage">

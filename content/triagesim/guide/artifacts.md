@@ -6,7 +6,7 @@ docSite: "triagesim"
 
 <h1 id="run-artifacts">Run artifacts<a class="headerlink" href="#run-artifacts" title="Permanent link">¶</a></h1>
 <p><code>TriageRunner.run()</code> returns a single dictionary containing everything that
-happened. It is plain JSON-serialisable data — no live objects — so it can be
+happened. It is plain JSON-serialisable data (no live objects), so it can be
 written to disk, shipped elsewhere, and analysed long after the run finished.</p>
 <h2 id="top-level-keys">Top-level keys<a class="headerlink" href="#top-level-keys" title="Permanent link">¶</a></h2>
 <table>
@@ -68,7 +68,7 @@ written to disk, shipped elsewhere, and analysed long after the run finished.</p
 </span></code></pre></div>
 <p><code>turn</code> counts <strong>patient</strong> turns. Comparing it against <code>max_turns</code> tells you
 whether the run ended naturally or was cut short: if <code>turn</code> is well below
-<code>max_turns</code> and <code>done</code> is <code>true</code>, the nurse chose to end — or the step safety
+<code>max_turns</code> and <code>done</code> is <code>true</code>, the nurse chose to end, or the step safety
 cap tripped.</p>
 <h2 id="history"><code>history</code><a class="headerlink" href="#history" title="Permanent link">¶</a></h2>
 <p>The transcript, in order. Three entry shapes appear, distinguished by <code>actor</code>.</p>
@@ -118,7 +118,7 @@ cap tripped.</p>
 </span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"[Triage ended]"</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="trace"><code>trace</code><a class="headerlink" href="#trace" title="Permanent link">¶</a></h2>
-<p>One entry per <strong>nurse action</strong> — including micro-turns that produced no speech.
+<p>One entry per <strong>nurse action</strong>, including micro-turns that produced no speech.
 This is the cognition record, and it is where most analysis happens.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">{</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nt">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -167,7 +167,7 @@ This is the cognition record, and it is where most analysis happens.</p>
 </tr>
 <tr>
 <td><code>red_flags_proposed</code></td>
-<td>Flags the model proposed — <strong>before</strong> environment deduplication.</td>
+<td>Flags the model proposed, <strong>before</strong> environment deduplication.</td>
 </tr>
 </tbody>
 </table>
@@ -235,8 +235,8 @@ the graph deliberately preserves competing values rather than resolving them.</p
 </table>
 <p>Two keys are always present and are <strong>not</strong> lists of belief items:</p>
 <ul>
-<li><code>vitals_known</code> — sorted list of released vital names</li>
-<li><code>red_flags_logged</code> — sorted list of accepted red flags</li>
+<li><code>vitals_known</code>: sorted list of released vital names</li>
+<li><code>red_flags_logged</code>: sorted list of accepted red flags</li>
 </ul>
 <p>Slot names are whatever the belief detectors produced, with two renames applied
 on the way out: <code>associated_symptom</code> becomes <code>associated_symptoms</code>, and
@@ -244,7 +244,7 @@ on the way out: <code>associated_symptom</code> becomes <code>associated_symptom
 <code>.get()</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">The observation view is lossy</p>
-<p><code>belief</code> drops the evidence graph — the quotes supporting each value and the
+<p><code>belief</code> drops the evidence graph: the quotes supporting each value and the
 slot-to-evidence edges. That provenance exists in the environment's
 <code>BeliefGraph</code> but is not included in the artifact.</p>
 </div>
@@ -259,7 +259,7 @@ slot-to-evidence edges. That provenance exists in the environment's
 <p>Everything is JSON-native, so no custom encoder is needed. Reloading:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">artifact</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
 </span></code></pre></div>
-<p>A saved artifact is all <a href="/triagesim/guide/metrics/">the metrics</a> require — you can score a
+<p>A saved artifact is all <a href="/triagesim/guide/metrics/">the metrics</a> require; you can score a
 batch of runs offline without touching a model:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>

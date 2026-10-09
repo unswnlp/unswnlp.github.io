@@ -62,9 +62,9 @@ complete, replayable artifact.</p>
 </table>
 <div class="admonition warning">
 <p class="admonition-title"><code>max_turns</code> defaults to 6</p>
-<p>Six patient turns is short for a realistic triage encounter — enough to
+<p>Six patient turns is short for a realistic triage encounter: enough to
 smoke-test a setup, rarely enough to reach a confident decision. Most real
-experiments want 15–25.</p>
+experiments want 15-25.</p>
 </div>
 <h2 id="triagerunner"><code>TriageRunner</code><a class="headerlink" href="#triagerunner" title="Permanent link">¶</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">triagesim</span><span class="w"> </span><span class="kn">import</span> <span class="n">TriageRunner</span>
@@ -150,7 +150,7 @@ by <a href="/triagesim/guide/metrics/">the metrics</a>.</p>
 </ol>
 <h3 id="the-safety-cap">The safety cap<a class="headerlink" href="#the-safety-cap" title="Permanent link">¶</a></h3>
 <p>Beyond <code>max_turns</code>, the loop is bounded by <code>max_turns * 4</code> total nurse-plus-patient
-steps. This guarantees termination if an agent gets stuck — for example a nurse
+steps. This guarantees termination if an agent gets stuck, for example a nurse
 that requests vitals indefinitely without ever speaking. With the default
 <code>max_turns=6</code> that is 24 steps.</p>
 <p>If your runs consistently stop early with few patient turns, the cap is the
@@ -194,7 +194,7 @@ constructing the store yourself:</p>
 </span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>triage:{run_id}:red_flags
 </span></code></pre></div>
 <p>Keeping the <code>run_id</code> lets you inspect a completed run later without re-running
-it — useful when a batch of simulations takes hours and you want to analyse
+it, which is useful when a batch of simulations takes hours and you want to analyse
 results incrementally.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -1,7 +1,7 @@
 ---
 title: "BAMBINO-LM: (Bilingual-)Human-Inspired Continual Pre-training of BabyLM"
 date: 2024-08-01
-preprint: false           # <— set to `true` only for preprints
+preprint: false           # <- set to `true` only for preprints
 authors:
     - "Zhewen Shen"
     - "Aditya Joshi"
@@ -16,7 +16,7 @@ underlineAuthors:
 links:
     paper: "https://aclanthology.org/2024.cmcl-1.1.pdf"
 # project:   "https://yourlab.org/project"
-venue: "CMCL @ ACL 2024"      # optional—whatever metadata you like
+venue: "CMCL @ ACL 2024"      # optional, whatever metadata you like
 bibtex:  |
     @inproceedings{shen-etal-2024-bambino,
     title = "{BAMBINO}-{LM}: (Bilingual-)Human-Inspired Continual Pre-training of {B}aby{LM}",

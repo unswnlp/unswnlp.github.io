@@ -46,6 +46,6 @@ Enforces JSON-only, structured communication.</p>
 </div>
 </div>
 </div><h2 id="internal-modules">Internal modules<a class="headerlink" href="#internal-modules" title="Permanent link">¶</a></h2>
-<p>The rest of <code>triagesim.core</code> — the environment, belief graph, state stores and
-action mapping — is internal and not re-exported. Its behaviour is described in
+<p>The rest of <code>triagesim.core</code> (the environment, belief graph, state stores and
+action mapping) is internal and not re-exported. Its behaviour is described in
 <a href="/triagesim/guide/concepts/">Core concepts</a>.</p>

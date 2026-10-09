@@ -1,6 +1,21 @@
 ---
 title: "Conferences"
 resources:
+  - src: "group-interspeech-2026.webp"
+    params:
+      date: 2026-09-27T12:00:00  # same day: time sets slide order
+      description: "The group at Interspeech 2026, Sydney."
+
+  - src: "rashini-interspeech-2026.png"
+    params:
+      date: 2026-09-27T11:00:00  # same day: time sets slide order
+      description: "Rashini at Interspeech 2026, Sydney."
+
+  - src: "dipankar-interspeech-2026.webp"
+    params:
+      date: 2026-09-27T10:00:00  # same day: time sets slide order
+      description: "Dipankar at Interspeech 2026, Sydney."
+
   - src: "dipankar-alta-2025.jpeg"
     params:
       date: 2025-11-28
