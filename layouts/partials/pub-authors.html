@@ -1,6 +1,10 @@
 {{ $authors   := .Params.authors }}
 {{ $underline := .Params.underlineAuthors }}
 {{ range $i, $name := $authors -}}
-  {{- if in $underline $name }}<span class="pub-author-ul">{{ $name }}</span>{{ else }}{{ $name }}{{ end -}}
+  {{- if in $underline $name -}}
+    {{- /* group members link to their papers: /publications/?q=Name */ -}}
+    {{- $q := trim (replace $name "*" "") " " -}}
+    <a class="pub-author-ul" href="{{ "publications/" | relURL }}?q={{ $q | urlquery }}" title="Papers by {{ $q }}">{{ $name }}</a>
+  {{- else }}{{ $name }}{{ end -}}
   {{- if lt (add $i 1) (len $authors) }}, {{ end }}
 {{- end }}

@@ -33,10 +33,10 @@ menu:
           weight: 6
 
 params:
-    description: "UNSW-NLP is a research group at UNSW Sydney studying Foundational, Applied, and Inclusive Natural Language Processing."
+    description: "UNSW-NLP is the natural language processing research group at UNSW Sydney, working on foundational, applied and inclusive NLP."
     author: UNSW-NLP
     DateFormat: "January 2006"
-    math: true
+    math: false              # KaTeX loads only on pages with `math: true` in front matter
     profileMode:
           enabled: true
           title: "UNSW-NLP"

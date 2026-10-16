@@ -1,0 +1,31 @@
+# Press coverage, newest first. Shown as "In the Media" on the home page.
+#
+# Only add established outlets: national broadcasters and newspapers
+# (ABC, SBS, SMH, The Guardian, news.com.au, ...), The Conversation, and
+# UNSW's own newsroom. Skip aggregators, reposts and small blogs.
+#
+# date: YYYY-MM-DD (or YYYY-MM-01 when only the month is known)
+- outlet: ABC News
+  title: "Getting AI 'drunk' makes it more likely to break rules and share secrets, research finds"
+  date: 2026-09-29
+  url: https://www.abc.net.au/news/2026-09-29/drunk-ai-testing-unsw-research/107208104
+- outlet: news.com.au
+  title: "Sydney researchers reveal how making AI bots drunk exposes major cybersecurity, safety flaws"
+  date: 2026-09-29
+  url: https://www.news.com.au/technology/sydney-researchers-reveal-how-making-ai-bots-drunk-exposes-major-cybersecurity-safety-flaws/news-story/52cf24594dfe584a0ee6faba03550a15
+- outlet: UNSW Newsroom
+  title: "Researchers get AI 'drunk' to expose new cyber security risks in chatbots"
+  date: 2026-09-01
+  url: https://www.unsw.edu.au/newsroom/news/2026/09/Researchers-get-AI-drunk-to-expose-new-cyber-security-risks-in-chatbots
+- outlet: ABC Radio National
+  title: "Yeah-Nah: Can AI understand Aussie sarcasm?"
+  date: 2025-09-06
+  url: https://www.abc.net.au/listen/programs/sundayextra/ai-and-sarcasm-aditya-joshi/105682208
+- outlet: The Conversation
+  title: "'Are you joking, mate?' AI doesn't get sarcasm in non-American varieties of English"
+  date: 2025-07-28
+  url: https://theconversation.com/are-you-joking-mate-ai-doesnt-get-sarcasm-in-non-american-varieties-of-english-254986
+- outlet: UNSW Newsroom
+  title: "'Are you joking, mate?' AI doesn't get sarcasm in non-American varieties of English"
+  date: 2025-07-01
+  url: https://www.unsw.edu.au/newsroom/news/2025/07/ai-doesnt-get-sarcasm-non-American-varieties-English

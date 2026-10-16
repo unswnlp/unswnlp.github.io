@@ -7,57 +7,57 @@
 
 @font-face {
   font-family: 'Clancy';
-  src: url('/fonts/clancy/Clancy-Light.otf') format('opentype');
+  src: url('/fonts/clancy/Clancy-Light.woff2') format('woff2');
   font-weight: 300; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Clancy';
-  src: url('/fonts/clancy/Clancy-Regular.otf') format('opentype');
+  src: url('/fonts/clancy/Clancy-Regular.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Clancy';
-  src: url('/fonts/clancy/Clancy-Bold.otf') format('opentype');
+  src: url('/fonts/clancy/Clancy-Bold.woff2') format('woff2');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Light.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-Light.woff2') format('woff2');
   font-weight: 300; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-Regular.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Italic.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-Italic.woff2') format('woff2');
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-Medium.woff2') format('woff2');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-Bold.woff2') format('woff2');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-BoldItalic.ttf') format('truetype');
+  src: url('/fonts/roboto/Roboto-BoldItalic.woff2') format('woff2');
   font-weight: 700; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto Mono';
-  src: url('/fonts/roboto-mono/RobotoMono-Regular.ttf') format('truetype');
+  src: url('/fonts/roboto-mono/RobotoMono-Regular.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Roboto Mono';
-  src: url('/fonts/roboto-mono/RobotoMono-Bold.ttf') format('truetype');
+  src: url('/fonts/roboto-mono/RobotoMono-Bold.woff2') format('woff2');
   font-weight: 700; font-style: normal; font-display: swap;
 }
 
@@ -329,12 +329,25 @@ th {
 .nav-menu li a:hover {
   color: var(--purple);
   text-decoration: none;
-  background: none;
 }
+/* Hover bar: a thin rule that grows from the centre of the word */
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: calc(100% - 22px);
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--purple);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav-menu li a:hover::after { transform: translateX(-50%) scaleX(1); }
 
 .nav-menu li a.active {
   color: var(--purple);
-  font-weight: 700;
 }
 
 
@@ -429,9 +442,6 @@ th {
 .topic-word.topic-foundational:hover   { background: var(--tint-teal); }
 .topic-word.topic-applied:hover { background: var(--tint-yellow); }
 .topic-word.topic-inclusive:hover    { background: var(--tint-coral); }
-.topic-tip.topic-foundational:hover,   .topic-tip.topic-foundational:focus   { color: var(--ink-teal); }
-.topic-tip.topic-applied:hover, .topic-tip.topic-applied:focus { color: var(--ink-yellow); }
-.topic-tip.topic-inclusive:hover,    .topic-tip.topic-inclusive:focus    { color: var(--ink-coral); }
 .topic-tip.topic-foundational .topic-bubble   { border-top: 3px solid var(--logo-teal); }
 .topic-tip.topic-applied .topic-bubble { border-top: 3px solid var(--logo-yellow); }
 .topic-tip.topic-inclusive .topic-bubble    { border-top: 3px solid var(--logo-coral); }
@@ -1274,8 +1284,7 @@ th {
 
 .topic-tip {
   position: relative;
-  vertical-align: -0.1em;
-  cursor: default;
+  display: inline-block;
 }
 
 .topic-bubble {
@@ -1289,7 +1298,7 @@ th {
   border-radius: 6px;
   padding: 0.5rem 0.8rem 0.6rem;
   width: max-content;
-  max-width: 230px;
+  max-width: 280px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   z-index: 30;
   text-decoration: none;
@@ -1297,7 +1306,7 @@ th {
 }
 
 .topic-tip:hover .topic-bubble,
-.topic-tip:focus .topic-bubble { display: block; }
+.topic-tip:focus-within .topic-bubble { display: block; }
 
 .topic-bubble ul {
   margin: 0;
@@ -1692,8 +1701,10 @@ th {
   font-weight: 500;
   text-decoration: underline;
   text-decoration-color: var(--border);
+  text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
+a.pub-author-ul:hover { color: var(--text-primary); text-decoration-color: var(--purple); }
 
 .pub-venue {
   font-size: 1rem;
@@ -1969,3 +1980,30 @@ th {
   .pub-search { width: 100%; }
   .pub-search input { width: 100%; }
 }
+
+/* Home page sections are linkable (#news, #publications, #join, #funding, #photos);
+   keep the heading clear of the sticky navbar when jumping to one */
+.home-news, .home-selected-pubs, .home-join, .home-funding, .photo-galleries {
+  scroll-margin-top: calc(var(--nav-height) + 1.25rem);
+}
+.hero-join { color: var(--text-muted); }
+.hero-join a { font-weight: 500; }
+
+/* ── Home: In the Media ── */
+.home-media { width: 100%; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); scroll-margin-top: calc(var(--nav-height) + 1.25rem); }
+.media-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem 2rem;
+}
+.media-item { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.9rem; border-top: 2px solid var(--text-primary); }
+.media-item[hidden] { display: none; }
+.media-outlet { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+.media-title { font-size: 0.95rem; line-height: 1.5; color: var(--text-body); }
+.media-date { font-size: 0.82rem; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+.media-toggle {
+  font: inherit; font-size: 0.95rem; background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--purple); text-decoration: underline; text-decoration-color: var(--link-ul);
+  text-decoration-thickness: 2px; text-underline-offset: 3px;
+}
+.media-toggle:hover { background: var(--hl-bg); color: var(--text-primary); }

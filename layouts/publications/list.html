@@ -98,7 +98,12 @@
     var pre = document.getElementById('preprints-body'), btn = document.querySelector('.pub-toggle-btn');
     if (q && pre && btn && pre.querySelector('.pub-entry:not([hidden])')) { pre.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
   }
-  search.addEventListener('input', filter);
+  search.addEventListener('input', function () {
+    filter();
+    var url = new URL(location.href);
+    if (search.value.trim()) url.searchParams.set('q', search.value.trim()); else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+  });
   function apply(area) {
     current = area;
     chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.area === area)); });
@@ -109,8 +114,11 @@
     history.replaceState(null, '', url);
   }
   chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.dataset.area); }); });
-  var initial = new URLSearchParams(location.search).get('area') || '';
-  if (initial) apply(initial);
+  var params = new URLSearchParams(location.search);
+  var initial = params.get('area') || '';
+  /* ?q=Name (from clicking an author) pre-fills the search */
+  if (params.get('q')) search.value = params.get('q');
+  if (initial || search.value) apply(initial);
 })();
 
 document.querySelectorAll('.pub-toggle-btn').forEach(function(btn) {

@@ -19,11 +19,35 @@
 <meta name="author" content="{{ site.Params.author | default site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
+{{- /* Link previews (Slack, Teams, X, LinkedIn, iMessage, ...) */}}
+{{- $ogTitle := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+{{- $ogDesc := .Description | default site.Params.description }}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $ogTitle }}">
+<meta property="og:description" content="{{ $ogDesc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="UNSW-NLP: natural language processing research group at UNSW Sydney">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@UNSW_NLP">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDesc }}">
+<meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
+
 {{- /* Favicons */}}
 <link rel="icon" href="{{ "logo.ico" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "logo-16x16.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "logo-32x32.png" | absURL }}">
-<meta name="theme-color" content="#002060">
+<meta name="theme-color" content="#ffffff">
+
+{{- /* Preload the fonts used above the fold so text draws in the right font on first paint */}}
+<link rel="preload" href="{{ "fonts/roboto/Roboto-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/roboto/Roboto-Medium.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/clancy/Clancy-Bold.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/clancy/Clancy-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
 {{- /* Stylesheet */}}
 {{- $css := resources.Get "css/main.css" | fingerprint }}
@@ -40,7 +64,7 @@
 {{- end }}
 
 {{- /* Math */}}
-{{ if or .Page.Params.math .Site.Params.math }}
+{{ if .Page.Params.math }}
 {{- partial "math.html" . }}
 {{ end }}
 
