@@ -1380,13 +1380,12 @@ th {
 
 .location-directions {
   display: inline-block;
+  align-self: flex-start;   /* hug the text instead of stretching across the column */
   margin-top: 0.6rem;
-  font-size: 0.85rem;
-  color: var(--coral);
+  font-size: 0.92rem;
+  color: var(--purple);
   font-weight: 500;
-  transition: opacity 0.12s;
 }
-.location-directions:hover { opacity: 0.75; }
 
 .location-map {
   width: 100%;
@@ -1996,7 +1995,11 @@ a.pub-author-ul:hover { color: var(--text-primary); text-decoration-color: var(-
   display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 1.5rem 2rem;
 }
-.media-item { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.9rem; border-top: 2px solid var(--text-primary); }
+.media-item { display: block; padding-top: 0.9rem; border-top: 2px solid var(--text-primary); }
+/* headline stays inline so the hover highlight hugs each line of text */
+.media-outlet, .media-date { display: block; }
+.media-outlet { margin-bottom: 0.3rem; }
+.media-date { margin-top: 0.3rem; }
 .media-item[hidden] { display: none; }
 .media-outlet { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
 .media-title { font-size: 0.95rem; line-height: 1.5; color: var(--text-body); }
