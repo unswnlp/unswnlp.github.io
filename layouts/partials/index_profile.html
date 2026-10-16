@@ -10,13 +10,9 @@
 
 {{/* ── HERO ── */}}
 <section class="hero">
-  <div class="hero-lockup">
-    {{- if .imageUrl }}
-    <img class="hero-logo" src="{{ .imageUrl | relURL }}" alt="UNSW Sydney" width="150" height="150" fetchpriority="high" decoding="async">
-    <span class="lockup-bar" aria-hidden="true"></span>
-    {{- end }}
-    <h1 class="hero-title">{{ .title | default site.Title }}</h1>
-  </div>
+  <h1 class="hero-lockup">
+    <img class="hero-lockup-img" src="{{ "brand/unsw-nlp-logo.svg" | relURL }}" alt="{{ .title | default site.Title }}" width="2847" height="840" fetchpriority="high">
+  </h1>
   <div class="hero-subtitle">
     {{- with .subtitle }}{{ . | markdownify }}{{ end }}
     {{- $areas := site.Data.areas }}

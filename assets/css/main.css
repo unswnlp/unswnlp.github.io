@@ -2010,3 +2010,8 @@ a.pub-author-ul:hover { color: var(--text-primary); text-decoration-color: var(-
   text-decoration-thickness: 2px; text-underline-offset: 3px;
 }
 .media-toggle:hover { background: var(--hl-bg); color: var(--text-primary); }
+
+/* Logo lockup is a single image (static/brand/unsw-nlp-logo.svg) */
+.hero-lockup { margin: 0; flex: none; line-height: 0; }
+.hero-lockup-img { height: 84px; width: auto; }
+@media (max-width: 760px) { .hero-lockup-img { height: 72px; } }
