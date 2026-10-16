@@ -2,8 +2,8 @@
 {{- $areas := $p.Params.areas | default slice -}}
 <div class="pub-entry" data-areas="{{ delimit $areas " " }}">
   <div class="pub-title">
-    {{- if $p.Params.links.paper -}}
-      <a href="{{ $p.Params.links.paper }}" target="_blank" rel="noopener">{{ $p.Title }}</a>
+    {{- with or $p.Params.links.paper $p.Params.links.website $p.Params.links.project -}}
+      <a href="{{ . }}" target="_blank" rel="noopener">{{ $p.Title }}</a>
     {{- else -}}
       {{ $p.Title }}
     {{- end -}}
@@ -21,7 +21,8 @@
     {{ with $p.Params.links.paper }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">PDF</a>{{ end }}
     {{ with $p.Params.links.code }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Code</a>{{ end }}
     {{ with $p.Params.links.dataset }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Dataset</a>{{ end }}
-    {{ with $p.Params.links.project }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Project</a>{{ end }}
+    {{ with $p.Params.links.project }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Website</a>{{ end }}
+    {{ with $p.Params.links.website }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Website</a>{{ end }}
     {{ with $p.Params.links.docs }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">Docs</a>{{ end }}
     {{ with $p.Params.bibtex }}
     <details class="pub-cite">

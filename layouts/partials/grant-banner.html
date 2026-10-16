@@ -74,7 +74,7 @@
 
     {{ if or $g.Params.projectPage $g.Params.link }}
     <div class="grant-detail-section grant-detail-links">
-      {{ with $g.Params.projectPage }}<a href="{{ . }}" target="_blank" rel="noopener">Project page →</a>{{ end }}
+      {{ with $g.Params.projectPage }}<a href="{{ . }}" target="_blank" rel="noopener">Website →</a>{{ end }}
       {{ with $g.Params.link }}<a href="{{ . }}" target="_blank" rel="noopener">Grant source →</a>{{ end }}
     </div>
     {{ end }}

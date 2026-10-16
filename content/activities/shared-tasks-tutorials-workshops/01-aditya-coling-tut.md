@@ -8,7 +8,6 @@ authors:
     - Heather Lent
     - Hour Kaing
     - Haiyue Song
-    - 
 arxivID: "2409.12683"
 
 underlineAuthors:

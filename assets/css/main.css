@@ -1430,87 +1430,67 @@ th {
   display: block;
 }
 
-/* Course entries */
-.course-list { display: flex; flex-direction: column; gap: 1.4rem; }
-
-.course-entry { display: flex; flex-direction: column; gap: 0.2rem; }
-
-.course-header { display: flex; align-items: baseline; gap: 0.6rem; }
-
+/* Course entries: code column, then name and terms (newest first) as plain text rows */
+.course-list { display: flex; flex-direction: column; }
+.course-entry {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.course-entry:first-child { padding-top: 0.2rem; }
+.course-entry:last-child { border-bottom: none; }
 .course-code {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: var(--purple);
-  flex-shrink: 0;
-}
-
-.course-title {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.course-institution {
-  font-size: 0.85rem;
   color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
-
-.course-terms {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.35rem;
-}
-
-.course-term-details { display: inline-block; }
-
-.course-term-chip {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.15rem 0.7rem;
-  cursor: pointer;
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+.course-details { display: flex; flex-direction: column; gap: 0.45rem; }
+.course-title { font-size: 1.05rem; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
+.course-terms { display: flex; flex-wrap: wrap; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+.course-sep { margin: 0 0.55rem; color: var(--text-faint); }
+.course-term {
+  position: relative;
+  font-variant-numeric: tabular-nums;
+  cursor: default;
+  outline: none;
+  border-bottom: 1px dotted transparent;
   transition: color 0.12s, border-color 0.12s;
-  user-select: none;
 }
-.course-term-chip::-webkit-details-marker { display: none; }
-.course-term-chip::after {
-  content: '▾';
-  font-size: 0.55rem;
-  opacity: 0.5;
-  transition: transform 0.15s;
-}
-.course-term-details[open] .course-term-chip {
-  color: var(--text-muted);
-  border-color: var(--text-faint);
-}
-.course-term-details[open] .course-term-chip::after { transform: rotate(-180deg); }
+.course-term:not(.course-term--plain):hover,
+.course-term:not(.course-term--plain):focus-visible { color: var(--text-primary); border-bottom-color: var(--text-faint); }
 
-.course-team-box { min-width: 260px; cursor: default; }
-
-.course-team-row {
-  display: flex;
+/* Who taught the term: small popover, same look as the other tooltips */
+.course-term-pop {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  max-width: 300px;
   flex-direction: column;
-  gap: 0.1rem;
-  margin-bottom: 0.6rem;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-body);
+  white-space: normal;
 }
-.course-team-row:last-child { margin-bottom: 0; }
-
-.course-team-role {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.course-team-name {
-  font-size: 0.92rem;
-  color: var(--text-primary);
+.course-term:hover .course-term-pop,
+.course-term:focus .course-term-pop { display: flex; }
+.course-pop-row { display: flex; flex-direction: column; }
+.course-role { font-size: 0.78rem; color: var(--text-faint); }
+@media (max-width: 540px) {
+  .course-entry { grid-template-columns: 1fr; gap: 0.3rem; }
 }
 
 /* ── 18. Publications page ── */

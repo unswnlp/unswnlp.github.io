@@ -1,0 +1,13 @@
+{{- /* One term, inline. Hover or focus shows who taught it. */ -}}
+{{- $t := . -}}
+{{- $rows := slice }}
+{{- with $t.convenor }}{{ $rows = $rows | append (dict "role" "Convenor" "names" .) }}{{ end }}
+{{- with $t.lecturer }}{{ $rows = $rows | append (dict "role" "Lecturer" "names" (delimit . ", ")) }}{{ end }}
+{{- with $t.team }}{{ $rows = $rows | append (dict "role" "Teaching team" "names" (delimit . ", ")) }}{{ end }}
+{{- if $rows -}}
+<span class="course-term" tabindex="0">{{ $t.term }}<span class="course-term-pop" role="tooltip">
+  {{- range $rows }}<span class="course-pop-row"><span class="course-role">{{ .role }}</span><span>{{ .names }}</span></span>{{ end -}}
+</span></span>
+{{- else -}}
+<span class="course-term course-term--plain">{{ $t.term }}</span>
+{{- end -}}
