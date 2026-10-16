@@ -54,9 +54,6 @@ params:
             </dl>
             <p class="join-note">Please write your email yourself. We do not respond to AI-generated messages.</p>
 
-          imageUrl: "prof-pic.webp"
-          imageWidth: 300
-          imageHeight: 300
 
     socialIcons:
         - name: Email
