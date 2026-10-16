@@ -123,7 +123,7 @@
 /* ── 3. Reset ── */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }  /* reserve the scrollbar's width so pages never shift sideways when content grows */
 img, video { max-width: 100%; display: block; }
 input, button, textarea, select { font: inherit; }
 ul[role='list'], ol[role='list'] { list-style: none; }
@@ -638,12 +638,10 @@ th {
   color: var(--text-body);
 }
 .grant-pi-role {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.05rem 0.5rem;
 }
+.grant-pi-role::before { content: '\00B7'; margin-right: 0.5rem; color: var(--text-faint); }
 
 .funding-card {
   display: flex;
