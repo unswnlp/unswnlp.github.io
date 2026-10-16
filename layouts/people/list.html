@@ -22,11 +22,12 @@
         <div class="people-group people-group-{{ lower (replace $role " " "-") }}">
           {{ range $pages }}
             <div class="person-card-small">
-              <img
-                src="{{ .Params.photo | relURL }}"
-                alt="{{ .Title }}"
-                loading="lazy"
-              />
+              {{- /* headshots show at 165px; serve a 330px WebP (sharp on 2x screens) when the file is a page resource */}}
+              {{- $src := .Params.photo | relURL }}{{ $w := 165 }}{{ $h := 165 }}
+              {{- with $.Resources.GetMatch (strings.TrimPrefix "people/" .Params.photo) }}
+                {{- $img := .Fill "330x330 Center webp q80" }}{{ $src = $img.RelPermalink }}
+              {{- end }}
+              <img src="{{ $src }}" alt="{{ .Title }}" width="{{ $w }}" height="{{ $h }}" loading="lazy" decoding="async">
               <span class="person-name">{{ .Title }}</span>
               {{ with .Params.research }}
                 <p class="person-research">{{ . }}</p>
