@@ -13,6 +13,7 @@ groups:
         note: "Primary: Vineet Rajani"
       - name: "Antyabha Rahman"
       - name: "Ishmanbir Singh"
+        note: "Published at ALTA 2025 as a Taste of Research student"
       - name: "Lachlan Johnston"
       - name: "Kanay Gupta"
       - name: "Mohd. Irfan"

@@ -1,14 +1,20 @@
 {{- define "main" }}
 <section class="people-directory">
   {{ partial "page-trail.html" . }}
+  {{- $past := where (where site.RegularPages "Section" "people") "Params.status" "past" }}
   {{ range .Params.groups }}
+  {{- $g := . }}
+  {{- $key := replace (replace (lower $g.name) "." "") " " "" }}
+  {{- $members := slice }}
+  {{- range $past }}{{ if eq (replace (replace (lower .Params.role) "." "") " " "") $key }}{{ $members = $members | append (dict "name" .Title "note" .Params.pastNote) }}{{ end }}{{ end }}
+  {{- range $g.members }}{{ $members = $members | append . }}{{ end }}
   <div class="people-section-row">
     <div class="people-col-label">
       <span class="people-role">{{ .name }}</span>
     </div>
     <div class="people-col-content">
       <ul class="member-list">
-        {{- range .members }}
+        {{- range $members }}
         <li class="member-item">
           <span class="member-name">{{ .name }}</span>
           {{- with .note }}

@@ -53,9 +53,20 @@ group if needed). No `note:` field is used here (see alumni below).
 
 ## Moving someone to alumni
 
-When a member leaves the group, move their entry from `content/people/rest.md`
-(or delete their `content/people/phd-*.md` file) into
-`content/people/alumni.md`, under the matching group:
+**Members with a profile file** (`content/people/phd-*.md`, `mphil-*.md`, ...):
+do not delete the file. Add two lines to its front matter:
+
+```yaml
+status: past                 # current is the default; past hides them from People
+pastNote: "co-supervised with X; Now: Research Scientist @ Company"   # optional
+```
+
+They disappear from the People page and appear on Past Members under the group
+matching their `role` (e.g. `M.Phil. Students` goes under "M.Phil Students").
+The photo and links stay in the file, so moving them back is one line.
+
+**Members without a profile file** (listed in `content/people/rest.md`): move
+their entry into `content/people/alumni.md`, under the matching group:
 
 ```yaml
 groups:
@@ -65,4 +76,4 @@ groups:
         note: "co-supervised with X; Now: Research Scientist @ Company"  # optional
 ```
 
-`note:` is optional and shows as a small tooltip/inline note next to the name.
+`note:` / `pastNote:` is optional and shows as a small tooltip next to the name.

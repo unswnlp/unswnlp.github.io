@@ -12,7 +12,7 @@
   {{ range $roles }}
     {{ $role := . }}
     {{/* take the top‐level pages, sort by weight, then filter by role */}}
-    {{ $pages := where ($.Pages.ByWeight) "Params.role" $role }}
+    {{ $pages := where (where ($.Pages.ByWeight) "Params.role" $role) "Params.status" "ne" "past" }}
     {{ if gt (len $pages) 0 }}
     <div class="people-section-row">
       <div class="people-col-label">
