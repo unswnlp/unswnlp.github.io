@@ -2,6 +2,7 @@
 title: "A Survey on Multimodal Music Emotion Recognition"
 date: 2025-04-26
 preprint: true           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Rashini Liyanarachchi"
     - "Aditya Joshi"

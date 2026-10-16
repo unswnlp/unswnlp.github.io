@@ -2,6 +2,7 @@
 title: "Natural Language Processing for Dialects of a Language: A Survey"
 date: 2025-02-10
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Aditya Joshi"
     - "Raj Dabre"

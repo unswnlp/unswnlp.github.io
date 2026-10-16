@@ -2,6 +2,7 @@
 title: '"Is Hate Lost in Translation?": Evaluation of Multilingual LGBTQIA+ Hate Speech Detection'
 date: 2024-12-01
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 torwork: true
 authors:
     - "Fai Lu Chan"

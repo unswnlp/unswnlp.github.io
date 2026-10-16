@@ -2,6 +2,7 @@
 title: "Alternatives To Next Token Prediction In Text Generation -- A Survey"
 date: 2025-09-29
 preprint: true           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "Charles Wyatt"
     - "Aditya Joshi"

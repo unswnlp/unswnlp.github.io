@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════
    Docsite - shared theme for ported project docs (e.g. /triagesim/)
    Scoped entirely under .docsite so it never leaks into the
-   rest of the site. Reuses the UNSW NLP palette/fonts from
+   rest of the site. Reuses the UNSW-NLP palette/fonts from
    main.css rather than any source theme's own CSS (e.g.
    Material for MkDocs). See docs/adding-a-docsite.md.
    ═══════════════════════════════════════════════════════ */
@@ -496,7 +496,7 @@
   margin: 0.3rem 0.5rem 0.3rem 0;
   transition: background-color 0.12s, color 0.12s;
 }
-.docsite .md-button:hover { text-decoration: none; background: rgba(224, 82, 106, 0.08); }
+.docsite .md-button:hover { text-decoration: none; background: rgba(116, 52, 140, 0.08); }
 
 .docsite .md-button--primary {
   background: var(--purple);

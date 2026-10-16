@@ -3,9 +3,7 @@
   {{- partial "index_profile.html" . }}
 {{- else }}
   {{- if .Title }}
-  <header class="page-header">
-    <h1>{{ .Title }}</h1>
-  </header>
+  <h1 class="visually-hidden">{{ .Title }}</h1>
   {{- end }}
   {{- if .Content }}
   <div class="content">{{ .Content }}</div>

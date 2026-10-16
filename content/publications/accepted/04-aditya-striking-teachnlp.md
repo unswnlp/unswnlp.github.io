@@ -2,6 +2,7 @@
 title: "Striking a Balance between Classical and Deep Learning Approaches in Natural Language Processing Pedagogy"
 date: 2024-08-01
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "Aditya Joshi"
     - "Jake Renzella"

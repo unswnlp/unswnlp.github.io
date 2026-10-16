@@ -10,14 +10,23 @@
 
 {{/* ── HERO ── */}}
 <section class="hero">
-  {{- if .imageUrl }}
-  <img class="hero-logo" src="{{ .imageUrl | relURL }}" alt="{{ site.Title }}" width="200" height="200">
-  {{- end }}
-  <div class="hero-info">
-    <h1 class="hero-title">{{ .title | default site.Title | markdownify }}</h1>
-    {{- with .subtitle }}
-    <div class="hero-subtitle">{{ . | markdownify }}</div>
+  <div class="hero-lockup">
+    {{- if .imageUrl }}
+    <img class="hero-logo" src="{{ .imageUrl | relURL }}" alt="UNSW Sydney" width="150" height="150">
+    <span class="lockup-bar" aria-hidden="true"></span>
     {{- end }}
+    <h1 class="hero-title">{{ .title | default site.Title }}</h1>
+  </div>
+  <div class="hero-subtitle">
+    {{- with .subtitle }}{{ . | markdownify }}{{ end }}
+    {{- $areas := site.Data.areas }}
+    {{- $n := len $areas }}
+    <div class="hero-subtitle-line">Our work spans
+      {{- range $i, $a := $areas }}
+      {{- if and (gt $i 0) (lt $i (sub $n 1)) }},{{ else if eq $i (sub $n 1) }}, and{{ end }}
+      <a class="topic-word topic-{{ $a.key }}" href="{{ printf "publications/?area=%s" $a.key | relURL }}">{{ lower $a.name }}</a>
+      <span class="topic-tip tip-icon topic-{{ $a.key }}" tabindex="0" aria-label="{{ $a.name }} topics"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11"/><circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none"/></svg><span class="topic-bubble"><ul>{{ range $a.topics }}<li>{{ . }}</li>{{ end }}</ul></span></span>
+      {{- end }} NLP.</div>
   </div>
 </section>
 
@@ -29,15 +38,11 @@
 <section class="home-news">
   <h2 class="home-section-heading">Recent News</h2>
   <table class="home-news-table">
-    {{ range $latest }}
-    <tr>
-      <td class="news-date">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
-      </td>
-      <td class="news-content">{{ .Content }}</td>
-    </tr>
-    {{ end }}
+    {{ range $latest }}{{ partial "news-row.html" . }}{{ end }}
   </table>
+  {{- if gt (len $allNews) (len $latest) }}
+  <p class="news-more"><a href="{{ "news/" | relURL }}">All news ({{ len $allNews }}) &rarr;</a></p>
+  {{- end }}
 </section>
 {{ end }}
 
@@ -46,13 +51,21 @@
 {{ $selected := first 5 (sort (where site.RegularPages "Params.featured" "ge" 1) "Params.featured") }}
 {{ if $selected }}
 <section class="home-selected-pubs">
-  <p class="section-label">Selected Publications</p>
+  <h2 class="home-section-heading">Selected Publications</h2>
   <div class="pub-list pub-section--published">
     {{ range $selected }}{{ partial "pub-entry.html" . }}{{ end }}
   </div>
   <p class="selected-pubs-more"><a href="{{ "publications/" | relURL }}">All publications →</a></p>
 </section>
 {{ end }}
+
+{{/* ── JOIN US ── */}}
+{{- with .join }}
+<section class="home-join">
+  <h2 class="home-section-heading">Join Us</h2>
+  <div class="home-join-body">{{ . | markdownify }}</div>
+</section>
+{{- end }}
 
 {{/* ── FUNDING ── */}}
 {{ $grants := where site.RegularPages "Params.activityType" "grants" }}

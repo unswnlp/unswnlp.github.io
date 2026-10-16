@@ -2,6 +2,7 @@
 title: "Nek Minit: Harnessing Pragmatic Metacognitive Prompting for Explainable Sarcasm Detection of Australian and Indian English"
 date: 2025-11-25
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 torwork: true
 authors:
     - "Ishmanbir Singh*"

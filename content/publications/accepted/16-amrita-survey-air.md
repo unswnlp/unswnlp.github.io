@@ -2,6 +2,7 @@
 title: "A Survey of Classification Tasks and Approaches for Legal Contracts"
 date: 2025-10-17
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Amrita Singh"
     - "Aditya Joshi"

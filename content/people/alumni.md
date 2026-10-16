@@ -18,6 +18,8 @@ groups:
     members: 
       - name: "Ziyu Yang"
         note: "co-supervised with Jiaojiao Jiang and Xin Cao; Now at RMIT"
+      - name: "Sicheng (Stefan) Jin"
+        note: "co-supervised with Beena Ahmed"
   - name: "Masters Students"
     members:
       - name: "Morgan Li"

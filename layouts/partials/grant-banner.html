@@ -2,16 +2,15 @@
 {{- $slug := $g.File.ContentBaseName -}}
 <details class="grant-banner" id="{{ $slug }}">
   <summary class="grant-banner-summary">
-    <div class="funding-card-header">
-      <div class="funding-card-title">{{ $g.Params.venue }}</div>
-      {{ with $g.Params.grantType }}<span class="funding-card-type">{{ . }}</span>{{ end }}
+    <div class="grant-meta">
+      <span>{{ $g.Params.venue }}</span>
+      {{- with $g.Params.grantType }}<span class="grant-meta-sep" aria-hidden="true">·</span><span>{{ . }}</span>{{ end }}
+      <span class="grant-meta-sep" aria-hidden="true">·</span><span>{{ $g.Date.Format "2006" }}</span>
     </div>
-    <div class="funding-card-venue">{{ $g.Params.longName | default $g.Title }}</div>
-    {{ with $g.Params.pi }}
-    <div class="funding-card-pi">
-      <span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }} <span class="funding-card-role">({{ . }})</span>{{ end }}
-    </div>
-    {{ end }}
+    <div class="grant-title">{{ $g.Params.longName | default $g.Title }}</div>
+    {{- with $g.Params.pi }}
+    <div class="grant-pi"><span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }}<span class="grant-pi-role">{{ . }}</span>{{ end }}</div>
+    {{- end }}
     <span class="grant-banner-toggle" aria-hidden="true"></span>
   </summary>
 
@@ -20,14 +19,14 @@
 
     {{ with $g.Params.investigators }}
     <div class="grant-detail-section">
-      <h2>Investigators</h2>
+      <h3>Investigators</h3>
       <p class="grant-detail-members">{{ delimit . ", " }}</p>
     </div>
     {{ end }}
 
     {{ with $g.Params.partners }}
     <div class="grant-detail-section">
-      <h2>Partners</h2>
+      <h3>Partners</h3>
       <ul class="grant-detail-partners">
         {{ range . }}
         {{ if reflect.IsMap . }}
@@ -43,16 +42,24 @@
     {{ $papers := where site.RegularPages "Params.grant" $slug }}
     {{ with $papers }}
     <div class="grant-detail-section">
-      <h2>Papers</h2>
-      <div class="featured-pub-grid">
-        {{ range .ByDate.Reverse }}{{ partial "paper-card.html" . }}{{ end }}
-      </div>
+      <h3>Papers</h3>
+      <ul class="grant-papers">
+        {{- range .ByDate.Reverse }}
+        <li>
+          {{- if .Params.links.paper }}<a href="{{ .Params.links.paper }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}
+          <div class="grant-paper-meta">
+            <span class="grant-paper-venue">{{ with .Params.venue }}{{ . }}{{ else }}Preprint{{ end }}</span>
+            <span class="grant-paper-authors">{{ partial "pub-authors.html" . }}</span>
+          </div>
+        </li>
+        {{- end }}
+      </ul>
     </div>
     {{ end }}
 
     {{ with $g.Params.deliverables }}
     <div class="grant-detail-section funding-card-deliverables">
-      <h2>Other Deliverables</h2>
+      <h3>Other deliverables</h3>
       <ul>
         {{ range . }}
         {{ if reflect.IsMap . }}

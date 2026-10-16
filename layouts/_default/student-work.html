@@ -1,4 +1,5 @@
 {{- define "main" }}
+{{ partial "page-trail.html" . }}
 {{ $tor     := where site.RegularPages "Params.torwork"     true }}
 {{ $honours := where site.RegularPages "Params.honorswork"  true }}
 {{ $comp    := where site.RegularPages "Params.masterswork" true }}

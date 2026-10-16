@@ -1,5 +1,28 @@
 {{ define "main" }}
 
+{{/* ── Page header with research-area tabs ── */}}
+{{ $all := where .RegularPagesRecursive "Params.areas" "!=" nil }}
+<h1 class="visually-hidden">Publications</h1>
+<div class="pub-toolbar">
+  <div class="area-tabs" role="group" aria-label="Filter publications by research area">
+    <button type="button" class="area-tab" data-area="" aria-pressed="true">All<span class="area-count">{{ len .RegularPagesRecursive }}</span></button>
+    {{- range site.Data.areas }}
+    {{- $k := .key }}
+    {{- $n := 0 }}{{ range $all }}{{ if in .Params.areas $k }}{{ $n = add $n 1 }}{{ end }}{{ end }}
+    <button type="button" class="area-tab area-{{ $k }}" data-area="{{ $k }}" aria-pressed="false"><span class="area-dot" aria-hidden="true"></span>{{ .name }}<span class="area-count">{{ $n }}</span></button>
+    {{- end }}
+  </div>
+  <label class="pub-search">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <span class="visually-hidden">Search publications</span>
+    <input type="search" id="pub-search" placeholder="Search titles, authors, venues" autocomplete="off">
+  </label>
+</div>
+<p class="pub-empty" hidden>No papers match your search.</p>
+{{- range site.Data.areas }}
+<p class="area-blurb" data-area-blurb="{{ .key }}" hidden>{{ .blurb }}</p>
+{{- end }}
+
 {{/* ── Preprints ── */}}
 {{ $preprints := where .RegularPagesRecursive "Params.preprint" true }}
 {{ if $preprints }}
@@ -48,6 +71,48 @@
 {{ end }}
 
 <script>
+(function () {
+  var chips = document.querySelectorAll('.area-tab');
+  var entries = document.querySelectorAll('.pub-entry');
+  var groups = document.querySelectorAll('.pub-year-group');
+  var blurbs = document.querySelectorAll('[data-area-blurb]');
+  var search = document.getElementById('pub-search');
+  var empty = document.querySelector('.pub-empty');
+  var current = '';
+  entries.forEach(function (e) {
+    var t = e.querySelector('.pub-title'), au = e.querySelector('.pub-authors'), v = e.querySelector('.venue-name');
+    e.dataset.text = [t, au, v].map(function (n) { return n ? n.textContent : ''; }).join(' ').toLowerCase();
+  });
+  function filter() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    entries.forEach(function (e) {
+      var okArea = !current || (' ' + e.dataset.areas + ' ').indexOf(' ' + current + ' ') >= 0;
+      var okText = !q || e.dataset.text.indexOf(q) >= 0;
+      e.hidden = !(okArea && okText);
+      if (!e.hidden) shown++;
+    });
+    groups.forEach(function (g) { g.hidden = !g.querySelector('.pub-entry:not([hidden])'); });
+    empty.hidden = shown > 0;
+    /* open the collapsed preprints while searching, so matches are visible */
+    var pre = document.getElementById('preprints-body'), btn = document.querySelector('.pub-toggle-btn');
+    if (q && pre && btn && pre.querySelector('.pub-entry:not([hidden])')) { pre.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
+  }
+  search.addEventListener('input', filter);
+  function apply(area) {
+    current = area;
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.area === area)); });
+    filter();
+    blurbs.forEach(function (b) { b.hidden = b.dataset.areaBlurb !== area; });
+    var url = new URL(location.href);
+    if (area) url.searchParams.set('area', area); else url.searchParams.delete('area');
+    history.replaceState(null, '', url);
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.dataset.area); }); });
+  var initial = new URLSearchParams(location.search).get('area') || '';
+  if (initial) apply(initial);
+})();
+
 document.querySelectorAll('.pub-toggle-btn').forEach(function(btn) {
   var body = document.getElementById(btn.dataset.target);
   btn.addEventListener('click', function() {

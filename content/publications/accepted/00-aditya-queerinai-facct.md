@@ -2,6 +2,7 @@
 title: "Queer In AI: A Case Study in Community-Led Participatory AI"
 date: 2023-06-12
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Organisers of Queer in AI"
     - "Aditya Joshi"

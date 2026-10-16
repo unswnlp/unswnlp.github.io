@@ -2,6 +2,7 @@
 title: "TRACE: Textual Relevance Augmentation and Contextual Encoding for Multimodal Hate Detection"
 date: 2026-01-26
 preprint: false           # <- set to `true` only for preprints
+areas: [applied, inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Girish A Koushik"
     - "Helen Treharne"

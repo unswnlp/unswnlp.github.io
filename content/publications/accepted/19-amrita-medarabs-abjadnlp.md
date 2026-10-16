@@ -2,6 +2,7 @@
 title: "MedArabs at AbjadMed: Arabic Medical Text Classification via Data- and Algorithm-Level Fusion"
 date: 2026-04-08
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Amrita Singh"
 

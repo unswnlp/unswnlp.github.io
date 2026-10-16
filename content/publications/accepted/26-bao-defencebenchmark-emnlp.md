@@ -2,6 +2,7 @@
 title: "A Benchmark Construction and Evaluation Framework for Specialist Domains: Case Study on Defense-related Documents"
 date: 2026-10-24
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 featured: 3             # home page "Selected Publications" rank (1 = top)
 authors:
     - "Bao Gia Doan"

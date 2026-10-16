@@ -2,6 +2,7 @@
 title: "In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Language Inducement"
 date: 2026-10-17
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 featured: 5             # home page "Selected Publications" rank (1 = top)
 authors:
     - "Anudeex Shetty"

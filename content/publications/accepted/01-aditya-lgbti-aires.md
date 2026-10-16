@@ -2,6 +2,7 @@
 title: 'Evaluation of large language models using an Indian language LGBTI+ lexicon'
 date: 2023-10-19
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Aditya Joshi"
     - "Shruta Rawat"

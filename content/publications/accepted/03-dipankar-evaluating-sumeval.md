@@ -2,6 +2,7 @@
 title: 'Evaluating Dialect Robustness of Language Models via Conversation Understanding'
 date: 2025-01-28
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive, foundational]      # research areas: foundational / applied / inclusive
 masterswork: true
 authors:
     - "Dipankar Srirag"

@@ -2,6 +2,7 @@
 title: "CHASE: Adversarial Red-Blue Teaming for Improving LLM Safety using Reinforcement Learning"
 date: 2026-11-06
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "Rahul Markasserithodi"
     - "Aditya Joshi"

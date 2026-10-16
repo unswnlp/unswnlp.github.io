@@ -2,6 +2,7 @@
 title: "Harnessing Test-time Adaptation for NLU tasks Involving Dialects of English"
 date: 2025-03-17
 preprint: true           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Duke Nguyen"
     - "Aditya Joshi"

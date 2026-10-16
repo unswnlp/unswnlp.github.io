@@ -2,6 +2,7 @@
 title: "Retell, Reward, Repeat: Reinforcement Learning for Narrative Theory-Informed Story Retelling"
 date: 2026-10-17
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "David Y. Liu"
     - "Xanthe Muston"

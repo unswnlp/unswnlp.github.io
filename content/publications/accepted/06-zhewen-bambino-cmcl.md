@@ -2,6 +2,7 @@
 title: "BAMBINO-LM: (Bilingual-)Human-Inspired Continual Pre-training of BabyLM"
 date: 2024-08-01
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "Zhewen Shen"
     - "Aditya Joshi"

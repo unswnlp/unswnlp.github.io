@@ -1,6 +1,6 @@
-# UNSW NLP Website
+# UNSW-NLP Website
 
-This is the [Hugo](https://gohugo.io) site for the UNSW NLP research group,
+This is the [Hugo](https://gohugo.io) site for the UNSW-NLP research group,
 built on a fork of [Pascal Michaillat's academic website
 template](https://github.com/pmichaillat/hugo-website) (MIT licensed, see
 [LICENSE.md](LICENSE.md)). It's hosted on [GitHub

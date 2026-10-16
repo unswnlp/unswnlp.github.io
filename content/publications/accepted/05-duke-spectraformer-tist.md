@@ -2,6 +2,7 @@
 title: "Spectraformer: A Unified Random Feature Framework for Transformer"
 date: 2024-05-24
 preprint: false           # <- set to `true` only for preprints
+areas: [foundational]      # research areas: foundational / applied / inclusive
 masterswork: true
 authors:
     - "Duke Nguyen"

@@ -47,22 +47,22 @@
                 {{ end }}
                 {{ with .Params.website }}
                   <a href="{{ . }}" aria-label="Homepage" target="_blank" rel="noopener">
-                    {{ partial "svg.html" (dict "name" "home" "class" "icon-sm") }}
+                    {{ partial "lucide.html" "house" }}
                   </a>
                 {{ end }}
                 {{ with .Params.email }}
                   <a href="mailto:{{ . }}" aria-label="Email">
-                    {{ partial "svg.html" (dict "name" "email" "class" "icon-sm") }}
+                    {{ partial "lucide.html" "mail" }}
                   </a>
                 {{ end }}
                 {{ with .Params.google_scholar }}
                   <a href="{{ . }}" aria-label="Google Scholar" target="_blank" rel="noopener">
-                    {{ partial "svg.html" (dict "name" "google scholar" "class" "icon-sm") }}
+                    {{ partial "lucide.html" "scholar" }}
                   </a>
                 {{ end }}
                 {{ with .Params.twitter }}
-                  <a href="{{ . }}" aria-label="Twitter" target="_blank" rel="noopener">
-                    {{ partial "svg.html" (dict "name" "twitter" "class" "icon-sm") }}
+                  <a href="{{ . }}" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                    {{ partial "lucide.html" "x" }}
                   </a>
                 {{ end }}
               </div>

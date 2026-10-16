@@ -21,7 +21,7 @@ resources:
       date: 2025-11-28
       description: "Dipankar at ALTA 2025, Sydney."
 
-  - src: "aditya-acl-2025.png"
+  - src: "aditya-acl-2025.jpg"
     params:
       date: 2025-08-01
       description: "Aditya at ACL 2025, Vienna."

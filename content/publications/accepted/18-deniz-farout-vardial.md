@@ -2,6 +2,7 @@
 title: "Far Out: Evaluating Language Models on Slang in Australian and Indian English"
 date: 2026-04-08
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Deniz Dilsiz"
     - "Dipankar Srirag"

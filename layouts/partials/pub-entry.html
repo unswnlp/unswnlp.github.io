@@ -1,5 +1,6 @@
 {{- $p := . -}}
-<div class="pub-entry">
+{{- $areas := $p.Params.areas | default slice -}}
+<div class="pub-entry" data-areas="{{ delimit $areas " " }}">
   <div class="pub-title">
     {{- if $p.Params.links.paper -}}
       <a href="{{ $p.Params.links.paper }}" target="_blank" rel="noopener">{{ $p.Title }}</a>
@@ -8,7 +9,13 @@
     {{- end -}}
   </div>
   <div class="pub-authors">{{ partial "pub-authors.html" $p }}</div>
-  {{ with $p.Params.venue }}<div class="pub-venue"><span class="venue-name">{{ . }}</span></div>{{ end }}
+
+  {{- if or $p.Params.venue $areas }}
+  <div class="pub-venue">
+    {{- with $p.Params.venue }}<span class="venue-name">{{ . }}</span>{{ end }}
+    {{- range site.Data.areas }}{{ if in $areas .key }}<span class="area-tag area-{{ .key }}">{{ .name }}</span>{{ end }}{{ end }}
+  </div>
+  {{- end }}
   {{ with $p.Params.note }}<div class="pub-note">{{ . }}</div>{{ end }}
   <div class="pub-links">
     {{ with $p.Params.links.paper }}<a href="{{ . }}" class="pub-link" target="_blank" rel="noopener">PDF</a>{{ end }}

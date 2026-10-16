@@ -2,6 +2,7 @@
 title: "LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in Sequential Clinical Triage"
 date: 2026-09-01
 preprint: true           # <- set to `true` only for preprints
+areas: [applied, foundational]      # research areas: foundational / applied / inclusive
 authors:
     - "Dipankar Srirag"
     - "Haokai Zhao"

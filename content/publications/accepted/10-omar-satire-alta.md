@@ -2,6 +2,7 @@
 title: "Comparison of Multilingual and Bilingual Models for Satirical News Detection of Arabic and English"
 date: 2024-12-01
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Omar Abdulla"
     - "Aditya Joshi"

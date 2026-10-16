@@ -2,6 +2,7 @@
 title: "LAUKIN: A Multi-jurisdictional Common Law Contract Dataset"
 date: 2026-06-01
 preprint: true           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Amrita Singh"
     - "Aditya Joshi"

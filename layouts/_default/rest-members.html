@@ -1,6 +1,6 @@
 {{- define "main" }}
 <section class="people-directory">
-  <h1 class="people-page-title">{{ .Title }}</h1>
+  {{ partial "page-trail.html" . }}
   {{ range .Params.groups }}
   <div class="people-section-row">
     <div class="people-col-label">

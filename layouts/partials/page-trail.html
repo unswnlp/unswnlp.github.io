@@ -1,0 +1,7 @@
+{{- /* Sub-page orientation instead of a big heading: "People / Past Members". The h1 is kept for screen readers and search engines. */ -}}
+{{- $parent := .Parent -}}
+<nav class="page-trail" aria-label="Breadcrumb">
+  {{- with $parent }}{{ if not .IsHome }}<a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="page-trail-sep" aria-hidden="true">/</span>{{ end }}{{ end -}}
+  <span aria-current="page">{{ .Title }}</span>
+</nav>
+<h1 class="visually-hidden">{{ .Title }}</h1>

@@ -2,6 +2,7 @@
 title: "DiaLLM: An Investigation into the Robustness-Generation Gap in English Dialect Adaptation"
 date: 2026-10-24
 preprint: false           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
     - "Jordan Painter"
     - "Dipankar Srirag"

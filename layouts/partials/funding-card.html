@@ -1,16 +1,12 @@
 {{- $g := . -}}
 <div class="funding-card">
-  <div class="funding-card-body">
-    <div class="funding-card-header">
-      <div class="funding-card-title">{{ $g.Params.venue }}</div>
-      {{ with $g.Params.grantType }}<span class="funding-card-type">{{ . }}</span>{{ end }}
-    </div>
-    <div class="funding-card-venue">{{ $g.Title }}</div>
-  {{ with $g.Params.pi }}
-  <div class="funding-card-pi">
-    <span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }} <span class="funding-card-role">({{ . }})</span>{{ end }}
-  </div>
-  {{ end }}
-  <a href="{{ "activities/grants/" | relURL }}#{{ $g.File.ContentBaseName }}" class="funding-card-more">More information →</a>
+  <div class="funding-card-program" title="{{ $g.Params.venue }}">{{ $g.Params.venue }}</div>
+  <div class="funding-card-title">{{ $g.Title }}</div>
+  {{- with $g.Params.pi }}
+  <div class="grant-pi"><span class="pub-author-ul">{{ . }}</span>{{ with $g.Params.piRole }}<span class="grant-pi-role">{{ . }}</span>{{ end }}</div>
+  {{- end }}
+  <div class="funding-card-foot">
+    <a href="{{ "activities/grants/" | relURL }}#{{ $g.File.ContentBaseName }}" class="funding-card-more">More information &rarr;</a>
+    {{- with $g.Params.grantType }}<span class="funding-card-type">{{ . }}</span>{{ end }}
   </div>
 </div>

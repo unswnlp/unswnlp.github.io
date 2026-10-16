@@ -2,6 +2,7 @@
 title: "RACCOON: A Retrieval-Augmented Generation Approach for Location Coordinate Capture from News Articles"
 date: 2025-04-28
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 honorswork: true
 authors:
     - "Jonathan Lin"

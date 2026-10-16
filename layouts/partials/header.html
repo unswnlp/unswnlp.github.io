@@ -1,16 +1,26 @@
 <header class="site-header">
   <nav class="site-nav">
-    <a href="{{ "/" | relURL }}" class="site-logo" aria-label="{{ site.Title }}">
-      {{- site.Title -}}
+    <a href="{{ "/" | relURL }}" class="site-logo" aria-label="{{ site.Title }} home">
+      <img class="site-logo-mark" src="{{ "logo-nav.webp" | relURL }}" alt="" width="28" height="28">
+      <span class="site-logo-bar" aria-hidden="true"></span>
+      <span class="site-logo-text">{{- site.Title -}}</span>
     </a>
     <ul class="nav-menu">
       {{- $currentPage := . }}
+      {{- /* Highlight the menu item whose URL is the longest prefix of this page (so /people/alumni/ lights up People, /activities/grants/ only Grants) */}}
+      {{- $best := "" }}
+      {{- range site.Menus.main }}
+        {{- $u := .URL | relLangURL }}
+        {{- if or (eq $u $currentPage.RelPermalink) (and (ne $u "/") (hasPrefix $currentPage.RelPermalink $u)) }}
+          {{- if gt (len $u) (len $best) }}{{ $best = $u }}{{ end }}
+        {{- end }}
+      {{- end }}
       {{- range site.Menus.main }}
       {{- $menuURL := .URL | relLangURL }}
       {{- $pageURL := $currentPage.RelPermalink }}
       <li>
         <a href="{{ .URL | relLangURL }}"
-           {{- if eq $menuURL $pageURL }} class="active"{{ end }}>
+           {{- if eq $menuURL $best }} class="active"{{ end }}>
           {{- .Name -}}
         </a>
       </li>
@@ -18,3 +28,22 @@
     </ul>
   </nav>
 </header>
+<script>
+  /* Navbar line cycles through the logo colours as the page scrolls */
+  (function () {
+    var stops = [[199, 123, 214], [76, 195, 198], [247, 220, 62], [242, 117, 139]]; /* purple, teal, yellow, coral */
+    var root = document.documentElement, ticking = false;
+    function update() {
+      ticking = false;
+      var max = root.scrollHeight - innerHeight;
+      var t = max > 0 ? Math.min(Math.max(scrollY / max, 0), 1) * (stops.length - 1) : 0;
+      var i = Math.min(Math.floor(t), stops.length - 2), f = t - i, a = stops[i], b = stops[i + 1];
+      var c = a.map(function (v, k) { return Math.round(v + (b[k] - v) * f); });
+      root.style.setProperty('--scroll-colour', 'rgb(' + c.join(',') + ')');
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    update();
+  })();
+</script>

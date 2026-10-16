@@ -2,6 +2,7 @@
 title: "Evaluating Customized vs. Generalist Transformer-based Models for Legal Contract Classification"
 date: 2026-07-01
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 torwork: true
 authors:
     - "Amrita Singh"

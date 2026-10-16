@@ -2,6 +2,7 @@
 title: "Paediatric-HGNN: A Hybrid Heterogeneous Graph Neural Network for Detecting Disfluency in Children's Speech via Multiscale Acoustic Fusion"
 date: 2026-09-27
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 featured: 4             # home page "Selected Publications" rank (1 = top)
 authors:
     - "Rashini Liyanarachchi"

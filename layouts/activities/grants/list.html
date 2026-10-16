@@ -1,13 +1,8 @@
 {{ define "main" }}
-<h1 class="people-page-title">Grants</h1>
-{{ range .RegularPages.ByDate.Reverse.GroupByDate "2006" }}
-<div class="pub-year-group">
-  <p class="pub-year-heading">{{ .Key }}</p>
-  <div class="grant-banner-list">
-    {{ range .Pages.ByDate.Reverse }}{{ partial "grant-banner.html" . }}{{ end }}
-  </div>
+<h1 class="visually-hidden">Grants</h1>
+<div class="grant-banner-list">
+  {{ range .RegularPages.ByDate.Reverse }}{{ partial "grant-banner.html" . }}{{ end }}
 </div>
-{{ end }}
 
 <script>
 (function(){

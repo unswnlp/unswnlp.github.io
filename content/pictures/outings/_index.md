@@ -11,7 +11,7 @@ resources:
       date: 2026-02-01
       description: "The group at the arcade."
 
-  - src: "haokai-2026-karaoke.png"
+  - src: "haokai-2026-karaoke.jpg"
     params:
       date: 2026-01-01
       description: "Haokai at karaoke night."

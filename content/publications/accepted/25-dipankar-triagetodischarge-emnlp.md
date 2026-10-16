@@ -2,6 +2,7 @@
 title: "From Triage to Discharge: A Survey of NLP Tasks, Methods, and Open Challenges in the Emergency Department"
 date: 2026-10-24
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 featured: 2             # home page "Selected Publications" rank (1 = top)
 authors:
     - "Dipankar Srirag"

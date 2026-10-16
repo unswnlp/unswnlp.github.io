@@ -2,6 +2,7 @@
 title: 'A Taxonomy-Driven Case Study of Australian Web Resources Against Technology-Facilitated Abuse'
 date: 2026-07-06
 preprint: false           # <- set to `true` only for preprints
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Dipankar Srirag"
     - "Xiaolin Cen"

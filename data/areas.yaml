@@ -1,0 +1,14 @@
+# Research areas. A paper's `areas:` front matter uses these keys.
+# Order here is the order used on the home page, filters and tags.
+- key: foundational
+  name: Foundational
+  blurb: Understanding, evaluating and improving language models.
+  topics: [Language model evaluation, Efficient architectures, Language generation, Safety and alignment]
+- key: applied
+  name: Applied
+  blurb: Language technology for health, law, defence and other high-stakes domains.
+  topics: [Health, Law, Defence, Speech and multimodal systems]
+- key: inclusive
+  name: Inclusive
+  blurb: Language technology that serves diverse speakers and communities.
+  topics: [Dialects and language varieties, Underrepresented communities, Language learners]

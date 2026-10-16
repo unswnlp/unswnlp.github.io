@@ -2,6 +2,7 @@
 title: "LangLingual: A Personalised, Exercise-oriented English Language Learning Tool Leveraging Large Language Models"
 date: 2025-10-29
 preprint: true           # <- set to `true` only for preprints
+areas: [inclusive]      # research areas: foundational / applied / inclusive
 authors:
    - "Sammriddh Gupta"
    - "Sonit Singh"

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="news-page">
+  <a class="back-link" href="{{ "/" | relURL }}">&larr; Back to home</a>
+  <h1 class="visually-hidden">{{ .Title }}</h1>
+
+  {{ range .RegularPages.ByDate.Reverse.GroupByDate "2006" }}
+  <section class="news-year">
+    <h2 class="home-section-heading">{{ .Key }}</h2>
+    <table class="home-news-table">
+      {{ range .Pages }}{{ partial "news-row.html" . }}{{ end }}
+    </table>
+  </section>
+  {{ end }}
+
+  <a class="back-link back-link--bottom" href="{{ "/" | relURL }}">&larr; Back to home</a>
+</div>
+{{ end }}

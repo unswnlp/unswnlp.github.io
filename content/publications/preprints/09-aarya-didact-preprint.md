@@ -2,6 +2,7 @@
 title: "Didact: A Cross-Domain Capability Discovery System for Defence"
 date: 2026-06-05
 preprint: true
+areas: [applied]      # research areas: foundational / applied / inclusive
 authors:
     - "Aarya Bodhankar"
     - "Aditya Joshi"
