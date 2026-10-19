@@ -23,6 +23,8 @@ groups:
       - name: "Shefali Shankar"
       - name: "Akshay Bade"
       - name: "Liangji Kong"
+      - name: "Duke Nguyen"
+      - name: "Dipankar Srirag"
   - name: "Honors Students"
     members:
       - name: "Rahul Markasserithodi"
