@@ -17,6 +17,8 @@ groups:
       - name: "Lachlan Johnston"
       - name: "Kanay Gupta"
       - name: "Mohd. Irfan"
+      - name: "Aman Sharma"
+      - name: "Shreya Verma"
   - name: "Taste of Research"
     members:
       - name: "Quang Pham"
@@ -25,4 +27,6 @@ groups:
       - name: "Freya Stevens"
       - name: "Nathan Inkiriwang"
       - name: "Mike Nguyen"
+      - name: "Rashini Liyanarachchi"
+      - name: "Atharva Dudhe"
 ---
