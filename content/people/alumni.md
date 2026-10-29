@@ -53,5 +53,5 @@ groups:
       - name: "Wilson Wongso"
         note: "PhD student at UNSW"
       - name: "Kenneth Law"
-      - name: "Khaing Myat Noe"
+      - name: "Khaing Myat Noe Naing"
 ---
