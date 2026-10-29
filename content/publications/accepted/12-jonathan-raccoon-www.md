@@ -3,6 +3,7 @@ title: "RACCOON: A Retrieval-Augmented Generation Approach for Location Coordina
 date: 2025-04-28
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "A*"   # CORE rank; used to order papers that share a conference date
 honorswork: true
 authors:
     - "Jonathan Lin"
@@ -15,7 +16,7 @@ underlineAuthors:
     - "Aditya Joshi"
 # arxivID: "2405.15310"
 links:
-    paper: "https://arxiv.org/pdf/2501.11440"
+    paper: "https://dl.acm.org/doi/10.1145/3701716.3715501"
 # project:   "https://yourlab.org/project"
 venue: "WWW 2025"      # optional, whatever metadata you like
 bibtex:  |

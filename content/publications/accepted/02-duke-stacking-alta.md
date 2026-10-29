@@ -3,6 +3,7 @@ title: "Stacking the Odds: Transformer-Based Ensemble for AI-Generated Text Dete
 date: 2023-11-01
 preprint: false           # <- set to `true` only for preprints
 areas: [foundational]      # research areas: foundational / applied / inclusive
+core: "C"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Duke Nguyen"
     - "Khaing Myat Noe Naing"

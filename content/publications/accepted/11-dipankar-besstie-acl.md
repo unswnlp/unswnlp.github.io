@@ -3,6 +3,7 @@ title: "BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Variet
 date: 2025-07-24
 preprint: false           # <- set to `true` only for preprints
 areas: [inclusive]      # research areas: foundational / applied / inclusive
+core: "A"   # CORE rank; used to order papers that share a conference date
 grant: 2024googlersp
 authors:
     - "Dipankar Srirag"

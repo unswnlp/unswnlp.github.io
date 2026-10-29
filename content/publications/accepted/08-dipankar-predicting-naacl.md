@@ -3,6 +3,7 @@ title: 'Predicting the Target Word of Game-playing Conversations using a Low-Ran
 date: 2025-04-28
 preprint: false           # <- set to `true` only for preprints
 areas: [inclusive]      # research areas: foundational / applied / inclusive
+core: "A"   # CORE rank; used to order papers that share a conference date
 masterswork: true
 authors:
     - "Dipankar Srirag"

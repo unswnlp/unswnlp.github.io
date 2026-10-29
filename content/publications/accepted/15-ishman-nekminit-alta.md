@@ -3,7 +3,9 @@ title: "Nek Minit: Harnessing Pragmatic Metacognitive Prompting for Explainable 
 date: 2025-11-25
 preprint: false           # <- set to `true` only for preprints
 areas: [inclusive]      # research areas: foundational / applied / inclusive
+core: "C"   # CORE rank; used to order papers that share a conference date
 torwork: true
+grant: 2024googlersp
 authors:
     - "Ishmanbir Singh*"
     - "Dipankar Srirag*"

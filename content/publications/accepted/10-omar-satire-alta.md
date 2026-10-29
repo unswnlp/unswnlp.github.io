@@ -3,6 +3,7 @@ title: "Comparison of Multilingual and Bilingual Models for Satirical News Detec
 date: 2024-12-01
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "C"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Omar Abdulla"
     - "Aditya Joshi"

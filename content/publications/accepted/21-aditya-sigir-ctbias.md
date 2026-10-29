@@ -3,6 +3,7 @@ title: "CTCL: A Cross-Language Benchmark for Matching Patients to Clinical Trial
 date: 2026-07-15
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "A*"   # CORE rank; used to order papers that share a conference date
 torwork: false
 authors:
     - "Maciej Rybinski"

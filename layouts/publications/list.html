@@ -39,7 +39,7 @@
       <div class="pub-year-group">
         <p class="pub-year-heading">{{ .Key }}</p>
         <div class="pub-list">
-          {{ range .Pages.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+          {{ range partial "sort-pubs.html" .Pages }}{{ partial "pub-entry.html" . }}{{ end }}
         </div>
       </div>
       {{ end }}
@@ -61,7 +61,7 @@
       <div class="pub-year-group">
         <p class="pub-year-heading">{{ .Key }}</p>
         <div class="pub-list">
-          {{ range .Pages.ByDate.Reverse }}{{ partial "pub-entry.html" . }}{{ end }}
+          {{ range partial "sort-pubs.html" .Pages }}{{ partial "pub-entry.html" . }}{{ end }}
         </div>
       </div>
       {{ end }}

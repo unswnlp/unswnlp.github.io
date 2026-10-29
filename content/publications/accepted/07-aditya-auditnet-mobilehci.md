@@ -3,6 +3,7 @@ title: 'AuditNet: A Conversational AI-based Security Assistant'
 date: 2024-07-19
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "B"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Shohreh Deldari"
     - "Mohammd Goudrazi"

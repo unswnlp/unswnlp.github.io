@@ -44,7 +44,7 @@
     <div class="grant-detail-section">
       <h3>Papers</h3>
       <ul class="grant-papers">
-        {{- range .ByDate.Reverse }}
+        {{- range partial "sort-pubs.html" . }}
         <li>
           {{- if .Params.links.paper }}<a href="{{ .Params.links.paper }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}
           <div class="grant-paper-meta">

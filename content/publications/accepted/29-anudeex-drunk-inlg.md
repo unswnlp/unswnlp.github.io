@@ -3,7 +3,9 @@ title: "In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Lang
 date: 2026-10-17
 preprint: false           # <- set to `true` only for preprints
 areas: [foundational]      # research areas: foundational / applied / inclusive
+core: "B"   # CORE rank; used to order papers that share a conference date
 featured: 5             # home page "Selected Publications" rank (1 = top)
+grant: 2024googlersp
 authors:
     - "Anudeex Shetty"
     - "Aditya Joshi"

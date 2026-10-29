@@ -12,7 +12,7 @@ underlineAuthors:
     - "Aditya Joshi"
 # arxivID: "2405.15310"
 links:
-    paper: https://arxiv.org/pdf/2310.17787
+    paper: "https://doi.org/10.47289/aiej20231109"
 # project:   "https://yourlab.org/project"
 venue: The AI Ethics Journal      # optional, whatever metadata you like
 bibtex:  |

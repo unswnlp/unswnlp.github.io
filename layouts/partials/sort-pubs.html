@@ -1,0 +1,15 @@
+{{- /* Order papers: conference date (newest first), then CORE rank (A* > A > B > C > unranked),
+       then first author's surname (A to Z). Usage: range partial "sort-pubs.html" $pages */ -}}
+{{- $ranks := dict "A*" 1 "A" 2 "B" 3 "C" 4 -}}
+{{- $tmp := slice -}}
+{{- range . -}}
+  {{- $d := int (.Date.Format "20060102") -}}
+  {{- $r := index $ranks (.Params.core | default "none") | default 9 -}}
+  {{- $first := trim (replace (index (.Params.authors | default (slice "")) 0) "*" "") " " -}}
+  {{- $sur := index (last 1 (split $first " ")) 0 -}}
+  {{- $key := printf "%08d|%d|%s|%s" (sub 99999999 $d) $r (lower $sur) (lower .Title) -}}
+  {{- $tmp = $tmp | append (dict "k" $key "p" .) -}}
+{{- end -}}
+{{- $out := slice -}}
+{{- range sort $tmp "k" }}{{ $out = $out | append .p }}{{ end -}}
+{{- return $out -}}

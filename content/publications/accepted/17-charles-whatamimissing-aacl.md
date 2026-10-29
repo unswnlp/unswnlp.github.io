@@ -3,6 +3,7 @@ title: 'What am I missing here?: Evaluating Large Language Models for Masked Sen
 date: 2025-12-28
 preprint: false           # <- set to `true` only for preprints
 areas: [foundational]      # research areas: foundational / applied / inclusive
+core: "B"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Charles Wyatt"
     - "Aditya Joshi"

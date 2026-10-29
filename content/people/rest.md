@@ -19,6 +19,7 @@ groups:
       - name: "Mohd. Irfan"
       - name: "Aman Sharma"
       - name: "Shreya Verma"
+      - name: "Atharva Dudhe"
   - name: "Taste of Research"
     members:
       - name: "Quang Pham"

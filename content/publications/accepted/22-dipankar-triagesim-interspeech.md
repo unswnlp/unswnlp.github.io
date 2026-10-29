@@ -3,6 +3,7 @@ title: 'TriageSim: A Conversational Emergency Triage Simulation Framework from S
 date: 2026-09-27
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "A"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Dipankar Srirag"
     - "Quoc Dung Nguyen"

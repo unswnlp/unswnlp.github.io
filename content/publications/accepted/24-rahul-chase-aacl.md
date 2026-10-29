@@ -3,6 +3,7 @@ title: "CHASE: Adversarial Red-Blue Teaming for Improving LLM Safety using Reinf
 date: 2026-11-06
 preprint: false           # <- set to `true` only for preprints
 areas: [foundational]      # research areas: foundational / applied / inclusive
+core: "B"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Rahul Markasserithodi"
     - "Aditya Joshi"

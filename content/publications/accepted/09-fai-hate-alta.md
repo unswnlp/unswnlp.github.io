@@ -3,6 +3,7 @@ title: '"Is Hate Lost in Translation?": Evaluation of Multilingual LGBTQIA+ Hate
 date: 2024-12-01
 preprint: false           # <- set to `true` only for preprints
 areas: [inclusive]      # research areas: foundational / applied / inclusive
+core: "C"   # CORE rank; used to order papers that share a conference date
 torwork: true
 authors:
     - "Fai Lu Chan"

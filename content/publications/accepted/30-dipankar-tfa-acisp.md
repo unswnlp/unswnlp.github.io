@@ -3,6 +3,7 @@ title: 'A Taxonomy-Driven Case Study of Australian Web Resources Against Technol
 date: 2026-07-06
 preprint: false           # <- set to `true` only for preprints
 areas: [applied]      # research areas: foundational / applied / inclusive
+core: "B"   # CORE rank; used to order papers that share a conference date
 authors:
     - "Dipankar Srirag"
     - "Xiaolin Cen"
