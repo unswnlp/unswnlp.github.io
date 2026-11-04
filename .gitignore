@@ -8,3 +8,6 @@ resources/
 
 # macOS
 .DS_Store
+
+# Official UNSW logo files (internal distribution); needed only to rebuild the logo
+scripts/brand-src/

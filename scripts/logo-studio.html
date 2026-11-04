@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNSW-NLP logo studio</title>
+<style>
+:root{--text-primary:#111;--text-secondary:#555;--border:#ddd;--surface-1:#f4f4f2;--font-mono:ui-monospace,Menlo,monospace}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:900px;margin:2rem auto;padding:0 16px;background:#fafaf8;color:#111}
+h1{font-size:20px;font-weight:600;margin:0 0 .25rem} p.sub{color:#555;margin:0 0 1.5rem;font-size:14px}
+input[type=range]{accent-color:#74348C}
+</style></head><body>
+<h1>UNSW-NLP logo studio</h1>
+<p class="sub">Preview the bubble logo, then run the command shown to build the real files. Open with <code>python3 -m http.server --directory scripts 8765</code>.</p>
+<h2 style="position:absolute;left:-9999px">Interactive UNSW-NLP logo builder: choose how many bubbles, the layout, logo size and bubble opacity.</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px;margin:0 0 1rem">
+<label style="font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:10px">Bubbles<input type="range" id="n" min="8" max="200" step="1" value="33" style="flex:1"><span id="nO" style="font-weight:500;color:var(--text-primary);min-width:28px">33</span></label>
+<label style="font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:10px">Layout<input type="range" id="seed" min="1" max="60" step="1" value="7" style="flex:1"><span id="sO" style="font-weight:500;color:var(--text-primary);min-width:28px">7</span></label>
+<label style="font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:10px">Logo size<input type="range" id="lw" min="40" max="75" step="1" value="60" style="flex:1"><span id="lO" style="font-weight:500;color:var(--text-primary);min-width:28px">60%</span></label>
+<label style="font-size:14px;color:var(--text-secondary);display:flex;align-items:center;gap:10px">Opacity<input type="range" id="op" min="35" max="95" step="1" value="68" style="flex:1"><span id="oO" style="font-weight:500;color:var(--text-primary);min-width:28px">68%</span></label>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px">
+<div style="background:#fff;border:0.5px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;justify-content:center"><svg id="big" viewBox="0 0 200 200" width="280" height="280" role="img"><title>Logo preview</title></svg></div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:#fff;border:0.5px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;gap:12px"><svg id="lock" viewBox="0 0 200 200" width="76" height="76"></svg><span style="width:2.5px;height:34px;background:#000"></span><span style="font-weight:500;font-size:26px;letter-spacing:.02em;color:#000">UNSW-NLP</span></div>
+<div style="background:#fff;border:0.5px solid var(--border);border-radius:12px;padding:1rem;display:flex;align-items:center;gap:14px;font-size:12px;color:#666"><svg id="s32" viewBox="0 0 200 200" width="32" height="32"></svg><svg id="s16" viewBox="0 0 200 200" width="16" height="16"></svg>Tab icon sizes</div>
+<div style="background:var(--surface-1);border-radius:12px;padding:0.75rem 1rem;font-size:12px;color:var(--text-secondary)">Build this exact logo:<br><code id="cmd" style="font-family:var(--font-mono);color:var(--text-primary);font-size:12px"></code></div>
+</div></div>
+<script>
+const LOGO="brand-src/unsw-sydney-portrait.png", LR=641/614;
+const TL=[76,195,198],TR=[247,220,62],BL=[199,123,214],BR=[242,117,139];
+function lcg(s){return()=>{s=(s*16807)%2147483647;return(s-1)/2147483646}}
+function toLab(c){const[r,g,b]=c.map(v=>{v/=255;return v>0.04045?((v+0.055)/1.055)**2.4:v/12.92});
+ const l=Math.cbrt(0.4122214708*r+0.5363325363*g+0.0514459929*b),m=Math.cbrt(0.2119034982*r+0.6806995451*g+0.1073969566*b),s=Math.cbrt(0.0883024619*r+0.2817188376*g+0.6299787005*b);
+ return[0.2104542553*l+0.7936177850*m-0.0040720468*s,1.9779984951*l-2.4285922050*m+0.4505937099*s,0.0259040371*l+0.7827717662*m-0.8086757660*s]}
+function fromLab([L,A,B]){const l=(L+0.3963377774*A+0.2158037573*B)**3,m=(L-0.1055613458*A-0.0638541728*B)**3,s=(L-0.0894841775*A-1.2914855480*B)**3;
+ return[4.0767416621*l-3.3077115913*m+0.2309699292*s,-1.2684380046*l+2.6097574011*m-0.3413193965*s,-0.0041960863*l-0.7034186147*m+1.7076147010*s].map(v=>{v=Math.min(Math.max(v,0),1);v=v>0.0031308?1.055*v**(1/2.4)-0.055:12.92*v;return Math.round(v*255)})}
+const lab=[TL,TR,BL,BR].map(toLab),sm=t=>t*t*(3-2*t),sh=t=>sm(sm(t)),lerp=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
+function col(x,y){const u=Math.min(Math.max(x/200,0),1),v=Math.min(Math.max(y/200,0),1);return fromLab(lerp(lerp(lab[0],lab[1],sh(u)),lerp(lab[2],lab[3],sh(u)),sh(v)))}
+const fits=(x,y,r)=>{const dx=Math.abs(x-100)-54,dy=Math.abs(y-100)-54;return Math.hypot(Math.max(dx,0),Math.max(dy,0))+r<=40};
+function layout(n,seed){const rnd=lcg(seed),p=[];let t=0;const r0=Math.max(7,40/Math.sqrt(n/8));
+ while(p.length<n&&t<40000){t++;const r=r0*(0.75+rnd()*0.5),x=4+rnd()*192,y=4+rnd()*192;if(!fits(x,y,r))continue;
+ if(p.every(q=>Math.hypot(q[0]-x,q[1]-y)>=(q[2]+r)*0.62))p.push([x,y,r])}return p}
+const $=id=>document.getElementById(id);
+function draw(){const n=+$('n').value,seed=+$('seed').value,lw=+$('lw').value,op=+$('op').value/100;
+ $('nO').textContent=n;$('sO').textContent=seed;$('lO').textContent=lw+'%';$('oO').textContent=Math.round(op*100)+'%';
+ const pts=layout(n,seed);const w=lw*2,h=w*LR,x=100-w/2,y=100-h/2;
+ const body=pts.map(([cx,cy,r])=>{const[a,b,c]=col(cx,cy);return `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}" fill="rgb(${a},${b},${c})" fill-opacity="${op}"/>`}).join('')
+  +`<image href="${LOGO}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}"/>`;
+ ['big','lock','s32','s16'].forEach(i=>$(i).innerHTML=body);
+ const placed=pts.length<n?` (only ${pts.length} fit)`:'';
+ $('cmd').textContent=`python3 scripts/build-logo.py --people ${n} --seed ${seed} --logo-width ${lw} --opacity ${Math.round(op*100)}`+placed}
+['n','seed','lw','op'].forEach(i=>$(i).addEventListener('input',draw));draw();
+</script>
+</body></html>
