@@ -1,0 +1,45 @@
+site_name: Spark
+site_description: User guide for the UNSW-NLP group's Spark GPU machines (spark-1 and spark-2)
+site_url: https://unswnlp.github.io/spark-docs/
+copyright: UNSW-NLP
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.footer
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Overview: index.md
+  - Getting started:
+      - Machines: getting-started/machines.md
+      - Accounts and first login: getting-started/accounts.md
+      - Connecting: getting-started/connecting.md
+  - Using the machines:
+      - Storage: guide/storage.md
+      - Software: guide/software.md
+      - Running jobs: guide/jobs.md
+  - How-to:
+      - Download a model: howto/download-models.md
+      - Serve a model with vLLM: howto/vllm.md
+      - Fine-tune with Unsloth: howto/unsloth.md
+      - Jupyter in VS Code: howto/jupyter.md
+  - Reference:
+      - Troubleshooting: reference/troubleshooting.md
+      - Policies: reference/policies.md

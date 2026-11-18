@@ -1,0 +1,40 @@
+# Sidebar nav + linear reading order (for prev/next) for the ported Spark machines user guide.
+# Mirrors spark-docs/mkdocs.yml's nav. Selected by a page's `docSite: spark-docs` front
+# matter - see layouts/partials/docsite-nav.html and docs/adding-a-docsite.md.
+groups:
+  - title: Overview
+    pages:
+      - url: spark-docs/
+        title: Spark machines
+  - title: Getting started
+    pages:
+      - url: spark-docs/getting-started/machines/
+        title: Machines
+      - url: spark-docs/getting-started/accounts/
+        title: Accounts and first login
+      - url: spark-docs/getting-started/connecting/
+        title: Connecting
+  - title: Using the machines
+    pages:
+      - url: spark-docs/guide/storage/
+        title: Storage
+      - url: spark-docs/guide/software/
+        title: Software
+      - url: spark-docs/guide/jobs/
+        title: Running jobs
+  - title: How-to
+    pages:
+      - url: spark-docs/howto/download-models/
+        title: Download a model
+      - url: spark-docs/howto/vllm/
+        title: Serve a model with vLLM
+      - url: spark-docs/howto/unsloth/
+        title: Fine-tune with Unsloth
+      - url: spark-docs/howto/jupyter/
+        title: Jupyter in VS Code
+  - title: Reference
+    pages:
+      - url: spark-docs/reference/troubleshooting/
+        title: Troubleshooting
+      - url: spark-docs/reference/policies/
+        title: Policies
