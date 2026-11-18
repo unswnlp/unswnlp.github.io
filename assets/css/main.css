@@ -377,6 +377,17 @@ th {
 .site-footer a { color: var(--text-muted); }
 .site-footer a:hover { color: var(--text-primary); }
 
+/* A small thank-you to Claude, as on dipankarsrirag.github.io: the spark twinkles on hover */
+.footer-inner { flex-wrap: wrap; }
+.footer-credit { display: inline-flex; align-items: center; gap: 0.35em; }
+.footer-credit a { display: inline-flex; align-items: center; gap: 0.3em; text-decoration: none; }
+.site-footer .footer-credit a:hover { color: #D97757; text-decoration: none; background: none; box-shadow: none; }
+@media (max-width: 600px) { .footer-sep-credit { display: none; } }
+.claude-spark { display: block; transition: transform 0.6s cubic-bezier(.2,.8,.2,1); }
+.footer-credit a:hover .claude-spark,
+.footer-credit a:focus-visible .claude-spark { transform: rotate(60deg) scale(1.2); }
+@media (prefers-reduced-motion: reduce) { .claude-spark { transition: none; } }
+
 /* ── 8. Homepage - hero ── */
 
 .hero {
