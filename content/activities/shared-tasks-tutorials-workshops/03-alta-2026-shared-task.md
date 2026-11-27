@@ -4,11 +4,11 @@ activityType: shared-task
 date: 2026-11-30
 authors:
     - Diego Molla-Aliod
-    - Aditya Joshi
     - Dipankar Srirag
+    - Aditya Joshi
 underlineAuthors:
-    - "Aditya Joshi"
     - "Dipankar Srirag"
+    - "Aditya Joshi"
 links:
     website: https://alta2026.alta.asn.au/shared_task
     dataset: https://huggingface.co/datasets/unswnlporg/besstie
