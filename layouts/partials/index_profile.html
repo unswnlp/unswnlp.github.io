@@ -118,8 +118,8 @@
       {{- if $confImgs }}
       {{- range $i, $img := $confImgs }}
       <div class="gslide{{ if eq $i 0 }} active{{ end }}">
-        {{- /* slideshow frames are ~400px wide; serve a 900px WebP (sharp on 2x screens) */}}
-        {{- $small := $img }}{{ if gt $img.Width 900 }}{{ $small = $img.Resize "900x webp q78" }}{{ else }}{{ $small = $img.Process "webp q80" }}{{ end }}
+        {{- /* fit within 1600x1600 (portrait photos keep their full height) at high quality; smaller photos are kept at their own size */}}
+        {{- $small := $img }}{{ if or (gt $img.Width 1600) (gt $img.Height 1600) }}{{ $small = $img.Fit "1600x1600 webp q88 Lanczos" }}{{ else }}{{ $small = $img.Process "webp q90" }}{{ end }}
         <img src="{{ $small.RelPermalink }}" width="{{ $small.Width }}" height="{{ $small.Height }}"
              alt="{{ with $img.Params.description }}{{ . }}{{ else }}{{ $img.Name }}{{ end }}"
              loading="lazy" decoding="async">
@@ -156,8 +156,8 @@
       {{- if $outImgs }}
       {{- range $i, $img := $outImgs }}
       <div class="gslide{{ if eq $i 0 }} active{{ end }}">
-        {{- /* slideshow frames are ~400px wide; serve a 900px WebP (sharp on 2x screens) */}}
-        {{- $small := $img }}{{ if gt $img.Width 900 }}{{ $small = $img.Resize "900x webp q78" }}{{ else }}{{ $small = $img.Process "webp q80" }}{{ end }}
+        {{- /* fit within 1600x1600 (portrait photos keep their full height) at high quality; smaller photos are kept at their own size */}}
+        {{- $small := $img }}{{ if or (gt $img.Width 1600) (gt $img.Height 1600) }}{{ $small = $img.Fit "1600x1600 webp q88 Lanczos" }}{{ else }}{{ $small = $img.Process "webp q90" }}{{ end }}
         <img src="{{ $small.RelPermalink }}" width="{{ $small.Width }}" height="{{ $small.Height }}"
              alt="{{ with $img.Params.description }}{{ . }}{{ else }}{{ $img.Name }}{{ end }}"
              loading="lazy" decoding="async">

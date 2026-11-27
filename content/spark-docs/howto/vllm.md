@@ -46,13 +46,13 @@ takes a few minutes.</p>
 <td>24G</td>
 </tr>
 <tr>
-<td>7–12B</td>
-<td>16–24 GB</td>
+<td>7-12B</td>
+<td>16-24 GB</td>
 <td>48G</td>
 </tr>
 <tr>
-<td>26–31B</td>
-<td>52–62 GB</td>
+<td>26-31B</td>
+<td>52-62 GB</td>
 <td>105G (all of it)</td>
 </tr>
 </tbody>

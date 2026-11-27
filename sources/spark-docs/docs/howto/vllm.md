@@ -38,8 +38,8 @@ You don't need to set `--gpu-memory-utilization`: the `vllm` command works it ou
 | Model (BF16) | Weights | Suggested `--mem` |
 |---|---|---|
 | 4B | 8 GB | 24G |
-| 7–12B | 16–24 GB | 48G |
-| 26–31B | 52–62 GB | 105G (all of it) |
+| 7-12B | 16-24 GB | 48G |
+| 26-31B | 52-62 GB | 105G (all of it) |
 
 If the log says there's no room for the KV cache, raise `--mem` or lower `--max-model-len`.
 

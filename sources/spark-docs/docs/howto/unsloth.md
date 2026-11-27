@@ -55,7 +55,7 @@ srun -p interactive -c 4 --mem=24G --gres=shard:1 -t 30 unsloth-python finetune.
 ## Sizing
 
 - **LoRA in BF16** needs the model's weights (2 GB per billion parameters) plus activations and
-  optimizer state for the adapters. A 1.7B model fits easily in `--mem=24G`; a 27–31B model needs
+  optimizer state for the adapters. A 1.7B model fits easily in `--mem=24G`; a 27-31B model needs
   most of the machine (`--gres=gpu:1 --mem=105G`).
 - **QLoRA** (`load_in_4bit=True`) cuts the weights to about a quarter, for models that don't fit
   in BF16. bitsandbytes works on the GB10.

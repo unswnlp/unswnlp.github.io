@@ -50,7 +50,7 @@ srun<span class="w"> </span>-p<span class="w"> </span>interactive<span class="w"
 <h2 id="sizing">Sizing<a class="headerlink" href="#sizing" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>LoRA in BF16</strong> needs the model's weights (2 GB per billion parameters) plus activations and
-  optimizer state for the adapters. A 1.7B model fits easily in <code>--mem=24G</code>; a 27–31B model needs
+  optimizer state for the adapters. A 1.7B model fits easily in <code>--mem=24G</code>; a 27-31B model needs
   most of the machine (<code>--gres=gpu:1 --mem=105G</code>).</li>
 <li><strong>QLoRA</strong> (<code>load_in_4bit=True</code>) cuts the weights to about a quarter, for models that don't fit
   in BF16. bitsandbytes works on the GB10.</li>
